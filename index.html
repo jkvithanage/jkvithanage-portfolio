@@ -7,5 +7,27 @@
         <link rel="stylesheet" href="src/scss/main.scss" />
         <script type="module" src="src/js/controller.js"></script>
     </head>
-    <body></body>
+    <body>
+        <header>
+            <nav class="nav">
+                <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="" /></a>
+                <input type="checkbox" id="hamburger" />
+                <label class="hamburger__label" for="hamburger">
+                    <div class="hamburger__bar"></div>
+                    <div class="hamburger__bar"></div>
+                    <div class="hamburger__bar"></div>
+                </label>
+                <div class="nav__content">
+                    <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="" /></a>
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#">ABOUT</a></li>
+                        <li class="nav__item"><a href="#">SKILLS</a></li>
+                        <li class="nav__item"><a href="#">EXPERIENCE</a></li>
+                        <li class="nav__item"><a href="#">WORK</a></li>
+                    </ul>
+                    <button class="btn btn-white">LET'S CHAT</button>
+                </div>
+            </nav>
+        </header>
+    </body>
 </html>

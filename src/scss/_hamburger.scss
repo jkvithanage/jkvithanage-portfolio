@@ -1,0 +1,39 @@
+#hamburger {
+    display: none;
+}
+
+.hamburger__label {
+    cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.hamburger__label > .hamburger__bar {
+    height: 3px;
+    background-color: white;
+    transition: 0.25s;
+    z-index: 999;
+}
+
+#hamburger:checked ~ .hamburger__label > .hamburger__bar {
+    background-color: #fff;
+}
+
+#hamburger:checked ~ .hamburger__label > .hamburger__bar:nth-child(1) {
+    transform: translateY(1.35rem) rotate(45deg);
+}
+#hamburger:checked ~ .hamburger__label > .hamburger__bar:nth-child(2) {
+    opacity: 0;
+}
+#hamburger:checked ~ .hamburger__label > .hamburger__bar:nth-child(3) {
+    transform: translateY(-1.35rem) rotate(-45deg);
+}
+
+@media screen and (min-width: 1024px) {
+    .hamburger__label {
+        display: none;
+    }
+}
