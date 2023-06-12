@@ -7,5 +7,36 @@
         <link rel="stylesheet" href="src/scss/main.scss" />
         <script type="module" src="src/js/controller.js"></script>
     </head>
-    <body></body>
+    <body>
+        <header>
+            <nav class="nav">
+                <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="" /></a>
+                <input type="checkbox" id="hamburger" />
+                <label class="hamburger__label" for="hamburger">
+                    <div class="hamburger__bar"></div>
+                    <div class="hamburger__bar"></div>
+                    <div class="hamburger__bar"></div>
+                </label>
+                <div class="nav__content">
+                    <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="" /></a>
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#">ABOUT</a></li>
+                        <li class="nav__item"><a href="#">SKILLS</a></li>
+                        <li class="nav__item"><a href="#">EXPERIENCE</a></li>
+                        <li class="nav__item"><a href="#">WORK</a></li>
+                    </ul>
+                    <button class="btn btn-white">LET'S CHAT</button>
+                </div>
+            </nav>
+        </header>
+        <section class="hero">
+            <div class="hero__content">
+                <p class="hero__subtitle">Hi, my name is</p>
+                <h1 class="hero__title">Janaka Vithanage</h1>
+                <p class="hero__subtitle">Full Stack Developer based in Melbourne</p>
+                <button class="btn btn-lg btn-white-outlined btn__hero">GET IN TOUCH</button>
+            </div>
+            <img src="./static/portrait.png" class="hero__image" alt="" loading="lazy" />
+        </section>
+    </body>
 </html>

@@ -1,0 +1,61 @@
+.btn {
+    background: none;
+    border: none;
+    letter-spacing: clamp(1px, 0.5vw, 4px);
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+}
+
+.btn-lg {
+    padding: 2rem 3rem;
+}
+
+.btn-white {
+    background-color: white;
+
+    &:hover {
+        color: black;
+        background-color: #eed824;
+    }
+}
+
+.btn-white-outlined {
+    color: white;
+    border: 1px solid white;
+
+    &:hover {
+        color: #eed824;
+        border-color: #eed824;
+    }
+}
+
+.btn-black {
+    color: white;
+    background-color: black;
+
+    &:hover {
+        background-color: #eed824;
+        color: black;
+    }
+}
+
+.btn-black-outlined {
+    color: black;
+    background: none;
+    border: 1px solid black;
+
+    &:hover {
+        color: #eed824;
+        border-color: #eed824;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .btn {
+        padding: 1rem 2rem;
+    }
+
+    .btn-lg {
+        padding: 2rem 3rem;
+    }
+}
