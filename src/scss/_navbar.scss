@@ -1,4 +1,5 @@
 .nav {
+    z-index: 10;
     position: fixed;
     top: 0rem;
     width: 100%;
@@ -7,7 +8,6 @@
     align-items: center;
     padding: 1rem 2rem;
     background-color: black;
-    border-bottom: 1px solid #222;
 }
 
 .nav__logo {
@@ -43,12 +43,23 @@
 
 .nav__item {
     padding: 2rem;
-    letter-spacing: 5;
+    letter-spacing: 5px;
 
     a {
         text-decoration: none;
         color: white;
         font-size: 2rem;
+        transition: all 0.25s ease-in;
+        padding-bottom: 0.5rem;
+    }
+
+    > a:hover {
+        color: #eed824;
+        border-bottom: 2px solid #eed824;
+    }
+
+    > a:focus {
+        padding-bottom: 0.5rem;
     }
 }
 
