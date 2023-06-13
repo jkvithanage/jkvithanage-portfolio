@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: black;
+    background-color: $black;
 }
 
 .nav__logo {
@@ -22,8 +22,8 @@
     bottom: 0;
     height: 100vh;
     width: 100%;
-    color: white;
-    background-color: black;
+    color: $white;
+    background-color: $black;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -47,15 +47,14 @@
 
     a {
         text-decoration: none;
-        color: white;
+        color: $white;
         font-size: 2rem;
-        transition: all 0.25s ease-in;
         padding-bottom: 0.5rem;
     }
 
     > a:hover {
-        color: #eed824;
-        border-bottom: 2px solid #eed824;
+        color: $accent;
+        border-bottom: 2px solid $accent;
     }
 
     > a:focus {
@@ -99,6 +98,7 @@
     .nav__item {
         a {
             font-size: 1.6rem;
+            position: relative;
         }
     }
 }
