@@ -1,12 +1,12 @@
 .project__card {
     width: 100%;
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 .project__card-body {
     display: flex;
     flex-direction: column;
-    padding: 4rem;
+    padding: 2rem;
 }
 
 .project__preview {
@@ -60,20 +60,28 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .project__card:nth-of-type(odd) {
+    .project__card {
+        margin-top: 5rem;
+    }
+    .project__card:nth-of-type(even) {
         .project__card-body {
-            flex-direction: row-reverse;
+            flex-direction: row;
+        }
+
+        .project__details {
+            margin-left: 4rem;
         }
     }
 
     .project__card-body {
         max-width: 1440px;
-        margin: auto;
-        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: row-reverse;
     }
 
     .project__preview {
-        width: 60%;
+        width: 50%;
     }
 
     .project__title {
@@ -81,7 +89,6 @@
     }
 
     .project__details {
-        width: 40%;
-        margin-left: 4rem;
+        width: 50%;
     }
 }
