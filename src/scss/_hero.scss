@@ -6,7 +6,8 @@
     flex-direction: column;
     justify-content: flex-end;
     color: $white;
-    background-color: black;
+    background-color: $black;
+    border-bottom: 1px solid $accent;
 }
 
 .btn__hero {

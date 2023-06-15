@@ -1,0 +1,48 @@
+.section {
+    margin-top: 5rem;
+    max-width: 90rem;
+    padding: 0 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-full {
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.bg-dark {
+    background-color: $black;
+}
+
+.text-accent {
+    color: $accent;
+}
+
+.stroke-left,
+.stroke-center {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+
+    &::after {
+        background-color: $accent;
+        content: "";
+        width: 10rem;
+        height: 2px;
+        margin-top: 1rem;
+    }
+}
+
+.stroke-left {
+    align-items: start;
+}
+
+.stroke-center {
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+}

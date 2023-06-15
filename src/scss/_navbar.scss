@@ -38,27 +38,39 @@
     list-style: none;
     padding-left: 3rem;
     padding-right: 3rem;
-    margin: 0;
+    margin-bottom: clamp(0rem, 4vh, 5rem);
 }
 
 .nav__item {
-    padding: 2rem;
-    letter-spacing: 5px;
+    letter-spacing: clamp(1px, 0.5vw, 4px);
+    text-transform: uppercase;
+    position: relative;
+
+    &:not(:first-child) {
+        padding-top: clamp(2rem, 4vh, 5rem);
+    }
 
     a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-decoration: none;
         color: $white;
         font-size: 2rem;
-        padding-bottom: 0.5rem;
     }
 
-    > a:hover {
-        color: $accent;
-        border-bottom: 2px solid $accent;
+    a::after {
+        position: absolute;
+        background-color: $accent;
+        content: "";
+        width: 0%;
+        height: 2px;
+        bottom: -0.5rem;
+        transition: width 0.25s ease-in-out;
     }
 
-    > a:focus {
-        padding-bottom: 0.5rem;
+    a:hover::after {
+        width: 4rem;
     }
 }
 
@@ -80,11 +92,12 @@
         visibility: visible;
         top: 0;
         height: fit-content;
-        padding: 0 3rem;
+        padding: 1rem 3rem;
     }
 
     .nav__list {
         display: flex;
+        margin: 0;
     }
 
     .nav > .nav__logo {
@@ -96,6 +109,11 @@
     }
 
     .nav__item {
+        &:not(:first-child) {
+            padding-top: 0;
+            margin-left: 2rem;
+        }
+
         a {
             font-size: 1.6rem;
             position: relative;
