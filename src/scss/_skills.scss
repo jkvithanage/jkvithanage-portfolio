@@ -1,0 +1,33 @@
+.skills-card {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.skills-card__title {
+    border-bottom: 1px solid $black;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
+.skill-icons {
+    margin: 0;
+    list-style: none;
+    padding-left: 0;
+    display: inline-block;
+}
+
+.skill-icon {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    width: 5rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .skills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}

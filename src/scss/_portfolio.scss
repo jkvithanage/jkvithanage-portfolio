@@ -1,9 +1,9 @@
-.project__card {
+.project-card {
     width: 100%;
     margin-top: 2rem;
 }
 
-.project__card-body {
+.project-card__body {
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -23,10 +23,6 @@
 
 .project__details {
     width: 100%;
-}
-
-.project__title {
-    font-family: "Jetbrains Mono", monospace;
 }
 
 .project__tags {
@@ -60,11 +56,11 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .project__card {
+    .project-card {
         margin-top: 5rem;
     }
-    .project__card:nth-of-type(even) {
-        .project__card-body {
+    .project-card:nth-of-type(even) {
+        .project-card__body {
             flex-direction: row;
         }
 
@@ -73,7 +69,7 @@
         }
     }
 
-    .project__card-body {
+    .project-card__body {
         max-width: 1440px;
         margin-left: auto;
         margin-right: auto;
