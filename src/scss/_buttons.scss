@@ -1,8 +1,10 @@
 .btn {
     background: none;
     border: none;
+    text-decoration: none;
+    text-transform: uppercase;
     letter-spacing: clamp(1px, 0.5vw, 4px);
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
     cursor: pointer;
 }
 
@@ -11,50 +13,46 @@
 }
 
 .btn-white {
-    background-color: white;
+    background-color: $white;
 
     &:hover {
-        color: black;
-        background-color: #eed824;
+        color: $black;
+        background-color: $accent;
     }
 }
 
 .btn-white-outlined {
-    color: white;
-    border: 1px solid white;
+    color: $white;
+    border: 1px solid $white;
 
     &:hover {
-        color: #eed824;
-        border-color: #eed824;
+        color: $accent;
+        border-color: $accent;
     }
 }
 
 .btn-black {
-    color: white;
-    background-color: black;
+    color: $white;
+    background-color: $black;
 
     &:hover {
-        background-color: #eed824;
-        color: black;
+        background-color: $accent;
+        color: $black;
     }
 }
 
 .btn-black-outlined {
-    color: black;
+    color: $black;
     background: none;
-    border: 1px solid black;
+    border: 1px solid $black;
 
     &:hover {
-        color: #eed824;
-        border-color: #eed824;
+        color: $accent;
+        border-color: $accent;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .btn {
-        padding: 1rem 2rem;
-    }
-
     .btn-lg {
         padding: 2rem 3rem;
     }

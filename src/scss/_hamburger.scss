@@ -13,13 +13,13 @@
 
 .hamburger__label > .hamburger__bar {
     height: 3px;
-    background-color: white;
+    background-color: $white;
     transition: 0.25s;
     z-index: 999;
 }
 
 #hamburger:checked ~ .hamburger__label > .hamburger__bar {
-    background-color: #fff;
+    background-color: $white;
 }
 
 #hamburger:checked ~ .hamburger__label > .hamburger__bar:nth-child(1) {

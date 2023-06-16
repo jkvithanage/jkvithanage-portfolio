@@ -10,7 +10,8 @@
     "license": "MIT",
     "dependencies": {
         "normalize.css": "^8.0.1",
-        "parcel": "^2.9.2"
+        "parcel": "^2.9.2",
+        "simple-icons": "^9.1.0"
     },
     "devDependencies": {
         "@parcel/transformer-sass": "^2.9.2"
