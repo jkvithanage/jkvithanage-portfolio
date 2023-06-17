@@ -13,7 +13,6 @@ body {
     font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
         Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
         Noto Color Emoji;
-    font-feature-settings: "cv03", "cv04", "cv11";
     font-variation-settings: normal;
     line-height: 1.75;
     font-size: 1.6rem;
@@ -30,54 +29,27 @@ h4 {
 }
 
 h1 {
-    font-size: 6rem;
+    font-size: 3.8rem;
 }
 
 h2 {
-    font-size: 4rem;
+    font-size: 3.1rem;
 }
 
 h3 {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
 }
 
 h4 {
-    font-size: 1.6rem;
+    font-size: 2rem;
 }
 
-p {
-    margin-top: 0;
+p,
+ul {
+    font-feature-settings: "cv03", "cv04", "cv11";
 }
 
 a,
 button {
     font-family: "JetBrains Mono", monospace;
-}
-
-@media screen and (min-width: 1024px) {
-    body {
-        font-size: 2rem;
-    }
-
-    h1 {
-        font-size: 7rem;
-    }
-
-    h2 {
-        font-size: 4rem;
-    }
-
-    h3 {
-        font-size: 2.4rem;
-    }
-
-    h4 {
-        font-size: 2rem;
-    }
-
-    p,
-    a,
-    button {
-        font-size: 1.6rem;
-    }
 }

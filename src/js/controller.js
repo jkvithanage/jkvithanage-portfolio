@@ -29,7 +29,6 @@ const designIcons = [icons.siFigma, icons.siAdobephotoshop, icons.siAdobeillustr
 
 function renderSkillIcons(el, iconsArr) {
     iconsArr.forEach((iconObj) => {
-        console.log(iconObj);
         const icon = document.createElement("li");
         icon.classList.add("skill-icon");
         icon.innerHTML = iconObj.svg;
