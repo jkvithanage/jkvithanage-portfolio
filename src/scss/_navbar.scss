@@ -58,6 +58,14 @@
         color: $white;
         font-size: 2rem;
         transition: color 0.25s ease-in-out;
+
+        &:focus {
+            color: $accent;
+        }
+
+        &:visited {
+            color: $white;
+        }
     }
 
     a::after {

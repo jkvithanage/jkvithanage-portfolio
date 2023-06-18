@@ -54,6 +54,10 @@
     }
 }
 
+.project__summary {
+    font-weight: 500;
+}
+
 @media screen and (min-width: 1024px) {
     .project-card {
         margin-top: 5rem;
@@ -61,10 +65,7 @@
     .project-card:nth-of-type(even) {
         .project-card__body {
             flex-direction: row;
-        }
-
-        .project__details {
-            margin-left: 4rem;
+            justify-content: space-between;
         }
     }
 
@@ -73,17 +74,15 @@
         margin-left: auto;
         margin-right: auto;
         flex-direction: row-reverse;
+        justify-content: space-between;
     }
 
-    .project__preview {
-        width: 50%;
+    .project__preview,
+    .project__details {
+        width: 48%;
     }
 
     .project__title {
         margin-top: 0;
-    }
-
-    .project__details {
-        width: 50%;
     }
 }
