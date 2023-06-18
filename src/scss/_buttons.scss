@@ -36,7 +36,8 @@
     border: 1px solid $white;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:hover:visited {
         color: $accent;
         border-color: $accent;
     }
