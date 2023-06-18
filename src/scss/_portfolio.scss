@@ -38,7 +38,7 @@
     color: $accent-dark;
     background-color: $accent-20;
     font-family: "Jetbrains Mono", monospace;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-right: 0.5rem;
     margin-bottom: 1rem;
     padding: 0.5rem 1rem;
@@ -46,13 +46,16 @@
 
 .project__buttons {
     margin-top: 4rem;
-    display: inline-block;
 
     a {
         display: inline-block;
         margin-right: 0.5rem;
         margin-bottom: 1rem;
     }
+}
+
+.project__summary {
+    font-weight: 500;
 }
 
 @media screen and (min-width: 1024px) {
@@ -62,10 +65,7 @@
     .project-card:nth-of-type(even) {
         .project-card__body {
             flex-direction: row;
-        }
-
-        .project__details {
-            margin-left: 4rem;
+            justify-content: space-between;
         }
     }
 
@@ -74,17 +74,15 @@
         margin-left: auto;
         margin-right: auto;
         flex-direction: row-reverse;
+        justify-content: space-between;
     }
 
-    .project__preview {
-        width: 50%;
+    .project__preview,
+    .project__details {
+        width: 48%;
     }
 
     .project__title {
         margin-top: 0;
-    }
-
-    .project__details {
-        width: 50%;
     }
 }

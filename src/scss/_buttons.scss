@@ -1,23 +1,33 @@
 .btn {
     background: none;
+    display: inline-block;
+    line-height: 1.5;
+    white-space: nowrap;
     border: none;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: clamp(1px, 0.5vw, 4px);
     padding: 1rem 2rem;
     cursor: pointer;
+    transition: all 0.25s ease-in-out;
 }
 
 .btn-lg {
-    padding: 2rem 3rem;
+    padding: 1.5rem 3rem;
 }
 
 .btn-white {
     background-color: $white;
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: $black;
         background-color: $accent;
+    }
+
+    &:visited,
+    :link {
+        color: $black;
     }
 }
 
@@ -25,9 +35,15 @@
     color: $white;
     border: 1px solid $white;
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: $accent;
         border-color: $accent;
+    }
+
+    &:visited,
+    :link {
+        color: $white;
     }
 }
 
@@ -35,7 +51,8 @@
     color: $white;
     background-color: $black;
 
-    &:hover {
+    &:hover,
+    &:focus {
         background-color: $accent;
         color: $black;
     }

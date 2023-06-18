@@ -29,7 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.25s ease-in, visibility 0.25s ease-in;
+    transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out;
     opacity: 0;
     visibility: hidden;
 }
@@ -57,6 +57,15 @@
         text-decoration: none;
         color: $white;
         font-size: 2rem;
+        transition: color 0.25s ease-in-out;
+
+        &:focus {
+            color: $accent;
+        }
+
+        &:visited {
+            color: $white;
+        }
     }
 
     a::after {
@@ -67,6 +76,10 @@
         height: 2px;
         bottom: -0.5rem;
         transition: width 0.25s ease-in-out;
+    }
+
+    a:hover {
+        color: $accent;
     }
 
     a:hover::after {
