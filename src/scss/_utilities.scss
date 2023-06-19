@@ -49,6 +49,11 @@
     justify-content: center;
 }
 
+.flex-left {
+    display: flex;
+    justify-content: start;
+}
+
 .font-mono {
     font-family: "Jetbrains Mono", monospace;
 }
