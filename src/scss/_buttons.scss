@@ -10,6 +10,7 @@
     padding: 1rem 2rem;
     cursor: pointer;
     transition: all 0.25s ease-in-out;
+    font-family: "JetBrains Mono", monospace;
 }
 
 .btn-lg {
@@ -36,7 +37,8 @@
     border: 1px solid $white;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:hover:visited {
         color: $accent;
         border-color: $accent;
     }
@@ -66,6 +68,18 @@
     &:hover {
         color: $accent;
         border-color: $accent;
+    }
+}
+
+.link {
+    text-decoration: none;
+    color: $black;
+    // font-style: italic;
+    border-bottom: 1px solid $accent;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+        color: $accent;
     }
 }
 

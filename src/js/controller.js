@@ -31,6 +31,7 @@ function renderSkillIcons(el, iconsArr) {
     iconsArr.forEach((iconObj) => {
         const icon = document.createElement("li");
         icon.classList.add("skill-icon");
+        // iconObj.title = "";
         icon.innerHTML = iconObj.svg;
         el.insertAdjacentElement("beforeend", icon);
 
@@ -38,7 +39,7 @@ function renderSkillIcons(el, iconsArr) {
         label.classList.add("icon-label");
         label.innerHTML = iconObj.title;
         label.style.opacity = 0;
-        label.style.transition = "opacity 0.25s ease-in";
+        label.style.transition = "opacity 0.25s ease-in-out";
         icon.insertAdjacentElement("beforeend", label);
 
         icon.addEventListener("mouseover", () => {

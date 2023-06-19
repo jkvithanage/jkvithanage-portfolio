@@ -8,6 +8,15 @@
         <script type="module" src="src/js/controller.js"></script>
     </head>
     <body>
+        <div class="socials-desktop">
+            <div class="social-icons">
+                <a class="social-link" href="#"><span class="social-icon icon-github"></span></a>
+                <a class="social-link" href="#"><span class="social-icon icon-linkedin"></span></a>
+                <a class="social-link" href="#"><span class="social-icon icon-instagram"></span></a>
+                <a class="social-link" href="#"><span class="social-icon icon-twitter"></span></a>
+                <a class="social-link" href="#"><span class="social-icon icon-email"></span></a>
+            </div>
+        </div>
         <header>
             <nav class="nav">
                 <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="" /></a>
@@ -25,26 +34,44 @@
                         <li class="nav__item"><a href="#career">Career</a></li>
                         <li class="nav__item"><a href="#portfolio">Portfolio</a></li>
                     </ul>
-                    <a href="#contact" class="btn btn-white">Contact me</a>
+                    <a href="#contact" class="btn btn-white-outlined">Contact me</a>
+                    <div class="socials-mobile-nav">
+                        <div class="social-icons">
+                            <a class="social-link" href="#"><span class="social-icon icon-github"></span></a>
+                            <a class="social-link" href="#"><span class="social-icon icon-linkedin"></span></a>
+                            <a class="social-link" href="#"><span class="social-icon icon-instagram"></span></a>
+                            <a class="social-link" href="#"><span class="social-icon icon-twitter"></span></a>
+                            <a class="social-link" href="#"><span class="social-icon icon-email"></span></a>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </header>
-        <div class="hero">
+        <section class="section-hero">
             <div class="hero__content">
-                <div class="hero__top">
-                    <p class="hero__greet font-mono">Hi, my name is</p>
-                    <h1 class="hero__title stroke-center">Janaka Vithanage</h1>
-                    <p class="hero__subtitle font-mono text-accent">Full Stack Web Developer in Melbourne</p>
-                    <button class="btn btn-lg btn-white-outlined btn__hero">See my work</button>
-                </div>
-                <div class="mouse"></div>
+                <p class="hero__greet font-mono">Hello, my name is</p>
+                <h1 class="hero__title stroke-center">Janaka Vithanage</h1>
+                <p class="hero__subtitle font-mono text-accent">Full Stack Web Developer in Melbourne</p>
+                <a href="#portfolio" class="btn btn-lg btn-white-outlined btn__hero">See my work</a>
             </div>
-            <img src="./static/hero-bg.jpg" class="hero__image" alt="" />
-        </div>
+            <div class="hero__scroll-down"></div>
+        </section>
         <section class="section" id="about">
             <h2 class="stroke-left">About</h2>
-            <div class="about">
-                <div class="about__details">
+            <div class="about-content">
+                <div class="about-content__image-container">
+                    <div class="image-wrapper">
+                        <img class="about-content__image" src="./static/me.jpg" alt="" />
+                    </div>
+                </div>
+                <div class="about-content__details">
+                    <p>
+                        Lorem ipsum dolor sit amet <a class="link" href="#">this is a link</a> consectetur adipisicing
+                        elit. Tenetur deserunt, debitis expedita, repellat ipsum dicta omnis quae impedit qui beatae
+                        veniam inventore. Ex quas minus inventore autem doloremque ea, accusamus maxime aliquid culpa!
+                        Magnam unde quasi natus nesciunt qui expedita consequatur, sit quisquam ipsam fugiat, porro
+                        consequuntur repellendus laboriosam deserunt!
+                    </p>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur deserunt, debitis expedita,
                         repellat ipsum dicta omnis quae impedit qui beatae veniam inventore. Ex quas minus inventore
@@ -52,22 +79,13 @@
                         expedita consequatur, sit quisquam ipsam fugiat, porro consequuntur repellendus laboriosam
                         deserunt!
                     </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis accusantium dolore
-                        reprehenderit laborum, nemo magni voluptate fugiat. Fugit veniam molestiae reprehenderit, ab
-                        soluta labore nam nobis dolorum eligendi velit, sequi nihil autem quaerat sit quod placeat
-                        aliquid numquam dolor? Voluptatem quia, velit impedit laudantium distinctio, nobis aspernatur
-                        ipsam esse voluptate quaerat pariatur adipisci necessitatibus possimus quisquam earum est,
-                        accusamus doloremque. Minus amet sed quidem atque quod provident labore possimus, reiciendis
-                        laboriosam excepturi quaerat obcaecati est quibusdam nam eius quo, sit voluptatem numquam esse
-                        eveniet explicabo at qui. At exercitationem nisi, deserunt sint libero, tempore fugit eum eos
-                        maiores ipsam dolores.
-                    </p>
                 </div>
             </div>
         </section>
         <section class="section" id="skills">
-            <h2 class="stroke-left">Skills</h2>
+            <div class="flex-center">
+                <h2 class="stroke-center">Skills</h2>
+            </div>
             <div class="skills">
                 <div class="skills-card">
                     <p class="skills-card__title font-mono">Languages</p>
@@ -253,7 +271,16 @@
             </div>
         </section>
         <footer class="footer">
-            <p class="font-mono">Designed and developed by jkvithanage</p>
+            <div class="socials-footer">
+                <div class="social-icons">
+                    <a class="social-link" href="#"><span class="social-icon icon-github"></span></a>
+                    <a class="social-link" href="#"><span class="social-icon icon-linkedin"></span></a>
+                    <a class="social-link" href="#"><span class="social-icon icon-instagram"></span></a>
+                    <a class="social-link" href="#"><span class="social-icon icon-twitter"></span></a>
+                    <a class="social-link" href="#"><span class="social-icon icon-email"></span></a>
+                </div>
+            </div>
+            <p><span>&copy;</span> 2023 - Built from scratch by <a href="#">jkvithanage</a></p>
         </footer>
     </body>
 </html>
