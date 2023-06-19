@@ -1,11 +1,13 @@
 .skills-card {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    margin-top: 2rem;
 }
 
 .skills-card__title {
     border-bottom: 1px solid $black;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 0;
     padding-bottom: 1rem;
 }
@@ -15,39 +17,51 @@
     list-style: none;
     padding-left: 0;
     display: inline-block;
+    padding: 0 1rem;
 }
 
 .skill-icon {
-    position: relative;
     display: inline-block;
-    margin-right: 1rem;
     margin-top: 1rem;
     width: 5rem;
+    position: relative;
+
+    &:not(:last-child) {
+        margin-right: clamp(1rem, 2vw, 2rem);
+    }
 
     svg {
-        transition: fill 0.25s ease-in-out;
+        pointer-events: none;
+        transition: all 0.25s ease-in-out;
     }
 
     .icon-label {
-        display: none;
+        display: inline;
+        position: absolute;
+        font-size: 1rem;
+        background-color: $accent-light;
+        color: $accent-dark;
+        padding: 1rem;
+        width: fit-content;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 100%;
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .skills {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
+// @media screen and (min-width: 768px) {
+//     .skills {
+//         display: grid;
+//         grid-template-columns: 1fr 1fr;
+//         gap: 2rem;
+//     }
 
-    .skill-icon {
-        .icon-label {
-            display: inline;
-            position: absolute;
-            font-size: 1rem;
-            left: 0;
-            right: 0;
-            top: 100%;
-        }
-    }
-}
+//     .skills-card {
+//         width: 100%;
+//         padding: 0;
+//     }
+
+//     .skill-icon {
+//     }
+// }

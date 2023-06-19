@@ -8,6 +8,15 @@
         <script type="module" src="src/js/controller.js"></script>
     </head>
     <body>
+        <div class="socials-desktop">
+            <div class="social-icons">
+                <a class="social-link" href="#"><span class="social-icon icon-github"></span></a>
+                <a class="social-link" href="#"><span class="social-icon icon-linkedin"></span></a>
+                <a class="social-link" href="#"><span class="social-icon icon-instagram"></span></a>
+                <a class="social-link" href="#"><span class="social-icon icon-twitter"></span></a>
+                <a class="social-link" href="#"><span class="social-icon icon-email"></span></a>
+            </div>
+        </div>
         <header>
             <nav class="nav">
                 <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="" /></a>
@@ -25,7 +34,16 @@
                         <li class="nav__item"><a href="#career">Career</a></li>
                         <li class="nav__item"><a href="#portfolio">Portfolio</a></li>
                     </ul>
-                    <a href="#contact" class="btn btn-white">Contact me</a>
+                    <a href="#contact" class="btn btn-white-outlined">Contact me</a>
+                    <div class="socials-mobile-nav">
+                        <div class="social-icons">
+                            <a class="social-link" href="#"><span class="social-icon icon-github"></span></a>
+                            <a class="social-link" href="#"><span class="social-icon icon-linkedin"></span></a>
+                            <a class="social-link" href="#"><span class="social-icon icon-instagram"></span></a>
+                            <a class="social-link" href="#"><span class="social-icon icon-twitter"></span></a>
+                            <a class="social-link" href="#"><span class="social-icon icon-email"></span></a>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -48,11 +66,11 @@
                 </div>
                 <div class="about-content__details">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur deserunt, debitis expedita,
-                        repellat ipsum dicta omnis quae impedit qui beatae veniam inventore. Ex quas minus inventore
-                        autem doloremque ea, accusamus maxime aliquid culpa! Magnam unde quasi natus nesciunt qui
-                        expedita consequatur, sit quisquam ipsam fugiat, porro consequuntur repellendus laboriosam
-                        deserunt!
+                        Lorem ipsum dolor sit amet <a class="link" href="#">this is a link</a> consectetur adipisicing
+                        elit. Tenetur deserunt, debitis expedita, repellat ipsum dicta omnis quae impedit qui beatae
+                        veniam inventore. Ex quas minus inventore autem doloremque ea, accusamus maxime aliquid culpa!
+                        Magnam unde quasi natus nesciunt qui expedita consequatur, sit quisquam ipsam fugiat, porro
+                        consequuntur repellendus laboriosam deserunt!
                     </p>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur deserunt, debitis expedita,
@@ -65,7 +83,9 @@
             </div>
         </section>
         <section class="section" id="skills">
-            <h2 class="stroke-left">Skills</h2>
+            <div class="flex-center">
+                <h2 class="stroke-center">Skills</h2>
+            </div>
             <div class="skills">
                 <div class="skills-card">
                     <p class="skills-card__title font-mono">Languages</p>
@@ -251,7 +271,16 @@
             </div>
         </section>
         <footer class="footer">
-            <p class="font-mono">Designed and developed by jkvithanage</p>
+            <div class="socials-footer">
+                <div class="social-icons">
+                    <a class="social-link" href="#"><span class="social-icon icon-github"></span></a>
+                    <a class="social-link" href="#"><span class="social-icon icon-linkedin"></span></a>
+                    <a class="social-link" href="#"><span class="social-icon icon-instagram"></span></a>
+                    <a class="social-link" href="#"><span class="social-icon icon-twitter"></span></a>
+                    <a class="social-link" href="#"><span class="social-icon icon-email"></span></a>
+                </div>
+            </div>
+            <p><span>&copy;</span> 2023 - Built from scratch by <a href="#">jkvithanage</a></p>
         </footer>
     </body>
 </html>
