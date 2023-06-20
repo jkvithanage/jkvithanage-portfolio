@@ -252,30 +252,40 @@
                 </div>
             </div>
         </section>
-        <section class="section-full section-contact" id="contact">
-            <div class="flex-center">
-                <h2 class="stroke-center">Let's work together</h2>
-            </div>
-            <div class="form-container">
-                <form class="form">
-                    <input type="text" id="name" placeholder="Your Name" class="form-input" />
-                    <div class="input-group">
-                        <input type="email" id="email" placeholder="Email Address" class="form-input" />
-                        <input type="tel" id="phone" placeholder="Phone Number" class="form-input" />
+        <div class="modal" role="dialog" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal__header">
+                    <h2 class="stroke-left modal__title">Let's work together</h2>
+                    <button class="modal__close" type="button"></button>
+                </div>
+                <div class="modal__body">
+                    <div class="form-container">
+                        <form class="form">
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Your Name"
+                                class="form-input"
+                                style="margin-top: 0"
+                            />
+                            <div class="input-group">
+                                <input type="email" id="email" placeholder="Email Address" class="form-input" />
+                                <input type="tel" id="phone" placeholder="Phone Number" class="form-input" />
+                            </div>
+                            <input type="text" id="subject" placeholder="Subject" class="form-input" />
+                            <textarea
+                                name="message"
+                                id="message"
+                                placeholder="Message"
+                                class="form-textarea"
+                            ></textarea>
+                            <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
+                        </form>
                     </div>
-                    <input type="text" id="subject" placeholder="Subject" class="form-input" />
-                    <textarea
-                        name="message"
-                        id="message"
-                        placeholder="Message"
-                        class="form-textarea"
-                        cols="30"
-                        rows="10"
-                    ></textarea>
-                    <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
-                </form>
+                </div>
             </div>
-        </section>
+        </div>
+        <div class="overlay"></div>
         <footer class="footer">
             <div class="socials-footer">
                 <div class="social-icons">
