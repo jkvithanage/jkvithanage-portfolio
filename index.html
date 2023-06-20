@@ -34,7 +34,7 @@
                         <li class="nav__item"><a href="#career">Career</a></li>
                         <li class="nav__item"><a href="#portfolio">Portfolio</a></li>
                     </ul>
-                    <a href="#contact" class="btn btn-white-outlined">Contact me</a>
+                    <button class="btn btn-white-outlined btn-contact">Contact me</button>
                     <div class="socials-mobile-nav">
                         <div class="social-icons">
                             <a class="social-link" href="#"><span class="social-icon icon-github"></span></a>
@@ -123,7 +123,7 @@
                 <li class="career">
                     <p class="career__employer">Self employed</p>
                     <div class="career-heading">
-                        <h4 class="font-mono career-heading__title">Web Developer</h4>
+                        <h3 class="font-mono career-heading__title">Web Developer</h3>
                         <p class="career-heading__time">2023 Jan - Now</p>
                     </div>
                     <p class="career__description">
@@ -135,7 +135,7 @@
                 <li class="career">
                     <p class="career__employer">Lanka Sugar Company Ltd</p>
                     <div class="career-heading">
-                        <h4 class="font-mono career-heading__title">Chemical Engineer</h4>
+                        <h3 class="font-mono career-heading__title">Chemical Engineer</h3>
                         <p class="career-heading__time">2017 Nov - 2022 June</p>
                     </div>
                     <p class="career__description">
@@ -147,7 +147,7 @@
                 <li class="career">
                     <p class="career__employer">Self employed</p>
                     <div class="career-heading">
-                        <h4 class="font-mono career-heading__title">Graphic Designer</h4>
+                        <h3 class="font-mono career-heading__title">Graphic Designer</h3>
                         <p class="career-heading__time">2012 Oct - 2018 April</p>
                     </div>
                     <p class="career__description">
@@ -165,7 +165,7 @@
                     <li class="career">
                         <p class="career__employer">Le Wagon - Melbourne</p>
                         <div class="career-heading">
-                            <h4 class="font-mono career-heading__title">Web Development Bootcamp</h4>
+                            <h3 class="font-mono career-heading__title">Web Development Bootcamp</h3>
                             <p class="career-heading__time">2022 Oct - 2022 Dec</p>
                         </div>
                         <p class="career__description">
@@ -177,7 +177,7 @@
                     <li class="career">
                         <p class="career__employer">University of Peradeniya</p>
                         <div class="career-heading">
-                            <h4 class="font-mono career-heading__title">BSc Engineering (Hons)</h4>
+                            <h3 class="font-mono career-heading__title">BSc Engineering (Hons)</h3>
                             <p class="career-heading__time">2013 March - 2017 Dec</p>
                         </div>
                         <p class="career__description">
@@ -252,40 +252,26 @@
                 </div>
             </div>
         </section>
-        <div class="modal" role="dialog" tabindex="-1">
+        <div class="modal visually-hidden" role="dialog" tabindex="-1">
             <div class="modal-dialog">
                 <div class="modal__header">
                     <h2 class="stroke-left modal__title">Let's work together</h2>
                     <button class="modal__close" type="button"></button>
                 </div>
                 <div class="modal__body">
-                    <div class="form-container">
-                        <form class="form">
-                            <input
-                                type="text"
-                                id="name"
-                                placeholder="Your Name"
-                                class="form-input"
-                                style="margin-top: 0"
-                            />
-                            <div class="input-group">
-                                <input type="email" id="email" placeholder="Email Address" class="form-input" />
-                                <input type="tel" id="phone" placeholder="Phone Number" class="form-input" />
-                            </div>
-                            <input type="text" id="subject" placeholder="Subject" class="form-input" />
-                            <textarea
-                                name="message"
-                                id="message"
-                                placeholder="Message"
-                                class="form-textarea"
-                            ></textarea>
-                            <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
-                        </form>
-                    </div>
+                    <form class="form">
+                        <input type="text" id="name" placeholder="Your Name" class="form-input" style="margin-top: 0" />
+                        <div class="input-group">
+                            <input type="email" id="email" placeholder="Email Address" class="form-input" />
+                            <input type="tel" id="phone" placeholder="Phone Number" class="form-input" />
+                        </div>
+                        <input type="text" id="subject" placeholder="Subject" class="form-input" />
+                        <textarea name="message" id="message" placeholder="Message" class="form-textarea"></textarea>
+                        <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="overlay"></div>
         <footer class="footer">
             <div class="socials-footer">
                 <div class="social-icons">

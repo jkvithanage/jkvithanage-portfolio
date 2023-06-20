@@ -1,5 +1,6 @@
 import * as icons from "simple-icons";
 
+// 1. Render skill icons
 const languagesEl = document.querySelector(".language-icons");
 const developmentEl = document.querySelector(".development-icons");
 const toolsEl = document.querySelector(".tool-icons");
@@ -31,7 +32,6 @@ function renderSkillIcons(el, iconsArr) {
     iconsArr.forEach((iconObj) => {
         const icon = document.createElement("li");
         icon.classList.add("skill-icon");
-        // iconObj.title = "";
         icon.innerHTML = iconObj.svg;
         el.insertAdjacentElement("beforeend", icon);
 
@@ -60,3 +60,36 @@ function renderSkillIcons(el, iconsArr) {
     [toolsEl, toolIcons],
     [designEl, designIcons],
 ].forEach((arr) => renderSkillIcons(arr[0], arr[1]));
+
+// 2. Handle modal window
+
+const modal = document.querySelector(".modal");
+const btnCloseModal = document.querySelector(".modal__close");
+const allContactButtons = document.querySelectorAll(".btn-contact");
+const body = document.querySelector("body");
+
+const openModal = function () {
+    modal.classList.remove("visually-hidden");
+    body.style.overflow = "hidden";
+};
+
+const closeModal = function () {
+    modal.classList.add("visually-hidden");
+    body.style.overflow = "auto";
+};
+
+allContactButtons.forEach((btn) => btn.addEventListener("click", openModal));
+
+btnCloseModal.addEventListener("click", closeModal);
+
+document.onclick = function (e) {
+    if (e.target == modal && !modal.classList.contains("visually-hidden")) {
+        closeModal();
+    }
+};
+
+document.onkeydown = function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("visually-hidden")) {
+        closeModal();
+    }
+};
