@@ -63,33 +63,63 @@ function renderSkillIcons(el, iconsArr) {
 
 // 2. Handle modal window
 
+const body = document.querySelector("body");
 const modal = document.querySelector(".modal");
 const btnCloseModal = document.querySelector(".modal__close");
 const allContactButtons = document.querySelectorAll(".btn-contact");
-const body = document.querySelector("body");
+
+const navbar = document.querySelector(".nav");
+const navClickables = document.querySelectorAll("nav .nav__link");
+const ham = document.querySelector("#hamburger");
 
 const openModal = function () {
     modal.classList.remove("visually-hidden");
-    body.style.overflow = "hidden";
+    ham.checked = false;
+    body.classList.add("overflow-hidden");
 };
 
 const closeModal = function () {
     modal.classList.add("visually-hidden");
-    body.style.overflow = "auto";
+    body.classList.remove("overflow-hidden");
 };
 
 allContactButtons.forEach((btn) => btn.addEventListener("click", openModal));
 
 btnCloseModal.addEventListener("click", closeModal);
 
-document.onclick = function (e) {
+window.onclick = function (e) {
     if (e.target == modal && !modal.classList.contains("visually-hidden")) {
         closeModal();
     }
 };
 
-document.onkeydown = function (e) {
+window.onkeydown = function (e) {
     if (e.key === "Escape" && !modal.classList.contains("visually-hidden")) {
         closeModal();
     }
 };
+
+// Show/hide navbar based on scroll direction
+
+let oldScrollY = 0;
+window.onscroll = function (e) {
+    navbar.classList.toggle("nav-hidden", window.scrollY > oldScrollY && !ham.checked);
+    oldScrollY = window.scrollY;
+};
+
+// Disable body scroll while mobile nav menu is opened
+
+ham.addEventListener("click", (e) => {
+    if (e.target.checked) {
+        body.classList.add("overflow-hidden");
+    } else {
+        body.classList.remove("overflow-hidden");
+    }
+});
+
+navClickables.forEach((el) => {
+    el.addEventListener("click", (e) => {
+        ham.checked = false;
+        body.classList.remove("overflow-hidden");
+    });
+});

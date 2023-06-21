@@ -1,13 +1,18 @@
 .nav {
     z-index: 10;
     position: fixed;
-    top: 0rem;
+    top: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     background-color: $black;
+    transition: top 0.25s ease-in-out;
+}
+
+.nav-hidden {
+    top: -7rem;
 }
 
 .nav__logo {
@@ -89,7 +94,6 @@
 }
 
 #hamburger:checked ~ .nav__content {
-    transform: translate(0);
     opacity: 1;
     visibility: visible;
 }
@@ -99,7 +103,11 @@
 }
 
 @media screen and (min-width: 1024px) {
+    .nav {
+        padding: 0;
+    }
     .nav__content {
+        position: static;
         flex-direction: row;
         justify-content: space-between;
         opacity: 1;

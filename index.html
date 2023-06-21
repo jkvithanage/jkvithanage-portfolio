@@ -17,7 +17,7 @@
                 <a class="social-link" href="#"><span class="social-icon icon-email"></span></a>
             </div>
         </div>
-        <header>
+        <header id="header">
             <nav class="nav">
                 <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="" /></a>
                 <input type="checkbox" id="hamburger" />
@@ -29,10 +29,10 @@
                 <div class="nav__content">
                     <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="" /></a>
                     <ul class="nav__list">
-                        <li class="nav__item"><a href="#about">About</a></li>
-                        <li class="nav__item"><a href="#skills">Skills</a></li>
-                        <li class="nav__item"><a href="#career">Career</a></li>
-                        <li class="nav__item"><a href="#portfolio">Portfolio</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#skills">Skills</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#career">Career</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#portfolio">Portfolio</a></li>
                     </ul>
                     <button class="btn btn-white-outlined btn-contact">Contact me</button>
                     <div class="socials-mobile-nav">
@@ -47,126 +47,85 @@
                 </div>
             </nav>
         </header>
-        <section class="section-hero">
-            <div class="hero__content">
-                <p class="hero__greet font-mono">Hello, my name is</p>
-                <h1 class="hero__title stroke-center">Janaka Vithanage</h1>
-                <p class="hero__subtitle font-mono text-accent">Full Stack Web Developer in Melbourne</p>
-                <a href="#portfolio" class="btn btn-lg btn-white-outlined btn__hero">See my work</a>
-            </div>
-            <div class="hero__scroll-down"></div>
-        </section>
-        <section class="section" id="about">
-            <div class="flex-left">
-                <h2 class="stroke-left">About</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-content__image-container">
-                    <div class="image-wrapper">
-                        <img class="about-content__image" src="./static/me.jpg" alt="" />
-                    </div>
+        <main class="main">
+            <section class="section-hero">
+                <div class="hero__content">
+                    <p class="hero__greet font-mono">Hello, my name is</p>
+                    <h1 class="hero__title stroke-center">Janaka Vithanage</h1>
+                    <p class="hero__subtitle font-mono text-accent">Full Stack Web Developer in Melbourne</p>
+                    <a href="#portfolio" class="btn btn-lg btn-white-outlined btn__hero">See my work</a>
                 </div>
-                <div class="about-content__details">
-                    <p>
-                        Lorem ipsum dolor sit amet <a class="link" href="#">this is a link</a> consectetur adipisicing
-                        elit. Tenetur deserunt, debitis expedita, repellat ipsum dicta omnis quae impedit qui beatae
-                        veniam inventore. Ex quas minus inventore autem doloremque ea, accusamus maxime aliquid culpa!
-                        Magnam unde quasi natus nesciunt qui expedita consequatur, sit quisquam ipsam fugiat, porro
-                        consequuntur repellendus laboriosam deserunt!
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur deserunt, debitis expedita,
-                        repellat ipsum dicta omnis quae impedit qui beatae veniam inventore. Ex quas minus inventore
-                        autem doloremque ea, accusamus maxime aliquid culpa! Magnam unde quasi natus nesciunt qui
-                        expedita consequatur, sit quisquam ipsam fugiat, porro consequuntur repellendus laboriosam
-                        deserunt!
-                    </p>
-                </div>
-            </div>
-        </section>
-        <section class="section" id="skills">
-            <div class="flex-center">
-                <h2 class="stroke-center">Skills</h2>
-            </div>
-            <div class="skills">
-                <div class="skills-card">
-                    <p class="skills-card__title font-mono">Languages</p>
-                    <div class="skills-card__body">
-                        <ul class="skill-icons language-icons"></ul>
-                    </div>
-                </div>
-                <div class="skills-card">
-                    <p class="skills-card__title font-mono">Development</p>
-                    <div class="skills-card__body">
-                        <ul class="skill-icons development-icons"></ul>
-                    </div>
-                </div>
-                <div class="skills-card">
-                    <p class="skills-card__title font-mono">Tools</p>
-                    <div class="skills-card__body">
-                        <ul class="skill-icons tool-icons"></ul>
-                    </div>
-                </div>
-                <div class="skills-card">
-                    <p class="skills-card__title font-mono">Design</p>
-                    <div class="skills-card__body">
-                        <ul class="skill-icons design-icons"></ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="section section-careers" id="career">
-            <div class="flex-left">
-                <h2 class="stroke-left">Career</h2>
-            </div>
-            <ul class="careers">
-                <li class="career">
-                    <p class="career__employer">Self employed</p>
-                    <div class="career-heading">
-                        <h3 class="font-mono career-heading__title">Web Developer</h3>
-                        <p class="career-heading__time">2023 Jan - Now</p>
-                    </div>
-                    <p class="career__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas dicta consequatur aliquam
-                        placeat dolore maiores quo corporis accusantium? Nihil aut possimus a amet iste odio, quidem quo
-                        iusto eveniet.
-                    </p>
-                </li>
-                <li class="career">
-                    <p class="career__employer">Lanka Sugar Company Ltd</p>
-                    <div class="career-heading">
-                        <h3 class="font-mono career-heading__title">Chemical Engineer</h3>
-                        <p class="career-heading__time">2017 Nov - 2022 June</p>
-                    </div>
-                    <p class="career__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas dicta consequatur aliquam
-                        placeat dolore maiores quo corporis accusantium? Nihil aut possimus a amet iste odio, quidem quo
-                        iusto eveniet.
-                    </p>
-                </li>
-                <li class="career">
-                    <p class="career__employer">Self employed</p>
-                    <div class="career-heading">
-                        <h3 class="font-mono career-heading__title">Graphic Designer</h3>
-                        <p class="career-heading__time">2012 Oct - 2018 April</p>
-                    </div>
-                    <p class="career__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas dicta consequatur aliquam
-                        placeat dolore maiores quo corporis accusantium? Nihil aut possimus a amet iste odio, quidem quo
-                        iusto eveniet.
-                    </p>
-                </li>
-            </ul>
-            <div class="section-edu">
+                <div class="hero__scroll-down"></div>
+            </section>
+            <section class="section" id="about">
                 <div class="flex-left">
-                    <h2 class="stroke-left">Education</h2>
+                    <h2 class="stroke-left">About</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-content__image-container">
+                        <div class="image-wrapper">
+                            <img class="about-content__image" src="./static/me.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="about-content__details">
+                        <p>
+                            Lorem ipsum dolor sit amet <a class="link" href="#">this is a link</a> consectetur
+                            adipisicing elit. Tenetur deserunt, debitis expedita, repellat ipsum dicta omnis quae
+                            impedit qui beatae veniam inventore. Ex quas minus inventore autem doloremque ea, accusamus
+                            maxime aliquid culpa! Magnam unde quasi natus nesciunt qui expedita consequatur, sit
+                            quisquam ipsam fugiat, porro consequuntur repellendus laboriosam deserunt!
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur deserunt, debitis expedita,
+                            repellat ipsum dicta omnis quae impedit qui beatae veniam inventore. Ex quas minus inventore
+                            autem doloremque ea, accusamus maxime aliquid culpa! Magnam unde quasi natus nesciunt qui
+                            expedita consequatur, sit quisquam ipsam fugiat, porro consequuntur repellendus laboriosam
+                            deserunt!
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="skills">
+                <div class="flex-center">
+                    <h2 class="stroke-center">Skills</h2>
+                </div>
+                <div class="skills">
+                    <div class="skills-card">
+                        <p class="skills-card__title font-mono">Languages</p>
+                        <div class="skills-card__body">
+                            <ul class="skill-icons language-icons"></ul>
+                        </div>
+                    </div>
+                    <div class="skills-card">
+                        <p class="skills-card__title font-mono">Development</p>
+                        <div class="skills-card__body">
+                            <ul class="skill-icons development-icons"></ul>
+                        </div>
+                    </div>
+                    <div class="skills-card">
+                        <p class="skills-card__title font-mono">Tools</p>
+                        <div class="skills-card__body">
+                            <ul class="skill-icons tool-icons"></ul>
+                        </div>
+                    </div>
+                    <div class="skills-card">
+                        <p class="skills-card__title font-mono">Design</p>
+                        <div class="skills-card__body">
+                            <ul class="skill-icons design-icons"></ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section section-careers" id="career">
+                <div class="flex-left">
+                    <h2 class="stroke-left">Career</h2>
                 </div>
                 <ul class="careers">
                     <li class="career">
-                        <p class="career__employer">Le Wagon - Melbourne</p>
+                        <p class="career__employer">Self employed</p>
                         <div class="career-heading">
-                            <h3 class="font-mono career-heading__title">Web Development Bootcamp</h3>
-                            <p class="career-heading__time">2022 Oct - 2022 Dec</p>
+                            <h3 class="font-mono career-heading__title">Web Developer</h3>
+                            <p class="career-heading__time">2023 Jan - Now</p>
                         </div>
                         <p class="career__description">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas dicta consequatur
@@ -175,10 +134,22 @@
                         </p>
                     </li>
                     <li class="career">
-                        <p class="career__employer">University of Peradeniya</p>
+                        <p class="career__employer">Lanka Sugar Company Ltd</p>
                         <div class="career-heading">
-                            <h3 class="font-mono career-heading__title">BSc Engineering (Hons)</h3>
-                            <p class="career-heading__time">2013 March - 2017 Dec</p>
+                            <h3 class="font-mono career-heading__title">Chemical Engineer</h3>
+                            <p class="career-heading__time">2017 Nov - 2022 June</p>
+                        </div>
+                        <p class="career__description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas dicta consequatur
+                            aliquam placeat dolore maiores quo corporis accusantium? Nihil aut possimus a amet iste
+                            odio, quidem quo iusto eveniet.
+                        </p>
+                    </li>
+                    <li class="career">
+                        <p class="career__employer">Self employed</p>
+                        <div class="career-heading">
+                            <h3 class="font-mono career-heading__title">Graphic Designer</h3>
+                            <p class="career-heading__time">2012 Oct - 2018 April</p>
                         </div>
                         <p class="career__description">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas dicta consequatur
@@ -187,91 +158,133 @@
                         </p>
                     </li>
                 </ul>
-            </div>
-        </section>
-        <section class="section-full" id="portfolio">
-            <div class="flex-center">
-                <h2 class="stroke-center">Portfolio</h2>
-            </div>
-            <div class="projects">
-                <div class="project-card">
-                    <div class="project-card__body">
-                        <div class="project__preview">
-                            <img src="./static/screenshots/mycashflow.png" alt="" />
-                        </div>
-                        <div class="project__details">
-                            <h3 class="stroke-left font-mono project__title">My Cash Flow</h3>
-                            <p class="project__summary">Personal finance tracking application.</p>
-                            <p class="project__description">
-                                Analyse your financial transactions to determine how you have spent money and your
-                                earnings. You can add multiple bank accounts and add transactions associated with each.
-                                Most importantly, you can import bulk transactions at once from a CSV file. You can see
-                                a summary of your financial activities from the dashboard section.
+                <div class="section-edu">
+                    <div class="flex-left">
+                        <h2 class="stroke-left">Education</h2>
+                    </div>
+                    <ul class="careers">
+                        <li class="career">
+                            <p class="career__employer">Le Wagon - Melbourne</p>
+                            <div class="career-heading">
+                                <h3 class="font-mono career-heading__title">Web Development Bootcamp</h3>
+                                <p class="career-heading__time">2022 Oct - 2022 Dec</p>
+                            </div>
+                            <p class="career__description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas dicta consequatur
+                                aliquam placeat dolore maiores quo corporis accusantium? Nihil aut possimus a amet iste
+                                odio, quidem quo iusto eveniet.
                             </p>
-                            <ul class="project__tags">
-                                <li class="project__tag">Ruby on Rails</li>
-                                <li class="project__tag">Tabler UI</li>
-                                <li class="project__tag">PostgreSQL</li>
-                                <li class="project__tag">Stimulus</li>
-                                <li class="project__tag">Apexcharts</li>
-                            </ul>
-                            <div class="project__buttons">
-                                <a href="" target="_blank" class="btn btn-black">Live</a>
-                                <a href="" target="_blank" class="btn btn-black">GitHub</a>
+                        </li>
+                        <li class="career">
+                            <p class="career__employer">University of Peradeniya</p>
+                            <div class="career-heading">
+                                <h3 class="font-mono career-heading__title">BSc Engineering (Hons)</h3>
+                                <p class="career-heading__time">2013 March - 2017 Dec</p>
+                            </div>
+                            <p class="career__description">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas dicta consequatur
+                                aliquam placeat dolore maiores quo corporis accusantium? Nihil aut possimus a amet iste
+                                odio, quidem quo iusto eveniet.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section-full" id="portfolio">
+                <div class="flex-center">
+                    <h2 class="stroke-center">Portfolio</h2>
+                </div>
+                <div class="projects">
+                    <div class="project-card">
+                        <div class="project-card__body">
+                            <div class="project__preview">
+                                <img src="./static/screenshots/mycashflow.png" alt="" />
+                            </div>
+                            <div class="project__details">
+                                <h3 class="stroke-left font-mono project__title">My Cash Flow</h3>
+                                <p class="project__summary">Personal finance tracking application.</p>
+                                <p class="project__description">
+                                    Analyse your financial transactions to determine how you have spent money and your
+                                    earnings. You can add multiple bank accounts and add transactions associated with
+                                    each. Most importantly, you can import bulk transactions at once from a CSV file.
+                                    You can see a summary of your financial activities from the dashboard section.
+                                </p>
+                                <ul class="project__tags">
+                                    <li class="project__tag">Ruby on Rails</li>
+                                    <li class="project__tag">Tabler UI</li>
+                                    <li class="project__tag">PostgreSQL</li>
+                                    <li class="project__tag">Stimulus</li>
+                                    <li class="project__tag">Apexcharts</li>
+                                </ul>
+                                <div class="project__buttons">
+                                    <a href="" target="_blank" class="btn btn-black">Live</a>
+                                    <a href="" target="_blank" class="btn btn-black">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card__body">
+                            <div class="project__preview">
+                                <img src="./static/screenshots/invoice_portal.png" alt="" />
+                            </div>
+                            <div class="project__details">
+                                <h3 class="stroke-left font-mono project__title">Customer Invoice Portal</h3>
+                                <p class="project__summary">Simple invoice generating app for a software retailer.</p>
+                                <p class="project__description">
+                                    The client (Christy Software) sells software licenses on the sellix.io e-commerce
+                                    platform, and this app was developed to let their customers get an invoice for all
+                                    purchase activities for a given period.
+                                </p>
+                                <ul class="project__tags">
+                                    <li class="project__tag">JavaScript</li>
+                                    <li class="project__tag">Bootstrap</li>
+                                    <li class="project__tag">SCSS</li>
+                                    <li class="project__tag">Fetch API</li>
+                                    <li class="project__tag">Parcel</li>
+                                    <li class="project__tag">Tagify</li>
+                                </ul>
+                                <div class="project__buttons">
+                                    <a href="" target="_blank" class="btn btn-black">Live</a>
+                                    <a href="" target="_blank" class="btn btn-black">GitHub</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-card__body">
-                        <div class="project__preview">
-                            <img src="./static/screenshots/invoice_portal.png" alt="" />
-                        </div>
-                        <div class="project__details">
-                            <h3 class="stroke-left font-mono project__title">Customer Invoice Portal</h3>
-                            <p class="project__summary">Simple invoice generating app for a software retailer.</p>
-                            <p class="project__description">
-                                The client (Christy Software) sells software licenses on the sellix.io e-commerce
-                                platform, and this app was developed to let their customers get an invoice for all
-                                purchase activities for a given period.
-                            </p>
-                            <ul class="project__tags">
-                                <li class="project__tag">JavaScript</li>
-                                <li class="project__tag">Bootstrap</li>
-                                <li class="project__tag">SCSS</li>
-                                <li class="project__tag">Fetch API</li>
-                                <li class="project__tag">Parcel</li>
-                                <li class="project__tag">Tagify</li>
-                            </ul>
-                            <div class="project__buttons">
-                                <a href="" target="_blank" class="btn btn-black">Live</a>
-                                <a href="" target="_blank" class="btn btn-black">GitHub</a>
+            </section>
+            <div class="modal visually-hidden" role="dialog" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal__header">
+                        <h2 class="stroke-left modal__title">Let's work together</h2>
+                        <button class="modal__close" type="button"></button>
+                    </div>
+                    <div class="modal__body">
+                        <form class="form">
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Your Name"
+                                class="form-input"
+                                style="margin-top: 0"
+                            />
+                            <div class="input-group">
+                                <input type="email" id="email" placeholder="Email Address" class="form-input" />
+                                <input type="tel" id="phone" placeholder="Phone Number" class="form-input" />
                             </div>
-                        </div>
+                            <input type="text" id="subject" placeholder="Subject" class="form-input" />
+                            <textarea
+                                name="message"
+                                id="message"
+                                placeholder="Message"
+                                class="form-textarea"
+                            ></textarea>
+                            <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
-        <div class="modal visually-hidden" role="dialog" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal__header">
-                    <h2 class="stroke-left modal__title">Let's work together</h2>
-                    <button class="modal__close" type="button"></button>
-                </div>
-                <div class="modal__body">
-                    <form class="form">
-                        <input type="text" id="name" placeholder="Your Name" class="form-input" style="margin-top: 0" />
-                        <div class="input-group">
-                            <input type="email" id="email" placeholder="Email Address" class="form-input" />
-                            <input type="tel" id="phone" placeholder="Phone Number" class="form-input" />
-                        </div>
-                        <input type="text" id="subject" placeholder="Subject" class="form-input" />
-                        <textarea name="message" id="message" placeholder="Message" class="form-textarea"></textarea>
-                        <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        </main>
         <footer class="footer">
             <div class="socials-footer">
                 <div class="social-icons">
