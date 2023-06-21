@@ -67,10 +67,10 @@ const body = document.querySelector("body");
 const modal = document.querySelector(".modal");
 const btnCloseModal = document.querySelector(".modal__close");
 const allContactButtons = document.querySelectorAll(".btn-contact");
-
 const navbar = document.querySelector(".nav");
 const navClickables = document.querySelectorAll("nav .nav__link");
 const ham = document.querySelector("#hamburger");
+const header = document.getElementById("header");
 
 const openModal = function () {
     modal.classList.remove("visually-hidden");
@@ -103,7 +103,7 @@ window.onkeydown = function (e) {
 
 let oldScrollY = 0;
 window.onscroll = function (e) {
-    navbar.classList.toggle("nav-hidden", window.scrollY > oldScrollY && !ham.checked);
+    navbar.classList.toggle("hidden", window.scrollY > 0 && window.scrollY > oldScrollY && !ham.checked);
     oldScrollY = window.scrollY;
 };
 
@@ -122,4 +122,26 @@ navClickables.forEach((el) => {
         ham.checked = false;
         body.classList.remove("overflow-hidden");
     });
+});
+
+// Reveal sections on scroll
+
+const sections = document.querySelectorAll(".section, .section-full");
+
+const observer = new IntersectionObserver(
+    function (entries) {
+        const [entry] = entries;
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.remove("hidden", entry.isIntersecting);
+        observer.unobserve(entry.target);
+    },
+    {
+        threshold: 0.15,
+    }
+);
+
+sections.forEach((section) => {
+    observer.observe(section);
+    section.classList.add("hidden");
 });

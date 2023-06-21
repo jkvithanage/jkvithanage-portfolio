@@ -10,6 +10,12 @@
     padding: 5rem 2rem;
     margin-left: auto;
     margin-right: auto;
+    transition: all 0.75s ease-in-out;
+
+    &.hidden {
+        opacity: 0;
+        transform: translateY(100px);
+    }
 }
 
 .section {
@@ -89,5 +95,55 @@
         height: 100%;
         z-index: -1;
         transition: all 0.25s ease-in-out;
+    }
+}
+
+// Animations for elements
+
+@keyframes fade-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-120px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(120px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-left {
+    0% {
+        opacity: 0;
+        transform: translateX(120px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-120px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
