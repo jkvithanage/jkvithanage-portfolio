@@ -36,12 +36,14 @@
     }
 
     .icon-label {
-        display: inline;
+        display: inline-block;
         position: absolute;
         font-size: 1rem;
         background-color: $accent-light;
         color: $accent-dark;
-        padding: 1rem;
+        border: 1px solid $accent-dark;
+        font-family: "Jetbrains Mono", monospace;
+        padding: 0.5rem 1rem;
         width: fit-content;
         z-index: 1;
         left: 0;

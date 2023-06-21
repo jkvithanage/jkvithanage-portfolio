@@ -1,5 +1,6 @@
 import * as icons from "simple-icons";
 
+// 1. Render skill icons
 const languagesEl = document.querySelector(".language-icons");
 const developmentEl = document.querySelector(".development-icons");
 const toolsEl = document.querySelector(".tool-icons");
@@ -31,7 +32,6 @@ function renderSkillIcons(el, iconsArr) {
     iconsArr.forEach((iconObj) => {
         const icon = document.createElement("li");
         icon.classList.add("skill-icon");
-        // iconObj.title = "";
         icon.innerHTML = iconObj.svg;
         el.insertAdjacentElement("beforeend", icon);
 
@@ -60,3 +60,66 @@ function renderSkillIcons(el, iconsArr) {
     [toolsEl, toolIcons],
     [designEl, designIcons],
 ].forEach((arr) => renderSkillIcons(arr[0], arr[1]));
+
+// 2. Handle modal window
+
+const body = document.querySelector("body");
+const modal = document.querySelector(".modal");
+const btnCloseModal = document.querySelector(".modal__close");
+const allContactButtons = document.querySelectorAll(".btn-contact");
+
+const navbar = document.querySelector(".nav");
+const navClickables = document.querySelectorAll("nav .nav__link");
+const ham = document.querySelector("#hamburger");
+
+const openModal = function () {
+    modal.classList.remove("visually-hidden");
+    ham.checked = false;
+    body.classList.add("overflow-hidden");
+};
+
+const closeModal = function () {
+    modal.classList.add("visually-hidden");
+    body.classList.remove("overflow-hidden");
+};
+
+allContactButtons.forEach((btn) => btn.addEventListener("click", openModal));
+
+btnCloseModal.addEventListener("click", closeModal);
+
+window.onclick = function (e) {
+    if (e.target == modal && !modal.classList.contains("visually-hidden")) {
+        closeModal();
+    }
+};
+
+window.onkeydown = function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("visually-hidden")) {
+        closeModal();
+    }
+};
+
+// Show/hide navbar based on scroll direction
+
+let oldScrollY = 0;
+window.onscroll = function (e) {
+    navbar.classList.toggle("nav-hidden", window.scrollY > oldScrollY && !ham.checked);
+    oldScrollY = window.scrollY;
+};
+
+// Disable body scroll while mobile nav menu is opened
+
+ham.addEventListener("click", (e) => {
+    if (e.target.checked) {
+        body.classList.add("overflow-hidden");
+    } else {
+        body.classList.remove("overflow-hidden");
+    }
+});
+
+navClickables.forEach((el) => {
+    el.addEventListener("click", (e) => {
+        ham.checked = false;
+        body.classList.remove("overflow-hidden");
+    });
+});

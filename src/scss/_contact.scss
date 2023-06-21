@@ -1,13 +1,7 @@
-.form-container {
-    padding: 0 2rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .form-input,
 .form-textarea {
     appearance: none;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
     margin-top: 2rem;
     border: 1px solid $black;
@@ -27,7 +21,7 @@
 
 .form-textarea {
     resize: vertical;
-    min-height: 20rem;
+    min-height: 10rem;
 }
 
 .input-group {
@@ -40,10 +34,12 @@
     margin-top: 1rem;
 }
 
-@media screen and (min-width: 768px) {
-    .form-container {
-        max-width: 90rem;
+@media screen and (min-width: 576px) {
+    .form-input,
+    .form-textarea {
+        padding: 2rem;
     }
+
     .input-group {
         flex-direction: row;
         justify-content: space-between;
@@ -51,5 +47,9 @@
         .form-input {
             width: 49%;
         }
+    }
+
+    .form-textarea {
+        min-height: 20rem;
     }
 }
