@@ -100,7 +100,6 @@ window.onkeydown = function (e) {
 };
 
 // Show/hide navbar based on scroll direction
-
 let oldScrollY = 0;
 window.onscroll = function (e) {
     navbar.classList.toggle("hidden", window.scrollY > 0 && window.scrollY > oldScrollY && !ham.checked);
@@ -133,15 +132,26 @@ const observer = new IntersectionObserver(
         const [entry] = entries;
         if (!entry.isIntersecting) return;
 
-        entry.target.classList.remove("hidden", entry.isIntersecting);
+        entry.target.classList.add("reveal", entry.isIntersecting);
         observer.unobserve(entry.target);
     },
     {
-        threshold: 0.15,
+        threshold: 0.1,
     }
 );
 
 sections.forEach((section) => {
     observer.observe(section);
-    section.classList.add("hidden");
+
+    section.classList.remove("reveal");
 });
+
+// Page always scroll to top on reload
+
+// if (history.scrollRestoration) {
+//     history.scrollRestoration = "manual";
+// } else {
+//     window.onbeforeunload = function () {
+//         window.scrollTo(0, 0);
+//     };
+// }
