@@ -2,11 +2,18 @@
     "name": "jkvithanage-portfolio",
     "version": "1.0.0",
     "description": "Janaka Vithanage Personal Website",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jkvithanage/jkvithanage-portfolio"
+    },
+    "keywords": [
+        "portfolio"
+    ],
     "scripts": {
         "start": "parcel index.html -p 3000",
         "build": "parcel build index.html --no-scope-hoist"
     },
-    "author": "Janaka Vithanage",
+    "author": "Janaka Vithanage ",
     "license": "MIT",
     "dependencies": {
         "normalize.css": "^8.0.1",

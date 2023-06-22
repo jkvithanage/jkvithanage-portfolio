@@ -67,7 +67,6 @@ const body = document.querySelector("body");
 const modal = document.querySelector(".modal");
 const btnCloseModal = document.querySelector(".modal__close");
 const allContactButtons = document.querySelectorAll(".btn-contact");
-
 const navbar = document.querySelector(".nav");
 const navClickables = document.querySelectorAll("nav .nav__link");
 const ham = document.querySelector("#hamburger");
@@ -100,10 +99,9 @@ window.onkeydown = function (e) {
 };
 
 // Show/hide navbar based on scroll direction
-
 let oldScrollY = 0;
 window.onscroll = function (e) {
-    navbar.classList.toggle("nav-hidden", window.scrollY > oldScrollY && !ham.checked);
+    navbar.classList.toggle("hidden", window.scrollY > 0 && window.scrollY > oldScrollY && !ham.checked);
     oldScrollY = window.scrollY;
 };
 
@@ -123,3 +121,72 @@ navClickables.forEach((el) => {
         body.classList.remove("overflow-hidden");
     });
 });
+
+// Reveal sections on scroll
+
+const sections = document.querySelectorAll(".section, .section-full");
+
+const observer = new IntersectionObserver(
+    function (entries) {
+        const [entry] = entries;
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("reveal", entry.isIntersecting);
+        observer.unobserve(entry.target);
+    },
+    {
+        threshold: 0.1,
+    }
+);
+
+sections.forEach((section) => {
+    observer.observe(section);
+
+    section.classList.remove("reveal");
+});
+
+// Handle contact form
+
+const contactForm = document.getElementById("contact-form");
+const formStatus = contactForm.querySelector(".form-status");
+const modalBody = document.querySelector(".modal__body");
+
+const successMarkup = `
+    <div class="notice-success">
+        <span class="icon-success"></span>
+        <p class="message-success">Thanks for contacting me. I will get back to you ASAP.</p>
+    </div>
+`;
+
+async function handleFormSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    try {
+        const response = await fetch(e.target.action, {
+            method: contactForm.method,
+            body: formData,
+            headers: {
+                Accept: "application/json",
+            },
+        });
+
+        if (response.ok) {
+            formStatus.classList.remove("hidden");
+            modalBody.innerHTML = successMarkup;
+        } else {
+            const data = await response.json();
+
+            console.log(data);
+            if (Object.hasOwn(data, "errors")) {
+                throw new Error(data["errors"].map((error) => error["message"]).join(", "));
+            } else {
+                throw new Error("Oops! Something weird has happened. Please try again.");
+            }
+        }
+    } catch (error) {
+        formStatus.classList.remove("hidden");
+        formStatus.innerHTML = error.message;
+    }
+}
+
+contactForm.addEventListener("submit", handleFormSubmit);

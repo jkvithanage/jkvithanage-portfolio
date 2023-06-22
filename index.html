@@ -64,7 +64,7 @@
                 <div class="about-content">
                     <div class="about-content__image-container">
                         <div class="image-wrapper">
-                            <img class="about-content__image" src="./static/me.jpg" alt="" />
+                            <img class="about-content__image" src="./static/me.jpg" alt="" loading="lazy" />
                         </div>
                     </div>
                     <div class="about-content__details">
@@ -198,10 +198,14 @@
                     <div class="project-card">
                         <div class="project-card__body">
                             <div class="project__preview">
-                                <img src="./static/screenshots/mycashflow.png" alt="" />
+                                <a href="https://mycashflow.cc/" target="_blank"
+                                    ><img src="./static/screenshots/mycashflow.png" alt="" loading="lazy"
+                                /></a>
                             </div>
                             <div class="project__details">
-                                <h3 class="stroke-left font-mono project__title">My Cash Flow</h3>
+                                <a href="https://mycashflow.cc/" target="_blank"
+                                    ><h3 class="stroke-left font-mono project__title">My Cash Flow</h3></a
+                                >
                                 <p class="project__summary">Personal finance tracking application.</p>
                                 <p class="project__description">
                                     Analyse your financial transactions to determine how you have spent money and your
@@ -217,8 +221,13 @@
                                     <li class="project__tag">Apexcharts</li>
                                 </ul>
                                 <div class="project__buttons">
-                                    <a href="" target="_blank" class="btn btn-black">Live</a>
-                                    <a href="" target="_blank" class="btn btn-black">GitHub</a>
+                                    <a href="https://mycashflow.cc/" target="_blank" class="btn btn-black">Live</a>
+                                    <a
+                                        href="https://github.com/jkvithanage/mycashflow"
+                                        target="_blank"
+                                        class="btn btn-black"
+                                        >GitHub</a
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -226,10 +235,15 @@
                     <div class="project-card">
                         <div class="project-card__body">
                             <div class="project__preview">
-                                <img src="./static/screenshots/invoice_portal.png" alt="" />
+                                <a href="https://invoices.christysoftware.com/" target="_blank"
+                                    ><img src="./static/screenshots/invoice_portal.png" alt="" loading="lazy"
+                                /></a>
                             </div>
                             <div class="project__details">
-                                <h3 class="stroke-left font-mono project__title">Customer Invoice Portal</h3>
+                                <a href="https://invoices.christysoftware.com/" target="_blank"
+                                    ><h3 class="stroke-left font-mono project__title">Customer Invoice Portal</h3></a
+                                >
+
                                 <p class="project__summary">Simple invoice generating app for a software retailer.</p>
                                 <p class="project__description">
                                     The client (Christy Software) sells software licenses on the sellix.io e-commerce
@@ -245,7 +259,12 @@
                                     <li class="project__tag">Tagify</li>
                                 </ul>
                                 <div class="project__buttons">
-                                    <a href="" target="_blank" class="btn btn-black">Live</a>
+                                    <a
+                                        href="https://invoices.christysoftware.com/"
+                                        target="_blank"
+                                        class="btn btn-black"
+                                        >Live</a
+                                    >
                                     <a href="" target="_blank" class="btn btn-black">GitHub</a>
                                 </div>
                             </div>
@@ -260,24 +279,55 @@
                         <button class="modal__close" type="button"></button>
                     </div>
                     <div class="modal__body">
-                        <form class="form">
+                        <form
+                            class="contact-form"
+                            id="contact-form"
+                            action="https://formspree.io/f/xpzevgna"
+                            method="post"
+                            name="Contact Janaka Vithanage"
+                        >
+                            <p class="form-status hidden">This is the form status</p>
                             <input
                                 type="text"
                                 id="name"
+                                name="name"
                                 placeholder="Your Name"
                                 class="form-input"
-                                style="margin-top: 0"
+                                required
                             />
                             <div class="input-group">
-                                <input type="email" id="email" placeholder="Email Address" class="form-input" />
-                                <input type="tel" id="phone" placeholder="Phone Number" class="form-input" />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    placeholder="Email Address"
+                                    class="form-input"
+                                    required
+                                />
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Phone Number"
+                                    class="form-input"
+                                    required
+                                />
                             </div>
-                            <input type="text" id="subject" placeholder="Subject" class="form-input" />
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="Subject"
+                                class="form-input"
+                                required
+                            />
                             <textarea
+                                name="message"
                                 name="message"
                                 id="message"
                                 placeholder="Message"
                                 class="form-textarea"
+                                required
                             ></textarea>
                             <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
                         </form>

@@ -8,19 +8,21 @@
     align-items: center;
     padding: 1rem 2rem;
     background-color: $black;
-    transition: top 0.25s ease-in-out;
-}
+    transition: all 0.25s ease-in-out;
+    animation: fade-down 1s ease-in-out 1s backwards;
 
-.nav-hidden {
-    top: -7rem;
+    &.hidden {
+        transform: translateY(-100%);
+    }
 }
 
 .nav__logo {
     height: 48px;
-    z-index: 10;
+    z-index: 11;
 }
 
 .nav__content {
+    z-index: 9;
     position: fixed;
     top: 0;
     right: 0;
@@ -106,6 +108,7 @@
     .nav {
         padding: 0;
     }
+
     .nav__content {
         position: static;
         flex-direction: row;

@@ -57,6 +57,7 @@
         left: 0;
         top: calc((100vh - 8rem - 2.4rem * 4) / 2);
         padding: 1rem;
+        animation: fade-right 1s ease-in-out 1.25s backwards;
 
         .social-icons {
             display: grid;

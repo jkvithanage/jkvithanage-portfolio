@@ -34,6 +34,33 @@
     margin-top: 1rem;
 }
 
+.form-status {
+    margin: 0;
+    padding: 2rem;
+    color: $accent-dark;
+    background-color: $accent-light;
+    border: 1px solid $accent-dark;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+.notice-success {
+    text-align: center;
+
+    .icon-success {
+        display: inline-block;
+        width: 10rem;
+        height: 10rem;
+        mask-image: url("../../static/success.svg");
+        mask-repeat: no-repeat;
+        mask-size: 100%;
+        background-color: currentColor;
+        color: $accent;
+    }
+}
+
 @media screen and (min-width: 576px) {
     .form-input,
     .form-textarea {
