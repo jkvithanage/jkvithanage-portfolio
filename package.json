@@ -9,18 +9,21 @@
     "keywords": [
         "portfolio"
     ],
+    "source": "index.html",
+    "browserslist": "> 0.5%, last 2 versions, not dead",
     "scripts": {
-        "start": "parcel index.html -p 3000",
-        "build": "parcel build index.html"
+        "start": "parcel -p 3000",
+        "build": "parcel build"
     },
     "author": "Janaka Vithanage ",
     "license": "MIT",
     "dependencies": {
         "normalize.css": "^8.0.1",
-        "parcel": "^2.9.2",
         "simple-icons": "^9.1.0"
     },
     "devDependencies": {
+        "parcel": "2.9.2",
+        "@parcel/reporter-bundle-analyzer": "^2.9.2",
         "@parcel/transformer-sass": "^2.9.2"
     }
 }

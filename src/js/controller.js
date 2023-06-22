@@ -1,4 +1,26 @@
-import * as icons from "simple-icons";
+import {
+    siRuby,
+    siJavascript,
+    siTypescript,
+    siHtml5,
+    siCss3,
+    siSass,
+    siRubyonrails,
+    siReact,
+    siRedux,
+    siNodedotjs,
+    siBootstrap,
+    siPostgresql,
+    siGit,
+    siGithub,
+    siPostman,
+    siVisualstudiocode,
+    siHeroku,
+    siSelenium,
+    siFigma,
+    siAdobephotoshop,
+    siAdobeillustrator,
+} from "simple-icons";
 
 // 1. Render skill icons
 const languagesEl = document.querySelector(".language-icons");
@@ -6,27 +28,10 @@ const developmentEl = document.querySelector(".development-icons");
 const toolsEl = document.querySelector(".tool-icons");
 const designEl = document.querySelector(".design-icons");
 
-const languageIcons = [icons.siRuby, icons.siJavascript, icons.siTypescript, icons.siHtml5, icons.siCss3, icons.siSass];
-
-const developmentIcons = [
-    icons.siRubyonrails,
-    icons.siReact,
-    icons.siRedux,
-    icons.siNodedotjs,
-    icons.siBootstrap,
-    icons.siPostgresql,
-];
-
-const toolIcons = [
-    icons.siGit,
-    icons.siGithub,
-    icons.siPostman,
-    icons.siVisualstudiocode,
-    icons.siHeroku,
-    icons.siSelenium,
-];
-
-const designIcons = [icons.siFigma, icons.siAdobephotoshop, icons.siAdobeillustrator];
+const languageIcons = [siRuby, siJavascript, siTypescript, siHtml5, siCss3, siSass];
+const developmentIcons = [siRubyonrails, siReact, siRedux, siNodedotjs, siBootstrap, siPostgresql];
+const toolIcons = [siGit, siGithub, siPostman, siVisualstudiocode, siHeroku, siSelenium];
+const designIcons = [siFigma, siAdobephotoshop, siAdobeillustrator];
 
 function renderSkillIcons(el, iconsArr) {
     iconsArr.forEach((iconObj) => {
