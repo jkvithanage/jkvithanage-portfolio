@@ -11,7 +11,7 @@
     ],
     "scripts": {
         "start": "parcel index.html -p 3000",
-        "build": "parcel build index.html --no-scope-hoist"
+        "build": "parcel build index.html"
     },
     "author": "Janaka Vithanage ",
     "license": "MIT",
