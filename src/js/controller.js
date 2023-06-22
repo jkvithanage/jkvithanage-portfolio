@@ -70,7 +70,6 @@ const allContactButtons = document.querySelectorAll(".btn-contact");
 const navbar = document.querySelector(".nav");
 const navClickables = document.querySelectorAll("nav .nav__link");
 const ham = document.querySelector("#hamburger");
-const header = document.getElementById("header");
 
 const openModal = function () {
     modal.classList.remove("visually-hidden");
@@ -146,12 +145,48 @@ sections.forEach((section) => {
     section.classList.remove("reveal");
 });
 
-// Page always scroll to top on reload
+// Handle contact form
 
-// if (history.scrollRestoration) {
-//     history.scrollRestoration = "manual";
-// } else {
-//     window.onbeforeunload = function () {
-//         window.scrollTo(0, 0);
-//     };
-// }
+const contactForm = document.getElementById("contact-form");
+const formStatus = contactForm.querySelector(".form-status");
+const modalBody = document.querySelector(".modal__body");
+
+const successMarkup = `
+    <div class="notice-success">
+        <span class="icon-success"></span>
+        <p class="message-success">Thanks for contacting me. I will get back to you ASAP.</p>
+    </div>
+`;
+
+async function handleFormSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    try {
+        const response = await fetch(e.target.action, {
+            method: contactForm.method,
+            body: formData,
+            headers: {
+                Accept: "application/json",
+            },
+        });
+
+        if (response.ok) {
+            formStatus.classList.remove("hidden");
+            modalBody.innerHTML = successMarkup;
+        } else {
+            const data = await response.json();
+
+            console.log(data);
+            if (Object.hasOwn(data, "errors")) {
+                throw new Error(data["errors"].map((error) => error["message"]).join(", "));
+            } else {
+                throw new Error("Oops! Something weird has happened. Please try again.");
+            }
+        }
+    } catch (error) {
+        formStatus.classList.remove("hidden");
+        formStatus.innerHTML = error.message;
+    }
+}
+
+contactForm.addEventListener("submit", handleFormSubmit);

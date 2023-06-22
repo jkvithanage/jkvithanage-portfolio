@@ -279,24 +279,55 @@
                         <button class="modal__close" type="button"></button>
                     </div>
                     <div class="modal__body">
-                        <form class="form">
+                        <form
+                            class="contact-form"
+                            id="contact-form"
+                            action="https://formspree.io/f/xpzevgna"
+                            method="post"
+                            name="Contact Janaka Vithanage"
+                        >
+                            <p class="form-status hidden">This is the form status</p>
                             <input
                                 type="text"
                                 id="name"
+                                name="name"
                                 placeholder="Your Name"
                                 class="form-input"
-                                style="margin-top: 0"
+                                required
                             />
                             <div class="input-group">
-                                <input type="email" id="email" placeholder="Email Address" class="form-input" />
-                                <input type="tel" id="phone" placeholder="Phone Number" class="form-input" />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    placeholder="Email Address"
+                                    class="form-input"
+                                    required
+                                />
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Phone Number"
+                                    class="form-input"
+                                    required
+                                />
                             </div>
-                            <input type="text" id="subject" placeholder="Subject" class="form-input" />
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="Subject"
+                                class="form-input"
+                                required
+                            />
                             <textarea
+                                name="message"
                                 name="message"
                                 id="message"
                                 placeholder="Message"
                                 class="form-textarea"
+                                required
                             ></textarea>
                             <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
                         </form>
