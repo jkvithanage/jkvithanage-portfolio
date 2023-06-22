@@ -70,6 +70,7 @@ function renderSkillIcons(el, iconsArr) {
 
 const body = document.querySelector("body");
 const modal = document.querySelector(".modal");
+const modalDialog = document.querySelector(".modal-dialog");
 const btnCloseModal = document.querySelector(".modal__close");
 const allContactButtons = document.querySelectorAll(".btn-contact");
 const navbar = document.querySelector(".nav");
@@ -77,13 +78,15 @@ const navClickables = document.querySelectorAll("nav .nav__link");
 const ham = document.querySelector("#hamburger");
 
 const openModal = function () {
-    modal.classList.remove("visually-hidden");
+    modal.classList.remove("hidden");
+    modalDialog.classList.remove("hidden");
     ham.checked = false;
     body.classList.add("overflow-hidden");
 };
 
 const closeModal = function () {
-    modal.classList.add("visually-hidden");
+    modal.classList.add("hidden");
+    modalDialog.classList.add("hidden");
     body.classList.remove("overflow-hidden");
 };
 
@@ -92,13 +95,13 @@ allContactButtons.forEach((btn) => btn.addEventListener("click", openModal));
 btnCloseModal.addEventListener("click", closeModal);
 
 window.onclick = function (e) {
-    if (e.target == modal && !modal.classList.contains("visually-hidden")) {
+    if (e.target == modal && !modal.classList.contains("hidden")) {
         closeModal();
     }
 };
 
 window.onkeydown = function (e) {
-    if (e.key === "Escape" && !modal.classList.contains("visually-hidden")) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
         closeModal();
     }
 };
