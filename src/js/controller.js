@@ -133,6 +133,7 @@ navClickables.forEach((el) => {
 // Reveal sections on scroll
 
 const sections = document.querySelectorAll(".section, .section-full");
+console.log(sections);
 
 const observer = new IntersectionObserver(
     function (entries) {
