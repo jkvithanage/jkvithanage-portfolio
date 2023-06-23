@@ -21,6 +21,7 @@ import {
     siAdobephotoshop,
     siAdobeillustrator,
 } from "simple-icons";
+import { inject } from "@vercel/analytics";
 
 // 1. Render skill icons
 const languagesEl = document.querySelector(".language-icons");
@@ -133,7 +134,6 @@ navClickables.forEach((el) => {
 // Reveal sections on scroll
 
 const sections = document.querySelectorAll(".section, .section-full");
-console.log(sections);
 
 const observer = new IntersectionObserver(
     function (entries) {
@@ -199,3 +199,6 @@ async function handleFormSubmit(e) {
 }
 
 contactForm.addEventListener("submit", handleFormSubmit);
+
+// Vercel analytics
+inject();
