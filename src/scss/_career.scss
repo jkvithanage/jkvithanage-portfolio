@@ -10,7 +10,10 @@
 .career {
     position: relative;
     padding-left: 2rem;
-    padding-bottom: 4rem;
+
+    &:not(:last-child) {
+        padding-bottom: 4rem;
+    }
 
     &::before {
         position: absolute;

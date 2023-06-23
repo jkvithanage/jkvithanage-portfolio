@@ -91,6 +91,15 @@
     }
 }
 
+.list {
+    list-style: "+";
+    padding-left: 2.5rem;
+
+    li {
+        padding-left: 1rem;
+    }
+}
+
 // Animations for elements
 
 @keyframes fade-down {
