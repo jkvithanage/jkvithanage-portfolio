@@ -32,16 +32,17 @@
 
 @media screen and (min-width: 768px) {
     .about-content {
-        flex-direction: row-reverse;
+        display: block;
     }
 
     .about-content__details {
-        width: 55%;
         margin-top: 0;
     }
 
     .about-content__image-container {
         width: 40%;
-        margin-right: 0;
+        margin-left: 3rem;
+        margin-bottom: 3rem;
+        float: right;
     }
 }

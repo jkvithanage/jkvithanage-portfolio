@@ -58,6 +58,13 @@
         background-color: $accent;
         color: $black;
     }
+
+    &:disabled {
+        color: $white;
+        background-color: $black;
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
 .btn-black-outlined {
@@ -72,6 +79,8 @@
 }
 
 .link {
+    display: inline !important;
+    cursor: pointer;
     font-style: italic;
     border-bottom: 1px solid $accent;
 

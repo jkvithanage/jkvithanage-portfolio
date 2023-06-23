@@ -70,11 +70,6 @@
     font-family: "Jetbrains Mono", monospace;
 }
 
-.visually-hidden {
-    visibility: hidden;
-    opacity: 0;
-}
-
 .overflow-hidden {
     overflow: hidden !important;
 }
@@ -93,6 +88,15 @@
         height: 100%;
         z-index: -1;
         transition: all 0.25s ease-in-out;
+    }
+}
+
+.list {
+    list-style: "+";
+    padding-left: 2.5rem;
+
+    li {
+        padding-left: 1rem;
     }
 }
 
