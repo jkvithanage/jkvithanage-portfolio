@@ -135,18 +135,13 @@ navClickables.forEach((el) => {
 
 const sections = document.querySelectorAll(".section, .section-full");
 
-const observer = new IntersectionObserver(
-    function (entries) {
-        const [entry] = entries;
-        if (!entry.isIntersecting) return;
+const observer = new IntersectionObserver(function (entries) {
+    const [entry] = entries;
+    if (!entry.isIntersecting) return;
 
-        entry.target.classList.add("reveal", entry.isIntersecting);
-        observer.unobserve(entry.target);
-    },
-    {
-        threshold: 0.1,
-    }
-);
+    entry.target.classList.add("reveal", entry.isIntersecting);
+    observer.unobserve(entry.target);
+});
 
 sections.forEach((section) => {
     observer.observe(section);
