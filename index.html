@@ -83,17 +83,19 @@
         </div>
         <header id="header">
             <nav class="nav">
-                <a href="/" class="nav__logo"
-                    ><img src="./static/logo.svg" alt="Janaka Vithanage brand logo" role="link"
+                <a href="/" class="nav__logo" role="link"
+                    ><img src="./static/logo.svg" alt="Janaka Vithanage brand logo" width="48" height="48"
                 /></a>
                 <input type="checkbox" id="hamburger" role="checkbox" />
-                <label class="hamburger__label" for="hamburger" role="button">
+                <label class="hamburger__label" for="hamburger" role="button" aria-label="Navigation menu toggler">
                     <div class="hamburger__bar"></div>
                     <div class="hamburger__bar"></div>
                     <div class="hamburger__bar"></div>
                 </label>
                 <div class="nav__content">
-                    <a href="/" class="nav__logo"><img src="./static/logo.svg" alt="Janaka Vithanage brand logo" /></a>
+                    <a href="/" class="nav__logo" role="link"
+                        ><img src="./static/logo.svg" alt="Janaka Vithanage brand logo" width="48" height="48"
+                    /></a>
                     <ul class="nav__list">
                         <li class="nav__item">
                             <a class="nav__link" href="#about" aria-label="Go to about section">About</a>
@@ -179,12 +181,16 @@
                 <div class="about-content">
                     <div class="about-content__image-container">
                         <div class="image-wrapper">
-                            <img
-                                class="about-content__image"
-                                src="./static/me.jpg"
-                                alt="Portrait photo of Janaka Vithanage"
-                                loading="lazy"
-                            />
+                            <picture>
+                                <source media="(max-width: 576px)" srcset="./static/me/me-350.webp" />
+                                <source media="(max-width: 768px)" srcset="./static/me/me-440.webp" />
+                                <img
+                                    class="about-content__image"
+                                    src="./static/me/me-600.webp"
+                                    alt="Portrait photo of Janaka Vithanage"
+                                    loading="lazy"
+                                />
+                            </picture>
                         </div>
                     </div>
                     <div class="about-content__details">
@@ -418,7 +424,9 @@
                                     role="link"
                                     aria-label="Visit My Cash Flow website"
                                     ><img
-                                        src="./static/screenshots/mycashflow.png"
+                                        src="./static/screenshots/mycashflow-blur.png"
+                                        data-src="./static/screenshots/mycashflow.png"
+                                        class="project__preview__image lazy-img"
                                         alt="Screenshot of My Cash Flow dashboard page"
                                         loading="lazy"
                                 /></a>
@@ -476,7 +484,9 @@
                                     role="link"
                                     aria-label="Visit invoice portal web app"
                                     ><img
-                                        src="./static/screenshots/invoice_portal.png"
+                                        src="./static/screenshots/invoice_portal-blur.png"
+                                        data-src="./static/screenshots/invoice_portal.png"
+                                        class="project__preview__image lazy-img"
                                         alt="Screenshot of invoice protal web app"
                                         loading="lazy"
                                 /></a>
@@ -537,7 +547,9 @@
                                     role="link"
                                     aria-label="Visit Astrolog website"
                                     ><img
-                                        src="./static/screenshots/astrolog.png"
+                                        src="./static/screenshots/astrolog-blur.png"
+                                        data-src="./static/screenshots/astrolog.png"
+                                        class="project__preview__image lazy-img"
                                         alt="Screenshot of Astrolog website"
                                         loading="lazy"
                                 /></a>

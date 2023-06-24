@@ -13,7 +13,11 @@
 }
 
 .project__preview {
-    img {
+    a {
+        width: 100%;
+    }
+
+    .project__preview__image {
         width: 100%;
         filter: grayscale(100%);
         transition: filter 0.25s ease-in;
