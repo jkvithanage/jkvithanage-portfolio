@@ -50,6 +50,7 @@
 
     .icon-success {
         mask-image: url("../../static/success.svg");
+        @extend %icon-mask;
         display: inline-block;
         width: 10rem;
         height: 10rem;
