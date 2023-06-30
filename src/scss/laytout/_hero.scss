@@ -61,8 +61,8 @@
     width: 1rem;
     height: 1rem;
     transform: rotate(45deg);
-    border-bottom: 1px solid $white;
-    border-right: 1px solid $white;
+    border-bottom: $border-white;
+    border-right: $border-white;
 }
 
 .hero__scroll-down:before {
@@ -71,27 +71,4 @@
 
 .hero__scroll-down:after {
     animation: down-arrow-after 2.5s cubic-bezier(0.77, 0, 0.175, 1) 5;
-}
-
-@keyframes down-arrow-before {
-    50% {
-        transform: rotate(45deg) translate(70%, 70%);
-    }
-    100% {
-        transform: rotate(45deg) translate(70%, 70%);
-    }
-}
-
-@keyframes down-arrow-after {
-    50% {
-        transform: rotate(45deg) translate(110%, 110%);
-        opacity: 0;
-    }
-    51% {
-        transform: rotate(45deg) translate(-130%, -130%);
-    }
-    100% {
-        transform: rotate(45deg) translate(-70%, -70%);
-        opacity: 1;
-    }
 }

@@ -47,3 +47,28 @@
         transform: translateX(0);
     }
 }
+
+// hero scroll down arrow
+
+@keyframes down-arrow-before {
+    50% {
+        transform: rotate(45deg) translate(70%, 70%);
+    }
+    100% {
+        transform: rotate(45deg) translate(70%, 70%);
+    }
+}
+
+@keyframes down-arrow-after {
+    50% {
+        transform: rotate(45deg) translate(110%, 110%);
+        opacity: 0;
+    }
+    51% {
+        transform: rotate(45deg) translate(-130%, -130%);
+    }
+    100% {
+        transform: rotate(45deg) translate(-70%, -70%);
+        opacity: 1;
+    }
+}
