@@ -3,7 +3,7 @@ $socials: ("github", "linkedin", "instagram", "twitter", "email");
 
 @each $social in $socials {
     .icon-#{$social} {
-        mask-image: url("../../static/socials/#{$social}.svg");
+        mask-image: url("../../../static/socials/#{$social}.svg");
         @extend %icon-mask;
         display: inline-block;
         width: 2.4rem;
