@@ -23,10 +23,10 @@
         "simple-icons": "^9.1.0"
     },
     "devDependencies": {
-        "@parcel/packager-raw-url": "^2.9.2",
-        "@parcel/reporter-bundle-analyzer": "^2.9.2",
-        "@parcel/transformer-sass": "^2.9.2",
-        "@parcel/transformer-webmanifest": "^2.9.2",
-        "parcel": "2.9.2"
+        "@parcel/packager-raw-url": "^2.9.3",
+        "@parcel/reporter-bundle-analyzer": "^2.9.3",
+        "@parcel/transformer-sass": "^2.9.3",
+        "@parcel/transformer-webmanifest": "^2.9.3",
+        "parcel": "2.9.3"
     }
 }
