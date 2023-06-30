@@ -1,0 +1,25 @@
+.main {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 100%;
+}
+
+.section,
+.section-full {
+    padding: 5rem 2rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    &.reveal {
+        animation: fade-up 1s ease-in-out backwards;
+    }
+}
+
+.section {
+    max-width: 90rem;
+}
+
+.section-full {
+    width: 100%;
+}

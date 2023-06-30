@@ -8,8 +8,7 @@
 }
 
 .project-card__body {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
 }
 
 .project__preview {
@@ -20,12 +19,16 @@
     .project__preview__image {
         width: 100%;
         filter: grayscale(100%);
-        transition: filter 0.25s ease-in;
+        transition: filter 0.25s $transition;
 
         &:hover {
             filter: none;
         }
     }
+}
+
+.project__title {
+    font-family: $font-mono;
 }
 
 .project__details {
@@ -43,8 +46,8 @@
     display: inline-block;
     color: $accent-dark;
     background-color: $accent-light;
-    font-family: "Jetbrains Mono", monospace;
-    border: 1px solid $accent-dark;
+    font-family: $font-mono;
+    border: $border-accent-dark;
     font-size: 1rem;
     margin-right: 0.5rem;
     margin-bottom: 1rem;

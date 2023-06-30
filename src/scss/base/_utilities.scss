@@ -1,0 +1,50 @@
+.stroke-left,
+.stroke-center {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+
+    &::after {
+        background-color: $accent;
+        content: "";
+        width: 5rem;
+        height: 2px;
+        margin-top: 0.5rem;
+    }
+}
+
+.stroke-left {
+    align-items: start;
+}
+
+.stroke-center {
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.flex-left {
+    display: flex;
+    justify-content: start;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+.list {
+    list-style: "+";
+    padding-left: 2.5rem;
+
+    li {
+        padding-left: 1rem;
+    }
+}
+
+.lazy-img {
+    filter: blur(20px);
+}

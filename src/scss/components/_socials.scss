@@ -1,0 +1,56 @@
+// put any new social icon into the "../../static/socials and append the same file name to this list"
+$socials: ("github", "linkedin", "instagram", "twitter", "email");
+
+@each $social in $socials {
+    .icon-#{$social} {
+        mask-image: url("../../static/socials/#{$social}.svg");
+        @extend %icon-mask;
+        display: inline-block;
+        width: 2.4rem;
+        height: 2.4rem;
+        color: $white;
+        transition: $transition-all;
+
+        &:hover {
+            color: $accent;
+        }
+    }
+}
+
+.socials-desktop {
+    display: none;
+}
+
+.socials-footer,
+.socials-mobile-nav {
+    .social-link:not(:last-child) {
+        margin-right: 1rem;
+    }
+}
+
+.socials-mobile-nav {
+    margin-top: clamp(0rem, 4vh, 5rem);
+}
+
+@media screen and (min-width: 1024px) {
+    .socials-desktop {
+        display: block;
+        background-color: $black;
+        z-index: 100;
+        position: fixed;
+        left: 0;
+        top: calc((100vh - 8rem - 2.4rem * 4) / 2);
+        padding: 1rem;
+        animation: fade-right 1s $transition 1.25s backwards;
+
+        .social-icons {
+            display: grid;
+            gap: 1rem;
+        }
+    }
+
+    .socials-footer,
+    .socials-mobile-nav {
+        display: none;
+    }
+}

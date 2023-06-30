@@ -42,3 +42,39 @@
     font-named-instance: "Bold";
     src: url("../../static/fonts/JetBrainsMono-Bold.woff2") format("woff2");
 }
+
+html {
+    /* 62.5% of 16px */
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-primary;
+    font-variation-settings: normal;
+    line-height: 1.5;
+    font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 1rem;
+    font-family: $font-title;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 3.1rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+h4 {
+    font-size: 2rem;
+}

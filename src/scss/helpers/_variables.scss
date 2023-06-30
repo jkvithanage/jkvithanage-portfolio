@@ -1,0 +1,22 @@
+// Colors
+
+$accent: hsl(53, 86%, 54%);
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+
+$accent-20: hsla(53, 86%, 54%, 0.2);
+$accent-light: hsl(54, 100%, 93%);
+$accent-dark: hsl(53, 99%, 38%);
+
+$font-primary: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue,
+    Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+$font-title: "Barlow", sans-serif;
+$font-mono: "JetBrains Mono", monospace;
+
+$transition: ease-in-out;
+$transition-all: all 0.25s $transition;
+
+$border-black: 1px solid $black;
+$border-white: 1px solid $white;
+$border-accent: 1px solid $accent;
+$border-accent-dark: 1px solid $accent-dark;

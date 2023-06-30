@@ -9,7 +9,7 @@
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
-    transition: all 0.25s ease-in-out;
+    transition: $transition-all;
 
     &.hidden {
         visibility: hidden;
@@ -32,15 +32,13 @@
     display: inline-block;
     cursor: pointer;
     mask-image: url("../../static/close.svg");
-    mask-repeat: no-repeat;
-    mask-size: 100%;
-    background-color: currentColor;
+    @extend %icon-mask;
     color: $black;
     width: 2.4rem;
     height: 2.4rem;
     padding: 0;
     margin: 0;
-    transition: all 0.25s ease-in-out;
+    transition: $transition-all;
 
     &:hover {
         color: $accent;
@@ -51,6 +49,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid $black;
     padding: 1rem 2rem;
 }
 
@@ -77,8 +76,6 @@
 
 @media screen and (min-width: 768px) {
     .modal-dialog {
-        margin-left: auto;
-        margin-right: auto;
         margin-top: 3rem;
     }
 
