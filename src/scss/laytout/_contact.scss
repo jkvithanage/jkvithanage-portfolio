@@ -5,8 +5,8 @@
     width: 100%;
     margin-top: 2rem;
     border: 1px solid $black;
-    transition: border 0.25s ease-in-out;
-    font-family: "Jetbrains mono", monospace;
+    transition: border 0.25s $transition;
+    font-family: $font-mono;
 
     &::placeholder {
         color: $black;
@@ -25,8 +25,7 @@
 }
 
 .input-group {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
 }
 
 .btn-form {
@@ -50,13 +49,10 @@
     text-align: center;
 
     .icon-success {
+        mask-image: url("../../static/success.svg");
         display: inline-block;
         width: 10rem;
         height: 10rem;
-        mask-image: url("../../static/success.svg");
-        mask-repeat: no-repeat;
-        mask-size: 100%;
-        background-color: currentColor;
         color: $accent;
     }
 }

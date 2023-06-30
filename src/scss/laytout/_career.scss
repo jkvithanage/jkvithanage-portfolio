@@ -24,7 +24,7 @@
         border: 1px solid $black;
         left: -1rem;
         top: 3rem;
-        transition: all 0.25s ease-in-out;
+        transition: $transition-all;
     }
 
     &:not(:last-child)::after {
@@ -36,7 +36,6 @@
         top: 3.5rem;
         left: -0.5rem;
         z-index: -1;
-        transition: max-height 0.5s ease-in-out;
         overflow: hidden;
     }
 
@@ -46,14 +45,14 @@
 }
 
 .career-heading {
+    @extend %flex-column;
     position: relative;
-    display: flex;
-    flex-direction: column;
     align-items: start;
     padding-bottom: 1rem;
 }
 
 .career-heading__title {
+    font-family: $font-mono;
     font-size: 2rem;
     margin: 0;
 }

@@ -1,12 +1,12 @@
 .skills-card {
     width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    @extend %margin-h-auto;
     text-align: center;
 }
 
 .skills-card__title {
-    border-bottom: 1px solid $black;
+    font-family: $font-mono;
+    border-bottom: $border-black;
     font-weight: 700;
     margin-bottom: 0;
     padding-bottom: 1rem;
@@ -32,7 +32,7 @@
 
     svg {
         pointer-events: none;
-        transition: all 0.25s ease-in-out;
+        transition: $transition-all;
     }
 
     .icon-label {
@@ -41,8 +41,8 @@
         font-size: 1rem;
         background-color: $accent-light;
         color: $accent-dark;
-        border: 1px solid $accent-dark;
-        font-family: "Jetbrains Mono", monospace;
+        border: $border-accent-dark;
+        font-family: $font-mono;
         padding: 0.5rem 1rem;
         width: fit-content;
         z-index: 1;
@@ -51,19 +51,3 @@
         top: 100%;
     }
 }
-
-// @media screen and (min-width: 768px) {
-//     .skills {
-//         display: grid;
-//         grid-template-columns: 1fr 1fr;
-//         gap: 2rem;
-//     }
-
-//     .skills-card {
-//         width: 100%;
-//         padding: 0;
-//     }
-
-//     .skill-icon {
-//     }
-// }

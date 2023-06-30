@@ -6,15 +6,14 @@
     cursor: pointer;
     width: 3rem;
     height: 3rem;
-    display: flex;
+    @extend %flex-column;
     justify-content: space-between;
-    flex-direction: column;
 }
 
 .hamburger__label > .hamburger__bar {
     height: 3px;
     background-color: $white;
-    transition: 0.25s;
+    transition: $transition-all;
     z-index: 999;
 }
 

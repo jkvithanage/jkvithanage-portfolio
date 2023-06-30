@@ -9,8 +9,8 @@
     letter-spacing: clamp(1px, 0.5vw, 4px);
     padding: 1rem 2rem;
     cursor: pointer;
-    transition: all 0.25s ease-in-out;
-    font-family: "JetBrains Mono", monospace;
+    transition: $transition-all;
+    font-family: $font-mono;
 }
 
 .btn-lg {
