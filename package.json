@@ -1,29 +1,29 @@
 {
-    "name": "jkvithanage-portfolio",
-    "version": "1.1.0",
-    "description": "Janaka Vithanage Personal Website",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jkvithanage/jkvithanage-portfolio"
-    },
-    "keywords": [
-        "portfolio"
-    ],
-    "source": "index.html",
-    "browserslist": "> 0.5%, last 2 versions, not dead",
-    "scripts": {
-        "start": "vite --p 3000",
-        "build": "vite build"
-    },
-    "author": "Janaka Vithanage",
-    "license": "MIT",
-    "dependencies": {
-        "@vercel/analytics": "^1.0.1",
-        "simple-icons": "^9.1.0"
-    },
-    "devDependencies": {
-        "postcss": "^8.4.24",
-        "autoprefixer": "^10.4.14",
-        "vite": "^4.3.9"
-    }
+	"name": "jkvithanage-portfolio",
+	"version": "1.1.0",
+	"description": "Janaka Vithanage Personal Website",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jkvithanage/jkvithanage-portfolio"
+	},
+	"keywords": [
+		"portfolio"
+	],
+	"source": "index.html",
+	"browserslist": "> 0.5%, last 2 versions, not dead",
+	"scripts": {
+		"start": "vite --port 3000",
+		"build": "vite build"
+	},
+	"author": "Janaka Vithanage",
+	"license": "MIT",
+	"dependencies": {
+		"@vercel/analytics": "^1.0.1",
+		"simple-icons": "^9.1.0"
+	},
+	"devDependencies": {
+		"postcss": "^8.4.24",
+		"autoprefixer": "^10.4.14",
+		"vite": "^4.3.9"
+	}
 }

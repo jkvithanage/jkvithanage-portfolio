@@ -1,77 +1,77 @@
 .section-careers {
-    max-width: 700px;
+	max-width: 700px;
 }
 
 .careers {
-    list-style: none;
-    padding-left: 0;
+	list-style: none;
+	padding-left: 0;
 }
 
 .career {
-    position: relative;
-    padding-left: 2rem;
+	position: relative;
+	padding-left: 2rem;
 
-    &:not(:last-child) {
-        padding-bottom: 4rem;
-    }
+	&:not(:last-child) {
+		padding-bottom: 4rem;
+	}
 
-    &::before {
-        position: absolute;
-        content: "";
-        width: 1.2rem;
-        height: 1.2rem;
-        background-color: $black;
-        border: $border-black;
-        left: -1rem;
-        top: 3rem;
-        transition: $transition-all;
-    }
+	&::before {
+		position: absolute;
+		content: '';
+		width: 1.2rem;
+		height: 1.2rem;
+		background-color: $black;
+		border: $border-black;
+		left: -1rem;
+		top: 3rem;
+		transition: $transition-all;
+	}
 
-    &:not(:last-child)::after {
-        position: absolute;
-        content: "";
-        background-color: $black;
-        width: 1px;
-        height: 100%;
-        top: 3.5rem;
-        left: -0.5rem;
-        z-index: -1;
-        overflow: hidden;
-    }
+	&:not(:last-child)::after {
+		position: absolute;
+		content: '';
+		background-color: $black;
+		width: 1px;
+		height: 100%;
+		top: 3.5rem;
+		left: -0.5rem;
+		z-index: -1;
+		overflow: hidden;
+	}
 
-    &:hover::before {
-        background-color: $accent;
-    }
+	&:hover::before {
+		background-color: $accent;
+	}
 }
 
 .career-heading {
-    @extend %flex-column;
-    position: relative;
-    align-items: start;
-    padding-bottom: 1rem;
+	@extend %flex-column;
+	position: relative;
+	align-items: start;
+	padding-bottom: 1rem;
 }
 
 .career-heading__title {
-    font-family: $font-mono;
-    font-size: 2rem;
-    margin: 0;
+	font-family: $font-mono;
+	font-size: 2rem;
+	margin: 0;
 }
 
 .career-heading__time,
 .career__employer {
-    font-size: 1.3rem;
-    margin: 0;
+	font-size: 1.3rem;
+	margin: 0;
 }
 
 .career__description {
-    padding-left: 3rem;
-    margin: 0;
+	padding-left: 3rem;
+	margin: 0;
 }
 
 @media screen and (min-width: 768px) {
-    .career-heading {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
+	.career-heading {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
 }
