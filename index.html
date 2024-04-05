@@ -1,801 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta
-			name="description"
-			content="Janaka Vithanage is a full stack web developer in Melbourne. Contact him for help with Ruby on Rails, JavaScript, React and Redux based web application development."
-		/>
-		<meta property="og:title" content="Janaka Vithanage - Web Developer in Melbourne" />
-		<meta
-			property="og:description"
-			content="Janaka Vithanage is a full stack web developer in Melbourne. Contact him for help with Ruby on Rails, JavaScript, React and Redux based web application development."
-		/>
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://www.jkvithanage.com/" />
-		<meta property="og:image" content="./public/og-image.jpg" />
 
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta property="twitter:domain" content="jkvithanage.com" />
-		<meta property="twitter:url" content="https://www.jkvithanage.com/" />
-		<meta name="twitter:title" content="Janaka Vithanage - Web Developer in Melbourne" />
-		<meta
-			name="twitter:description"
-			content="Janaka Vithanage is a full stack web developer in Melbourne. Contact him for help with Ruby on Rails, JavaScript, React and Redux based web application development."
-		/>
-		<meta name="twitter:image" content="./public/og-image.jpg" />
-		<meta name="twitter:creator" content="@jkvithanage" />
-		<meta name="twitter:creator:id" content="@jkvithanage" />
-		<link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png" />
-		<link rel="manifest" href="/site.webmanifest" />
-		<title>Web Developer in Melbourne | Janaka Vithanage</title>
-		<link rel="stylesheet" href="src/scss/main.scss" />
-		<script type="module" src="src/js/controller.js"></script>
-	</head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Janaka Vithanage is a full stack web developer in Melbourne. Contact him for help with Ruby on Rails, JavaScript, React and Redux based web application development." />
+  <meta property="og:title" content="Janaka Vithanage - Web Developer in Melbourne" />
+  <meta property="og:description"
+    content="Janaka Vithanage is a full stack web developer in Melbourne. Contact him for help with Ruby on Rails, JavaScript, React and Redux based web application development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.jkvithanage.com/" />
+  <meta property="og:image" content="./public/og-image.jpg" />
 
-	<body>
-		<div class="socials-desktop">
-			<div class="social-icons">
-				<a
-					class="social-link"
-					href="https://github.com/jkvithanage"
-					target="_blank"
-					aria-label="Link to the GitHub profile"
-					role="link"
-					><span class="social-icon icon-github"></span
-				></a>
-				<a
-					class="social-link"
-					href="https://www.linkedin.com/in/jkvithanage/"
-					target="_blank"
-					aria-label="Link to the LinkedIn profile"
-					role="link"
-					><span class="icon-linkedin"></span
-				></a>
-				<a
-					class="social-link"
-					href="https://www.instagram.com/jkvithanage/"
-					target="_blank"
-					aria-label="Link to the Instagram profile"
-					role="link"
-					><span class="icon-instagram"></span
-				></a>
-				<a
-					class="social-link"
-					href="https://twitter.com/jkvithanage"
-					target="_blank"
-					aria-label="Link to the Twitter profile"
-					role="link"
-					><span class="icon-twitter"></span
-				></a>
-				<a
-					class="social-link"
-					href="mailto:jkvithana@gmail.com"
-					target="_blank"
-					aria-label="Email address of Janaka"
-					role="link"
-					><span class="icon-email"></span
-				></a>
-			</div>
-		</div>
-		<header id="header">
-			<nav class="nav">
-				<a href="/" class="nav__logo" role="link"
-					><img src="./static/logo.svg" alt="Janaka Vithanage brand logo" width="48" height="48"
-				/></a>
-				<input type="checkbox" id="hamburger" role="checkbox" />
-				<label class="hamburger__label" for="hamburger" role="button" aria-label="Navigation menu toggler">
-					<div class="hamburger__bar"></div>
-					<div class="hamburger__bar"></div>
-					<div class="hamburger__bar"></div>
-				</label>
-				<div class="nav__content">
-					<a href="/" class="nav__logo" role="link"
-						><img src="./static/logo.svg" alt="Janaka Vithanage brand logo" width="48" height="48"
-					/></a>
-					<ul class="nav__list">
-						<li class="nav__item">
-							<a class="nav__link" href="#about" aria-label="Go to about section">About</a>
-						</li>
-						<li class="nav__item">
-							<a class="nav__link" href="#skills" aria-label="Go to skill section">Skills</a>
-						</li>
-						<li class="nav__item">
-							<a class="nav__link" href="#career" aria-label="Go to career section">Career</a>
-						</li>
-						<li class="nav__item">
-							<a class="nav__link" href="#portfolio" aria-label="Go to portfolio section">Portfolio</a>
-						</li>
-						<li class="nav__item">
-							<a
-								class="nav__link"
-								href="https://graphics.jkvithanage.com"
-								target="_blank"
-								aria-label="Go to portfolio section"
-								>Graphics</a
-							>
-						</li>
-					</ul>
-					<button
-						class="btn btn-white-outlined btn-contact"
-						role="button"
-						aria-label="Open contact form to send a message to Janaka"
-					>
-						Contact me
-					</button>
-					<div class="socials-mobile-nav">
-						<div class="social-icons">
-							<a
-								class="social-link"
-								href="https://github.com/jkvithanage"
-								target="_blank"
-								aria-label="Link to the GitHub profile"
-								role="link"
-								><span class="icon-github"></span
-							></a>
-							<a
-								class="social-link"
-								href="https://www.linkedin.com/in/jkvithanage/"
-								target="_blank"
-								aria-label="Link to the LinkedIn profile"
-								role="link"
-								><span class="icon-linkedin"></span
-							></a>
-							<a
-								class="social-link"
-								href="https://www.instagram.com/jkvithanage/"
-								target="_blank"
-								aria-label="Link to the Instagram profile"
-								role="link"
-								><span class="icon-instagram"></span
-							></a>
-							<a
-								class="social-link"
-								href="https://twitter.com/jkvithanage"
-								target="_blank"
-								aria-label="Link to the Twitter profile"
-								role="link"
-								><span class="icon-twitter"></span
-							></a>
-							<a
-								class="social-link"
-								href="mailto:jkvithana@gmail.com"
-								target="_blank"
-								aria-label="Email address of Janaka"
-								role="link"
-								><span class="icon-email"></span
-							></a>
-						</div>
-					</div>
-				</div>
-			</nav>
-		</header>
-		<main class="main">
-			<section class="section-hero">
-				<div class="hero__content">
-					<p class="hero__greet">Hello, my name is</p>
-					<h1 class="hero__title stroke-center">Janaka Vithanage</h1>
-					<p class="hero__subtitle">Full Stack Web Developer in Melbourne</p>
-					<a href="#portfolio" class="btn btn-lg btn-white-outlined hero__btn">See my work</a>
-				</div>
-				<div class="hero__scroll-down"></div>
-			</section>
-			<section class="section" id="about">
-				<div class="flex-left">
-					<h2 class="stroke-left">About</h2>
-				</div>
-				<div class="about-content">
-					<div class="about-content__image-container">
-						<div class="about-content__image-wrapper">
-							<picture>
-								<source media="(max-width: 576px)" srcset="./static/me/me-350.webp" />
-								<source media="(max-width: 768px)" srcset="./static/me/me-440.webp" />
-								<img
-									class="about-content__image"
-									src="./static/me/me-600.webp"
-									alt="Portrait photo of Janaka Vithanage"
-									loading="lazy"
-								/>
-							</picture>
-						</div>
-					</div>
-					<div class="about-content__details">
-						<p>
-							Hi there, my name is Janaka. I'm a full-stack web developer currently living in Melbourne, Australia. I am
-							passionate about building beautiful, interactive web applications with the best user experience. Besides
-							the web, I'm interested in new technologies and DIY activities, mainly 3D printing and CNC-related
-							projects.
-						</p>
-						<p>
-							I was born in Sri Lanka and moved to Melbourne in 2022. I earned my bachelor's degree in Chemical and
-							Process Engineering. After graduation, I worked as a chemical engineer in the sugar manufacturing
-							industry, where I held an executive role focused on workforce management and decision-making.
-						</p>
-						<p>
-							During the pandemic, I started learning to code with Java and then followed the online
-							<a
-								href="https://www.lewagon.com/melbourne"
-								class="link"
-								aria-label="Visit Le Wagon Melbourne official website"
-								role="link"
-								>CS50</a
-							>
-							course at Harvard University. After moving to Melbourne, I joined
-							<a
-								href="https://www.lewagon.com/melbourne"
-								class="link"
-								aria-label="Visit Le Wagon Melbourne official website"
-								role="link"
-								>Le Wagon</a
-							>
-							coding bootcamp to broaden my skills. After working as a freelance web developer for one year, I decided
-							to do my master's in
-							<a
-								href="https://www.torrens.edu.au/courses/business/master-of-business-information-systems"
-								class="link"
-								aria-label="Visit Le Wagon Melbourne official website"
-								role="link"
-								>Business Information Systems</a
-							>
-							at Torrens University Australia to fill gaps in my business, project management and IT skills.
-						</p>
-						<p>
-							I primarily use Ruby on Rails for building full-stack web applications and React/Redux or vanilla
-							JavaScript for front-end development. If you plan to build a web application, collaborate on something
-							cool, or want to say hi,
-							<span class="link btn-contact" role="button" aria-label="Open contact form to send a message to Janaka"
-								>shoot me a message</span
-							>. Let's work together!
-						</p>
-					</div>
-				</div>
-			</section>
-			<section class="section" id="skills">
-				<div class="flex-center">
-					<h2 class="stroke-center">Skills</h2>
-				</div>
-				<div class="skills">
-					<div class="skills-card">
-						<p class="skills-card__title">Languages</p>
-						<div class="skills-card__body">
-							<ul class="skill-icons language-icons"></ul>
-						</div>
-					</div>
-					<div class="skills-card">
-						<p class="skills-card__title">Development</p>
-						<div class="skills-card__body">
-							<ul class="skill-icons development-icons"></ul>
-						</div>
-					</div>
-					<div class="skills-card">
-						<p class="skills-card__title">Tools</p>
-						<div class="skills-card__body">
-							<ul class="skill-icons tool-icons"></ul>
-						</div>
-					</div>
-					<div class="skills-card">
-						<p class="skills-card__title">Design</p>
-						<div class="skills-card__body">
-							<ul class="skill-icons design-icons"></ul>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="section section-careers" id="career">
-				<div class="flex-left">
-					<h2 class="stroke-left">Career</h2>
-				</div>
-				<ul class="careers">
-					<li class="career">
-						<p class="career__employer">Self employed</p>
-						<div class="career-heading">
-							<h3 class="career-heading__title">Freelance Web Developer</h3>
-							<p class="career-heading__time">2023 Jan - Now</p>
-						</div>
-						<ul class="list career__description">
-							<li>Design and develop software applications according to customer specifications.</li>
-							<li>
-								<a
-									href="https://www.upwork.com/freelancers/~01ac14c03ad8691410"
-									target="_blank"
-									class="link"
-									role="link"
-									aria-label="Hire me on Upwork"
-									rel="noopener noreferrer"
-									>Find me on Upwork.</a
-								>
-							</li>
-						</ul>
-					</li>
-					<li class="career">
-						<a
-							href="https://www.linkedin.com/company/lscl/"
-							class="career__employer"
-							target="_blank"
-							role="link"
-							aria-label="Visit Lanka Sugar Company LinkedIn profile"
-							rel="noopener noreferrer"
-							>Lanka Sugar Company Ltd</a
-						>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:domain" content="jkvithanage.com" />
+  <meta property="twitter:url" content="https://www.jkvithanage.com/" />
+  <meta name="twitter:title" content="Janaka Vithanage - Web Developer in Melbourne" />
+  <meta name="twitter:description"
+    content="Janaka Vithanage is a full stack web developer in Melbourne. Contact him for help with Ruby on Rails, JavaScript, React and Redux based web application development." />
+  <meta name="twitter:image" content="./public/og-image.jpg" />
+  <meta name="twitter:creator" content="@jkvithanage" />
+  <meta name="twitter:creator:id" content="@jkvithanage" />
+  <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>Web Developer in Melbourne | Janaka Vithanage</title>
+  <link rel="stylesheet" href="src/scss/main.scss" />
+  <script type="module" src="src/js/controller.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeLGbwmAAAAAK2z7ZzW_hDef9Ll9RI2RCf0RglP"></script>
+  <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6LeLGbwmAAAAAK2z7ZzW_hDef9Ll9RI2RCf0RglP', { action: 'submit' }).then(function (token) {
+        console.info("got token: " + token);
+        document.getElementById('g-recaptcha-response').value = token;
+      });
+    });
+  </script>
+</head>
 
-						<div class="career-heading">
-							<h3 class="career-heading__title">Chemical Engineer</h3>
-							<p class="career-heading__time">2017 Nov - 2018 Dec</p>
-						</div>
-						<ul class="list career__description">
-							<li>Managed and coordinated regular employees.</li>
-							<li>
-								Ensured process consistency and product quality, performed necessary maintenance and upgrades, and
-								identified opportunities to boost efficiency.
-							</li>
-							<li>Process equipment design and development.</li>
-						</ul>
-					</li>
-					<li class="career">
-						<p class="career__employer">Self employed</p>
-						<div class="career-heading">
-							<h3 class="career-heading__title">Graphic Designer</h3>
-							<p class="career-heading__time">2012 Oct - 2022 May</p>
-						</div>
-						<ul class="list career__description">
-							<li>
-								Offered a range of graphic design services such as digital and printed marketing material design,
-								product image enhancement and outdoor advertising.
-							</li>
-							<li>
-								Worked with over 3000 clients from different industries, including advertising, photography, digital
-								marketing and real estate.
-							</li>
-							<li>
-								Became a top-rated seller within three months of service, the highest tier a freelancer can achieve on
-								Fiverr.
-							</li>
-							<li>
-								<a
-									href="https://graphics.jkvithanage.com"
-									target="_blank"
-									class="link"
-									role="link"
-									aria-label="Hire me on Upwork"
-									rel="noopener noreferrer"
-									>Visit my graphic design portfolio.</a
-								>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<div class="section-edu">
-					<div class="flex-left">
-						<h2 class="stroke-left">Education</h2>
-					</div>
-					<ul class="careers">
-						<li class="career">
-							<a
-								href="https://www.torrens.edu.au/"
-								class="career__employer"
-								target="_blank"
-								rel="noopener noreferrer"
-								role="link"
-								aria-label="Visit Torrens University homepage"
-								>Torrens University Australia</a
-							>
-							<div class="career-heading">
-								<h3 class="career-heading__title">Master of Business Information Systems</h3>
-								<p class="career-heading__time">2024 Feb - Present</p>
-							</div>
-							<ul class="list career__description">
-								<li>Just started.</li>
-							</ul>
-						</li>
-						<li class="career">
-							<a
-								href="https://www.lewagon.com/melbourne"
-								class="career__employer"
-								target="_blank"
-								rel="noopener noreferrer"
-								role="link"
-								aria-label="Read more about Le Wagon Melbourne campus"
-								>Le Wagon - Melbourne</a
-							>
-							<div class="career-heading">
-								<h3 class="career-heading__title">Web Development Bootcamp</h3>
-								<p class="career-heading__time">2022 Oct - 2022 Dec</p>
-							</div>
-							<ul class="list career__description">
-								<li>Attended full-stack web development bootcamp in Melbourne (Batch #1044).</li>
-								<li>
-									It was an 11-week intensive coding bootcamp learning a complete set of technical skills required for a
-									full-stack developer based on Ruby on Rails framework along with HTML, CSS, JavaScript, PostgreSQL,
-									Git, Heroku and more.
-								</li>
-							</ul>
-						</li>
-						<li class="career">
-							<a
-								href="https://eng.pdn.ac.lk/"
-								class="career__employer"
-								target="_blank"
-								rel="noopener noreferrer"
-								role="link"
-								aria-label="Visit University of Peradeniya Engineering faculty website"
-								>University of Peradeniya</a
-							>
-							<div class="career-heading">
-								<h3 class="career-heading__title">BSc Engineering (Hons)</h3>
-								<p class="career-heading__time">2013 March - 2017 Dec</p>
-							</div>
-							<ul class="list career__description">
-								<li>Specialised in Chemical & Process Engineering.</li>
-								<li>
-									Gained a broad knowledge of many engineering disciplines including electrical & electronic,
-									mechanical, computer, civil and manufacturing engineering.
-								</li>
-								<li>
-									Conducted highly successful research in
-									<a
-										href="https://www.dropbox.com/s/oxfwj6k1ti81j33/CP507%20E11223.pdf?dl=0"
-										target="_blank"
-										class="link"
-										role="link"
-										aria-label="Read my final research publication"
-										>biogas production using sugar industry waste</a
-									>. (The research impressed the CEO and board of directors of Lanka Sugar Company, who offered me my
-									first job as a fresh graduate.).
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="section-full" id="portfolio">
-				<div class="flex-center">
-					<h2 class="stroke-center">Portfolio</h2>
-				</div>
-				<div class="projects">
-					<div class="project-card">
-						<div class="project-card__body">
-							<div class="project__preview">
-								<a href="https://mycashflow.cc/" target="_blank" role="link" aria-label="Visit My Cash Flow website"
-									><img
-										src="./static/screenshots/mycashflow.webp"
-										class="project__preview__image lazy-img"
-										alt="Screenshot of My Cash Flow dashboard page"
-										loading="lazy"
-								/></a>
-							</div>
-							<div class="project__details">
-								<a href="https://mycashflow.cc/" target="_blank" role="link" aria-label="Visit My Cash Flow website">
-									<h3 class="stroke-left project__title">My Cash Flow</h3>
-								</a>
-								<p class="project__summary">Personal finance tracking application.</p>
-								<p class="project__description">
-									Analyse your financial transactions to determine how you have spent money and your earnings. You can
-									add multiple bank accounts and add transactions associated with each. Most importantly, you can import
-									bulk transactions at once from a CSV file. You can see a summary of your financial activities from the
-									dashboard section.
-								</p>
-								<ul class="project__tags">
-									<li class="project__tag">Ruby on Rails</li>
-									<li class="project__tag">Tabler UI</li>
-									<li class="project__tag">PostgreSQL</li>
-									<li class="project__tag">Stimulus</li>
-									<li class="project__tag">Apexcharts</li>
-								</ul>
-								<div class="project__buttons">
-									<a
-										href="https://mycashflow.cc/"
-										target="_blank"
-										class="btn btn-black"
-										role="link"
-										aria-label="Visit My Cash Flow website"
-										>Live</a
-									>
-									<a
-										href="https://github.com/jkvithanage/mycashflow"
-										target="_blank"
-										class="btn btn-black"
-										role="link"
-										aria-label="Visit My Cash Flow GitHub repository"
-										>GitHub</a
-									>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="project-card">
-						<div class="project-card__body">
-							<div class="project__preview">
-								<a
-									href="https://www.jkvithanage.com/"
-									target="_blank"
-									role="link"
-									aria-label="Visit My Cash Flow website"
-									><img
-										src="./static/screenshots/portfolio.png"
-										class="project__preview__image lazy-img"
-										alt="Screenshot of my personal portfolio website"
-										loading="lazy"
-								/></a>
-							</div>
-							<div class="project__details">
-								<a
-									href="https://www.jkvithanage.com/"
-									target="_blank"
-									role="link"
-									aria-label="Visit My Cash Flow website"
-								>
-									<h3 class="stroke-left project__title">My Portfolio Website</h3>
-								</a>
-								<p class="project__summary">My first personal portfolio website.</p>
-								<p class="project__description">
-									This is the first version of my portfolio website. I created it using just HTML5, SCSS, and some
-									JavaScript. All components and sections were designed and developed from scratch with plain HTML and
-									CSS. My main goal was to build a fully responsive, accessible and high-performance website. Below is a
-									screenshot of the
-									<a
-										href="https://pagespeed.web.dev/analysis/https-www-jkvithanage-com/lpw35hijlz?form_factor=desktop"
-										target="_blank"
-										class="link"
-										rel="noopener noreferrer"
-										role="link"
-										aria-label="Visit Sellix e-commerce platform"
-										>Google PageSpeed Insights</a
-									>
-									of this website.
-								</p>
-								<img
-									src="./static/screenshots/portfolio_pagespeed_insights.png"
-									alt="PageSpeed Insights of the portfolio website."
-								/>
-								<ul class="project__tags">
-									<li class="project__tag">HTML5</li>
-									<li class="project__tag">SCSS</li>
-									<li class="project__tag">JavaScript</li>
-									<li class="project__tag">Vite.js</li>
-									<li class="project__tag">PostCSS</li>
-								</ul>
-								<div class="project__buttons">
-									<a
-										href="https://www.jkvithanage.com/"
-										target="_blank"
-										class="btn btn-black"
-										role="link"
-										aria-label="Visit my portfolio website"
-										>Live</a
-									>
-									<a
-										href="https://github.com/jkvithanage/jkvithanage-portfolio"
-										target="_blank"
-										class="btn btn-black"
-										role="link"
-										aria-label="Visit My Portfolio Website GitHub repository"
-										>GitHub</a
-									>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="project-card">
-						<div class="project-card__body">
-							<div class="project__preview">
-								<a
-									href="https://invoices.christysoftware.com/"
-									target="_blank"
-									role="link"
-									aria-label="Visit invoice portal web app"
-									><img
-										src="./static/screenshots/invoice_portal.webp"
-										class="project__preview__image lazy-img"
-										alt="Screenshot of invoice protal web app"
-										loading="lazy"
-								/></a>
-							</div>
-							<div class="project__details">
-								<a
-									href="https://invoices.christysoftware.com/"
-									target="_blank"
-									role="link"
-									aria-label="Visit invoice portal web app"
-								>
-									<h3 class="stroke-left project__title">Customer Invoice Portal</h3>
-								</a>
+<body>
+  <div class="socials-desktop">
+    <div class="social-icons">
+      <a class="social-link" href="https://github.com/jkvithanage" target="_blank"
+        aria-label="Link to the GitHub profile" role="link"><span class="social-icon icon-github"></span></a>
+      <a class="social-link" href="https://www.linkedin.com/in/jkvithanage/" target="_blank"
+        aria-label="Link to the LinkedIn profile" role="link"><span class="icon-linkedin"></span></a>
+      <a class="social-link" href="https://www.instagram.com/jkvithanage/" target="_blank"
+        aria-label="Link to the Instagram profile" role="link"><span class="icon-instagram"></span></a>
+      <a class="social-link" href="https://twitter.com/jkvithanage" target="_blank"
+        aria-label="Link to the Twitter profile" role="link"><span class="icon-twitter"></span></a>
+      <a class="social-link" href="mailto:jkvithana@gmail.com" target="_blank" aria-label="Email address of Janaka"
+        role="link"><span class="icon-email"></span></a>
+    </div>
+  </div>
+  <header id="header">
+    <nav class="nav">
+      <a href="/" class="nav__logo" role="link"><img src="./static/logo.svg" alt="Janaka Vithanage brand logo"
+          width="48" height="48" /></a>
+      <input type="checkbox" id="hamburger" role="checkbox" />
+      <label class="hamburger__label" for="hamburger" role="button" aria-label="Navigation menu toggler">
+        <div class="hamburger__bar"></div>
+        <div class="hamburger__bar"></div>
+        <div class="hamburger__bar"></div>
+      </label>
+      <div class="nav__content">
+        <a href="/" class="nav__logo" role="link"><img src="./static/logo.svg" alt="Janaka Vithanage brand logo"
+            width="48" height="48" /></a>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#about" aria-label="Go to about section">About</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#skills" aria-label="Go to skill section">Skills</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#career" aria-label="Go to career section">Career</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#portfolio" aria-label="Go to portfolio section">Portfolio</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="https://graphics.jkvithanage.com" target="_blank"
+              aria-label="Go to portfolio section">Graphics</a>
+          </li>
+        </ul>
+        <button class="btn btn-white-outlined btn-contact" role="button"
+          aria-label="Open contact form to send a message to Janaka">
+          Contact me
+        </button>
+        <div class="socials-mobile-nav">
+          <div class="social-icons">
+            <a class="social-link" href="https://github.com/jkvithanage" target="_blank"
+              aria-label="Link to the GitHub profile" role="link"><span class="icon-github"></span></a>
+            <a class="social-link" href="https://www.linkedin.com/in/jkvithanage/" target="_blank"
+              aria-label="Link to the LinkedIn profile" role="link"><span class="icon-linkedin"></span></a>
+            <a class="social-link" href="https://www.instagram.com/jkvithanage/" target="_blank"
+              aria-label="Link to the Instagram profile" role="link"><span class="icon-instagram"></span></a>
+            <a class="social-link" href="https://twitter.com/jkvithanage" target="_blank"
+              aria-label="Link to the Twitter profile" role="link"><span class="icon-twitter"></span></a>
+            <a class="social-link" href="mailto:jkvithana@gmail.com" target="_blank"
+              aria-label="Email address of Janaka" role="link"><span class="icon-email"></span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="main">
+    <section class="section-hero">
+      <div class="hero__content">
+        <p class="hero__greet">Hello, my name is</p>
+        <h1 class="hero__title stroke-center">Janaka Vithanage</h1>
+        <p class="hero__subtitle">Full Stack Web Developer in Melbourne</p>
+        <a href="#portfolio" class="btn btn-lg btn-white-outlined hero__btn">See my work</a>
+      </div>
+      <div class="hero__scroll-down"></div>
+    </section>
+    <section class="section" id="about">
+      <div class="flex-left">
+        <h2 class="stroke-left">About</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-content__image-container">
+          <div class="about-content__image-wrapper">
+            <picture>
+              <source media="(max-width: 576px)" srcset="./static/me/me-350.webp" />
+              <source media="(max-width: 768px)" srcset="./static/me/me-440.webp" />
+              <img class="about-content__image" src="./static/me/me-600.webp" alt="Portrait photo of Janaka Vithanage"
+                loading="lazy" />
+            </picture>
+          </div>
+        </div>
+        <div class="about-content__details">
+          <p>
+            Hi there, my name is Janaka. I'm a full-stack web developer currently living in Melbourne, Australia. I am
+            passionate about building beautiful, interactive web applications with the best user experience. Besides
+            the web, I'm interested in new technologies and DIY activities, mainly 3D printing and CNC-related
+            projects.
+          </p>
+          <p>
+            I was born in Sri Lanka and moved to Melbourne in 2022. I earned my bachelor's degree in Chemical and
+            Process Engineering. After graduation, I worked as a chemical engineer in the sugar manufacturing
+            industry, where I held an executive role focused on workforce management and decision-making.
+          </p>
+          <p>
+            During the pandemic, I started learning to code with Java and then followed the online
+            <a href="https://www.lewagon.com/melbourne" class="link"
+              aria-label="Visit Le Wagon Melbourne official website" role="link">CS50</a>
+            course at Harvard University. After moving to Melbourne, I joined
+            <a href="https://www.lewagon.com/melbourne" class="link"
+              aria-label="Visit Le Wagon Melbourne official website" role="link">Le Wagon</a>
+            coding bootcamp to broaden my skills. After working as a freelance web developer for one year, I decided
+            to do my master's in
+            <a href="https://www.torrens.edu.au/courses/business/master-of-business-information-systems" class="link"
+              aria-label="Visit Le Wagon Melbourne official website" role="link">Business Information Systems</a>
+            at Torrens University Australia to fill gaps in my business, project management and IT skills.
+          </p>
+          <p>
+            I primarily use Ruby on Rails for building full-stack web applications and React/Redux or vanilla
+            JavaScript for front-end development. If you plan to build a web application, collaborate on something
+            cool, or want to say hi,
+            <span class="link btn-contact" role="button"
+              aria-label="Open contact form to send a message to Janaka">shoot me a message</span>. Let's work together!
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="skills">
+      <div class="flex-center">
+        <h2 class="stroke-center">Skills</h2>
+      </div>
+      <div class="skills">
+        <div class="skills-card">
+          <p class="skills-card__title">Languages</p>
+          <div class="skills-card__body">
+            <ul class="skill-icons language-icons"></ul>
+          </div>
+        </div>
+        <div class="skills-card">
+          <p class="skills-card__title">Development</p>
+          <div class="skills-card__body">
+            <ul class="skill-icons development-icons"></ul>
+          </div>
+        </div>
+        <div class="skills-card">
+          <p class="skills-card__title">Tools</p>
+          <div class="skills-card__body">
+            <ul class="skill-icons tool-icons"></ul>
+          </div>
+        </div>
+        <div class="skills-card">
+          <p class="skills-card__title">Design</p>
+          <div class="skills-card__body">
+            <ul class="skill-icons design-icons"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-careers" id="career">
+      <div class="flex-left">
+        <h2 class="stroke-left">Career</h2>
+      </div>
+      <ul class="careers">
+        <li class="career">
+          <p class="career__employer">Self employed</p>
+          <div class="career-heading">
+            <h3 class="career-heading__title">Freelance Web Developer</h3>
+            <p class="career-heading__time">2023 Jan - Now</p>
+          </div>
+          <ul class="list career__description">
+            <li>Design and develop software applications according to customer specifications.</li>
+            <li>
+              <a href="https://www.upwork.com/freelancers/~01ac14c03ad8691410" target="_blank" class="link" role="link"
+                aria-label="Hire me on Upwork" rel="noopener noreferrer">Find me on Upwork.</a>
+            </li>
+          </ul>
+        </li>
+        <li class="career">
+          <a href="https://www.linkedin.com/company/lscl/" class="career__employer" target="_blank" role="link"
+            aria-label="Visit Lanka Sugar Company LinkedIn profile" rel="noopener noreferrer">Lanka Sugar Company
+            Ltd</a>
 
-								<p class="project__summary">Invoice generator for a software retailer.</p>
-								<p class="project__description">
-									Christy Software sells software licenses on the
-									<a
-										href="https://sellix.io/"
-										target="_blank"
-										class="link"
-										rel="noopener noreferrer"
-										role="link"
-										aria-label="Visit Sellix e-commerce platform"
-										>Sellix</a
-									>
-									e-commerce platform, and this app was developed to let their customers get an invoice for all purchase
-									activities for a given period.
-								</p>
-								<ul class="project__tags">
-									<li class="project__tag">JavaScript</li>
-									<li class="project__tag">Bootstrap</li>
-									<li class="project__tag">SCSS</li>
-									<li class="project__tag">Fetch API</li>
-									<li class="project__tag">Tagify</li>
-									<li class="project__tag">jsPDF</li>
-								</ul>
-								<div class="project__buttons">
-									<a
-										href="https://invoices.christysoftware.com/"
-										target="_blank"
-										class="btn btn-black"
-										role="link"
-										aria-label="Visit invoice portal web app"
-										>Live</a
-									>
-									<button disabled class="btn btn-black">GitHub</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="project-card">
-						<div class="project-card__body">
-							<div class="project__preview">
-								<a href="https://astrolog.fly.dev" target="_blank" role="link" aria-label="Visit Astrolog website"
-									><img
-										src="./static/screenshots/astrolog.webp"
-										class="project__preview__image lazy-img"
-										alt="Screenshot of Astrolog website"
-										loading="lazy"
-								/></a>
-							</div>
-							<div class="project__details">
-								<a href="https://astrolog.fly.dev" target="_blank" role="link" aria-label="Visit Astrolog website">
-									<h3 class="stroke-left project__title">Astrolog</h3>
-								</a>
+          <div class="career-heading">
+            <h3 class="career-heading__title">Chemical Engineer</h3>
+            <p class="career-heading__time">2017 Nov - 2018 Dec</p>
+          </div>
+          <ul class="list career__description">
+            <li>Managed and coordinated regular employees.</li>
+            <li>
+              Ensured process consistency and product quality, performed necessary maintenance and upgrades, and
+              identified opportunities to boost efficiency.
+            </li>
+            <li>Process equipment design and development.</li>
+          </ul>
+        </li>
+        <li class="career">
+          <p class="career__employer">Self employed</p>
+          <div class="career-heading">
+            <h3 class="career-heading__title">Graphic Designer</h3>
+            <p class="career-heading__time">2012 Oct - 2022 May</p>
+          </div>
+          <ul class="list career__description">
+            <li>
+              Offered a range of graphic design services such as digital and printed marketing material design,
+              product image enhancement and outdoor advertising.
+            </li>
+            <li>
+              Worked with over 3000 clients from different industries, including advertising, photography, digital
+              marketing and real estate.
+            </li>
+            <li>
+              Became a top-rated seller within three months of service, the highest tier a freelancer can achieve on
+              Fiverr.
+            </li>
+            <li>
+              <a href="https://graphics.jkvithanage.com" target="_blank" class="link" role="link"
+                aria-label="Hire me on Upwork" rel="noopener noreferrer">Visit my graphic design portfolio.</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="section-edu">
+        <div class="flex-left">
+          <h2 class="stroke-left">Education</h2>
+        </div>
+        <ul class="careers">
+          <li class="career">
+            <a href="https://www.torrens.edu.au/" class="career__employer" target="_blank" rel="noopener noreferrer"
+              role="link" aria-label="Visit Torrens University homepage">Torrens University Australia</a>
+            <div class="career-heading">
+              <h3 class="career-heading__title">Master of Business Information Systems</h3>
+              <p class="career-heading__time">2024 Feb - Present</p>
+            </div>
+            <ul class="list career__description">
+              <li>Just started.</li>
+            </ul>
+          </li>
+          <li class="career">
+            <a href="https://www.lewagon.com/melbourne" class="career__employer" target="_blank"
+              rel="noopener noreferrer" role="link" aria-label="Read more about Le Wagon Melbourne campus">Le Wagon -
+              Melbourne</a>
+            <div class="career-heading">
+              <h3 class="career-heading__title">Web Development Bootcamp</h3>
+              <p class="career-heading__time">2022 Oct - 2022 Dec</p>
+            </div>
+            <ul class="list career__description">
+              <li>Attended full-stack web development bootcamp in Melbourne (Batch #1044).</li>
+              <li>
+                It was an 11-week intensive coding bootcamp learning a complete set of technical skills required for a
+                full-stack developer based on Ruby on Rails framework along with HTML, CSS, JavaScript, PostgreSQL,
+                Git, Heroku and more.
+              </li>
+            </ul>
+          </li>
+          <li class="career">
+            <a href="https://eng.pdn.ac.lk/" class="career__employer" target="_blank" rel="noopener noreferrer"
+              role="link" aria-label="Visit University of Peradeniya Engineering faculty website">University of
+              Peradeniya</a>
+            <div class="career-heading">
+              <h3 class="career-heading__title">BSc Engineering (Hons)</h3>
+              <p class="career-heading__time">2013 March - 2017 Dec</p>
+            </div>
+            <ul class="list career__description">
+              <li>Specialised in Chemical & Process Engineering.</li>
+              <li>
+                Gained a broad knowledge of many engineering disciplines including electrical & electronic,
+                mechanical, computer, civil and manufacturing engineering.
+              </li>
+              <li>
+                Conducted highly successful research in
+                <a href="https://www.dropbox.com/s/oxfwj6k1ti81j33/CP507%20E11223.pdf?dl=0" target="_blank" class="link"
+                  role="link" aria-label="Read my final research publication">biogas production using sugar industry
+                  waste</a>. (The research impressed the CEO and board of directors of Lanka Sugar Company, who offered
+                me my
+                first job as a fresh graduate.).
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section-full" id="portfolio">
+      <div class="flex-center">
+        <h2 class="stroke-center">Portfolio</h2>
+      </div>
+      <div class="projects">
+        <div class="project-card">
+          <div class="project-card__body">
+            <div class="project__preview">
+              <a href="https://mycashflow.cc/" target="_blank" role="link" aria-label="Visit My Cash Flow website"><img
+                  src="./static/screenshots/mycashflow.webp" class="project__preview__image lazy-img"
+                  alt="Screenshot of My Cash Flow dashboard page" loading="lazy" /></a>
+            </div>
+            <div class="project__details">
+              <a href="https://mycashflow.cc/" target="_blank" role="link" aria-label="Visit My Cash Flow website">
+                <h3 class="stroke-left project__title">My Cash Flow</h3>
+              </a>
+              <p class="project__summary">Personal finance tracking application.</p>
+              <p class="project__description">
+                Analyse your financial transactions to determine how you have spent money and your earnings. You can
+                add multiple bank accounts and add transactions associated with each. Most importantly, you can import
+                bulk transactions at once from a CSV file. You can see a summary of your financial activities from the
+                dashboard section.
+              </p>
+              <ul class="project__tags">
+                <li class="project__tag">Ruby on Rails</li>
+                <li class="project__tag">Tabler UI</li>
+                <li class="project__tag">PostgreSQL</li>
+                <li class="project__tag">Stimulus</li>
+                <li class="project__tag">Apexcharts</li>
+              </ul>
+              <div class="project__buttons">
+                <a href="https://mycashflow.cc/" target="_blank" class="btn btn-black" role="link"
+                  aria-label="Visit My Cash Flow website">Live</a>
+                <a href="https://github.com/jkvithanage/mycashflow" target="_blank" class="btn btn-black" role="link"
+                  aria-label="Visit My Cash Flow GitHub repository">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card__body">
+            <div class="project__preview">
+              <a href="https://www.jkvithanage.com/" target="_blank" role="link"
+                aria-label="Visit My Cash Flow website"><img src="./static/screenshots/portfolio.png"
+                  class="project__preview__image lazy-img" alt="Screenshot of my personal portfolio website"
+                  loading="lazy" /></a>
+            </div>
+            <div class="project__details">
+              <a href="https://www.jkvithanage.com/" target="_blank" role="link"
+                aria-label="Visit My Cash Flow website">
+                <h3 class="stroke-left project__title">My Portfolio Website</h3>
+              </a>
+              <p class="project__summary">My first personal portfolio website.</p>
+              <p class="project__description">
+                This is the first version of my portfolio website. I created it using just HTML5, SCSS, and some
+                JavaScript. All components and sections were designed and developed from scratch with plain HTML and
+                CSS. My main goal was to build a fully responsive, accessible and high-performance website. Below is a
+                screenshot of the
+                <a href="https://pagespeed.web.dev/analysis/https-www-jkvithanage-com/lpw35hijlz?form_factor=desktop"
+                  target="_blank" class="link" rel="noopener noreferrer" role="link"
+                  aria-label="Visit Sellix e-commerce platform">Google PageSpeed Insights</a>
+                of this website.
+              </p>
+              <img src="./static/screenshots/portfolio_pagespeed_insights.png"
+                alt="PageSpeed Insights of the portfolio website." />
+              <ul class="project__tags">
+                <li class="project__tag">HTML5</li>
+                <li class="project__tag">SCSS</li>
+                <li class="project__tag">JavaScript</li>
+                <li class="project__tag">Vite.js</li>
+                <li class="project__tag">PostCSS</li>
+              </ul>
+              <div class="project__buttons">
+                <a href="https://www.jkvithanage.com/" target="_blank" class="btn btn-black" role="link"
+                  aria-label="Visit my portfolio website">Live</a>
+                <a href="https://github.com/jkvithanage/jkvithanage-portfolio" target="_blank" class="btn btn-black"
+                  role="link" aria-label="Visit My Portfolio Website GitHub repository">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card__body">
+            <div class="project__preview">
+              <a href="https://invoices.christysoftware.com/" target="_blank" role="link"
+                aria-label="Visit invoice portal web app"><img src="./static/screenshots/invoice_portal.webp"
+                  class="project__preview__image lazy-img" alt="Screenshot of invoice protal web app"
+                  loading="lazy" /></a>
+            </div>
+            <div class="project__details">
+              <a href="https://invoices.christysoftware.com/" target="_blank" role="link"
+                aria-label="Visit invoice portal web app">
+                <h3 class="stroke-left project__title">Customer Invoice Portal</h3>
+              </a>
 
-								<p class="project__summary">
-									A social platform for space enthusiasts, along with a built-in community.
-								</p>
-								<p class="project__description">
-									This is a full-stack Ruby on Rails app developed as the final project at Le Wagon coding bootcamp with
-									a team of 3 members in 2 weeks.
-								</p>
-								<ul class="project__tags">
-									<li class="project__tag">Ruby on Rails</li>
-									<li class="project__tag">PostgreSQL</li>
-									<li class="project__tag">Bootstrap</li>
-									<li class="project__tag">SCSS</li>
-									<li class="project__tag">Cloudinary</li>
-									<li class="project__tag">RESTful APIs</li>
-								</ul>
-								<div class="project__buttons">
-									<a
-										href="https://astrolog.fly.dev"
-										target="_blank"
-										class="btn btn-black"
-										role="link"
-										aria-label="Visit Astrolog website"
-										>Live</a
-									>
-									<a
-										href="https://github.com/McDrivin/astrolog"
-										target="_blank"
-										class="btn btn-black"
-										role="link"
-										aria-label="Visit Astrolog GitHub repository"
-										>GitHub</a
-									>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<div class="modal hidden" role="dialog" tabindex="-1">
-				<div class="modal-dialog hidden">
-					<div class="modal__header">
-						<h2 class="stroke-left modal__title">Let's work together</h2>
-						<button class="modal__close" type="button"></button>
-					</div>
-					<div class="modal__body">
-						<form
-							class="contact-form"
-							id="contact-form"
-							action="https://formspree.io/f/xpzevgna"
-							method="post"
-							name="Contact Janaka Vithanage"
-						>
-							<p class="form-status hidden">This is the form status</p>
-							<input type="text" id="name" name="name" placeholder="Your Name" class="form-input" required />
-							<div class="input-group">
-								<input type="email" name="email" id="email" placeholder="Email Address" class="form-input" required />
-								<input type="tel" id="phone" name="phone" placeholder="Phone Number" class="form-input" required />
-							</div>
-							<input type="text" id="subject" name="subject" placeholder="Subject" class="form-input" required />
-							<textarea
-								name="message"
-								name="message"
-								id="message"
-								placeholder="Message"
-								class="form-textarea"
-								required
-							></textarea>
-							<button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</main>
-		<section class="section-full callout">
-			<div class="callout-content">
-				<p class="callout-message">Let me know if you're interested in working together or just say hello to me.</p>
-				<button
-					class="btn btn-lg btn-white btn-contact"
-					role="button"
-					aria-label="Open contact form to send a message to Janaka"
-				>
-					Get in touch
-				</button>
-			</div>
-		</section>
-		<footer class="footer">
-			<div class="socials-footer">
-				<div class="social-icons">
-					<a
-						class="social-link"
-						href="https://github.com/jkvithanage"
-						target="_blank"
-						aria-label="Link to the GitHub profile"
-						role="link"
-						><span class="icon-github"></span
-					></a>
-					<a
-						class="social-link"
-						href="https://www.linkedin.com/in/jkvithanage/"
-						target="_blank"
-						aria-label="Link to the LinkedIn profile"
-						role="link"
-						><span class="icon-linkedin"></span
-					></a>
-					<a
-						class="social-link"
-						href="https://www.instagram.com/jkvithanage/"
-						target="_blank"
-						aria-label="Link to the Instagram profile"
-						role="link"
-						><span class="icon-instagram"></span
-					></a>
-					<a
-						class="social-link"
-						href="https://twitter.com/jkvithanage"
-						target="_blank"
-						aria-label="Link to the Twitter profile"
-						role="link"
-						><span class="icon-twitter"></span
-					></a>
-					<a
-						class="social-link"
-						href="mailto:jkvithana@gmail.com"
-						target="_blank"
-						aria-label="Email address of Janaka"
-						role="link"
-						><span class="social-icon icon-email"></span
-					></a>
-				</div>
-			</div>
-			<p>
-				<span>&copy;</span> 2023 - Built from scratch by
-				<a
-					href="https://github.com/jkvithanage/jkvithanage-portfolio"
-					target="_blank"
-					role="link"
-					aria-label="Go to GitHub repository of this website"
-					>jkvithanage</a
-				>
-			</p>
-		</footer>
-	</body>
+              <p class="project__summary">Invoice generator for a software retailer.</p>
+              <p class="project__description">
+                Christy Software sells software licenses on the
+                <a href="https://sellix.io/" target="_blank" class="link" rel="noopener noreferrer" role="link"
+                  aria-label="Visit Sellix e-commerce platform">Sellix</a>
+                e-commerce platform, and this app was developed to let their customers get an invoice for all purchase
+                activities for a given period.
+              </p>
+              <ul class="project__tags">
+                <li class="project__tag">JavaScript</li>
+                <li class="project__tag">Bootstrap</li>
+                <li class="project__tag">SCSS</li>
+                <li class="project__tag">Fetch API</li>
+                <li class="project__tag">Tagify</li>
+                <li class="project__tag">jsPDF</li>
+              </ul>
+              <div class="project__buttons">
+                <a href="https://invoices.christysoftware.com/" target="_blank" class="btn btn-black" role="link"
+                  aria-label="Visit invoice portal web app">Live</a>
+                <button disabled class="btn btn-black">GitHub</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card__body">
+            <div class="project__preview">
+              <a href="https://astrolog.fly.dev" target="_blank" role="link" aria-label="Visit Astrolog website"><img
+                  src="./static/screenshots/astrolog.webp" class="project__preview__image lazy-img"
+                  alt="Screenshot of Astrolog website" loading="lazy" /></a>
+            </div>
+            <div class="project__details">
+              <a href="https://astrolog.fly.dev" target="_blank" role="link" aria-label="Visit Astrolog website">
+                <h3 class="stroke-left project__title">Astrolog</h3>
+              </a>
+
+              <p class="project__summary">
+                A social platform for space enthusiasts, along with a built-in community.
+              </p>
+              <p class="project__description">
+                This is a full-stack Ruby on Rails app developed as the final project at Le Wagon coding bootcamp with
+                a team of 3 members in 2 weeks.
+              </p>
+              <ul class="project__tags">
+                <li class="project__tag">Ruby on Rails</li>
+                <li class="project__tag">PostgreSQL</li>
+                <li class="project__tag">Bootstrap</li>
+                <li class="project__tag">SCSS</li>
+                <li class="project__tag">Cloudinary</li>
+                <li class="project__tag">RESTful APIs</li>
+              </ul>
+              <div class="project__buttons">
+                <a href="https://astrolog.fly.dev" target="_blank" class="btn btn-black" role="link"
+                  aria-label="Visit Astrolog website">Live</a>
+                <a href="https://github.com/McDrivin/astrolog" target="_blank" class="btn btn-black" role="link"
+                  aria-label="Visit Astrolog GitHub repository">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="modal hidden" role="dialog" tabindex="-1">
+      <div class="modal-dialog hidden">
+        <div class="modal__header">
+          <h2 class="stroke-left modal__title">Let's work together</h2>
+          <button class="modal__close" type="button"></button>
+        </div>
+        <div class="modal__body">
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/xpzevgna" method="post"
+            name="Contact Janaka Vithanage">
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            <p class="form-status hidden">This is the form status</p>
+            <input type="text" id="name" name="name" placeholder="Your Name" class="form-input" required />
+            <div class="input-group">
+              <input type="email" name="email" id="email" placeholder="Email Address" class="form-input" required />
+              <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="form-input" required />
+            </div>
+            <input type="text" id="subject" name="subject" placeholder="Subject" class="form-input" required />
+            <textarea name="message" name="message" id="message" placeholder="Message" class="form-textarea"
+              required></textarea>
+            <button type="submit" class="btn btn-lg btn-black btn-form">Send Messsage</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <section class="section-full callout">
+    <div class="callout-content">
+      <p class="callout-message">Let me know if you're interested in working together or just say hello to me.</p>
+      <button class="btn btn-lg btn-white btn-contact" role="button"
+        aria-label="Open contact form to send a message to Janaka">
+        Get in touch
+      </button>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="socials-footer">
+      <div class="social-icons">
+        <a class="social-link" href="https://github.com/jkvithanage" target="_blank"
+          aria-label="Link to the GitHub profile" role="link"><span class="icon-github"></span></a>
+        <a class="social-link" href="https://www.linkedin.com/in/jkvithanage/" target="_blank"
+          aria-label="Link to the LinkedIn profile" role="link"><span class="icon-linkedin"></span></a>
+        <a class="social-link" href="https://www.instagram.com/jkvithanage/" target="_blank"
+          aria-label="Link to the Instagram profile" role="link"><span class="icon-instagram"></span></a>
+        <a class="social-link" href="https://twitter.com/jkvithanage" target="_blank"
+          aria-label="Link to the Twitter profile" role="link"><span class="icon-twitter"></span></a>
+        <a class="social-link" href="mailto:jkvithana@gmail.com" target="_blank" aria-label="Email address of Janaka"
+          role="link"><span class="social-icon icon-email"></span></a>
+      </div>
+    </div>
+    <p>
+      <span>&copy;</span> 2023 - Built from scratch by
+      <a href="https://github.com/jkvithanage/jkvithanage-portfolio" target="_blank" role="link"
+        aria-label="Go to GitHub repository of this website">jkvithanage</a>
+    </p>
+  </footer>
+</body>
+
 </html>
