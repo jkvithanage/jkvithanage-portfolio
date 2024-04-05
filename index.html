@@ -33,7 +33,6 @@
   <script>
     grecaptcha.ready(function () {
       grecaptcha.execute('6LeLGbwmAAAAAK2z7ZzW_hDef9Ll9RI2RCf0RglP', { action: 'submit' }).then(function (token) {
-        console.info("got token: " + token);
         document.getElementById('g-recaptcha-response').value = token;
       });
     });
