@@ -33,6 +33,8 @@
   svg {
     pointer-events: none;
     transition: $transition-all;
+    color: $black;
+    fill: $black;
   }
 
   .icon-label {
