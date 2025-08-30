@@ -1,53 +1,53 @@
 .skills-card {
-    width: fit-content;
-    @extend %margin-h-auto;
-    text-align: center;
+  width: fit-content;
+  @extend %margin-h-auto;
+  text-align: center;
 }
 
 .skills-card__title {
-    font-family: $font-mono;
-    border-bottom: $border-black;
-    font-weight: 700;
-    margin-bottom: 0;
-    padding-bottom: 1rem;
+  font-family: $font-mono;
+  border-bottom: $border-black;
+  font-weight: 700;
+  margin-bottom: 0;
+  padding-bottom: 1rem;
 }
 
 .skill-icons {
-    margin: 0;
-    list-style: none;
-    padding-left: 0;
-    display: inline-block;
-    padding: 0 1rem;
+  margin: 0;
+  list-style: none;
+  padding-left: 0;
+  display: inline-block;
+  padding: 0 1rem;
 }
 
 .skill-icon {
+  display: inline-block;
+  margin-top: 1rem;
+  width: 5rem;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-right: clamp(1rem, 2vw, 2rem);
+  }
+
+  svg {
+    pointer-events: none;
+    transition: $transition-all;
+  }
+
+  .icon-label {
     display: inline-block;
-    margin-top: 1rem;
-    width: 5rem;
-    position: relative;
-
-    &:not(:last-child) {
-        margin-right: clamp(1rem, 2vw, 2rem);
-    }
-
-    svg {
-        pointer-events: none;
-        transition: $transition-all;
-    }
-
-    .icon-label {
-        display: inline-block;
-        position: absolute;
-        font-size: 1rem;
-        background-color: $accent-light;
-        color: $accent-dark;
-        border: $border-accent-dark;
-        font-family: $font-mono;
-        padding: 0.5rem 1rem;
-        width: fit-content;
-        z-index: 1;
-        left: 0;
-        right: 0;
-        top: 100%;
-    }
+    position: absolute;
+    font-size: 1rem;
+    background-color: $accent-light;
+    color: $accent-dark;
+    border: $border-accent-dark;
+    font-family: $font-mono;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 100%;
+  }
 }

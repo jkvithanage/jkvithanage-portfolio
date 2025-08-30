@@ -1,25 +1,34 @@
 import {
-    siRuby,
-    siJavascript,
-    siTypescript,
-    siHtml5,
-    siCss3,
-    siSass,
-    siRubyonrails,
-    siReact,
-    siRedux,
-    siNodedotjs,
-    siBootstrap,
-    siPostgresql,
-    siGit,
-    siGithub,
-    siPostman,
-    siVisualstudiocode,
-    siHeroku,
-    siSelenium,
-    siFigma,
-    siAdobephotoshop,
-    siAdobeillustrator,
+  siRuby,
+  siJavascript,
+  siHtml5,
+  siCss3,
+  siSass,
+  siRubyonrails,
+  siReact,
+  siNodedotjs,
+  siPostgresql,
+  siGit,
+  siGithub,
+  siPostman,
+  siHeroku,
+  siSelenium,
+  siFigma,
+  siAdobephotoshop,
+  siAdobeillustrator,
+  siAmazonaws,
+  siElasticsearch,
+  siPhp,
+  siPython,
+  siLaravel,
+  siJenkins,
+  siTensorflow,
+  siScikitlearn,
+  siPandas,
+  siPowerbi,
+  siNumpy,
+  siTableau,
+  siTailwindcss,
 } from "simple-icons";
 import { inject } from "@vercel/analytics";
 
@@ -27,44 +36,78 @@ import { inject } from "@vercel/analytics";
 const languagesEl = document.querySelector(".language-icons");
 const developmentEl = document.querySelector(".development-icons");
 const toolsEl = document.querySelector(".tool-icons");
+const dataAiMlEl = document.querySelector(".data-ai-ml-icons");
 const designEl = document.querySelector(".design-icons");
 
-const languageIcons = [siRuby, siJavascript, siTypescript, siHtml5, siCss3, siSass];
-const developmentIcons = [siRubyonrails, siReact, siRedux, siNodedotjs, siBootstrap, siPostgresql];
-const toolIcons = [siGit, siGithub, siPostman, siVisualstudiocode, siHeroku, siSelenium];
+const languageIcons = [
+  siRuby,
+  siJavascript,
+  siPython,
+  siPhp,
+  siHtml5,
+  siCss3,
+  siSass,
+];
+const developmentIcons = [
+  siRubyonrails,
+  siLaravel,
+  siReact,
+  siTailwindcss,
+  siNodedotjs,
+  siPostgresql,
+  siElasticsearch,
+];
+const toolIcons = [
+  siGit,
+  siGithub,
+  siPostman,
+  siJenkins,
+  siAmazonaws,
+  siHeroku,
+  siSelenium,
+];
+const dataAiMlIcons = [
+  siPandas,
+  siNumpy,
+  siPowerbi,
+  siTableau,
+  siScikitlearn,
+  siTensorflow,
+];
 const designIcons = [siFigma, siAdobephotoshop, siAdobeillustrator];
 
 function renderSkillIcons(el, iconsArr) {
-    iconsArr.forEach((iconObj) => {
-        const icon = document.createElement("li");
-        icon.classList.add("skill-icon");
-        icon.innerHTML = iconObj.svg;
-        el.insertAdjacentElement("beforeend", icon);
+  iconsArr.forEach((iconObj) => {
+    const icon = document.createElement("li");
+    icon.classList.add("skill-icon");
+    icon.innerHTML = iconObj.svg;
+    el.insertAdjacentElement("beforeend", icon);
 
-        const label = document.createElement("span");
-        label.classList.add("icon-label");
-        label.innerHTML = iconObj.title;
-        label.style.opacity = 0;
-        label.style.transition = "opacity 0.25s ease-in-out";
-        icon.insertAdjacentElement("beforeend", label);
+    const label = document.createElement("span");
+    label.classList.add("icon-label");
+    label.innerHTML = iconObj.title;
+    label.style.opacity = 0;
+    label.style.transition = "opacity 0.25s ease-in-out";
+    icon.insertAdjacentElement("beforeend", label);
 
-        icon.addEventListener("mouseover", () => {
-            icon.children[0].style.fill = `#${iconObj.hex}`;
-            label.style.opacity = 1;
-        });
-
-        icon.addEventListener("mouseleave", () => {
-            icon.children[0].style.fill = "";
-            label.style.opacity = 0;
-        });
+    icon.addEventListener("mouseover", () => {
+      icon.children[0].style.fill = `#${iconObj.hex}`;
+      label.style.opacity = 1;
     });
+
+    icon.addEventListener("mouseleave", () => {
+      icon.children[0].style.fill = "";
+      label.style.opacity = 0;
+    });
+  });
 }
 
 [
-    [languagesEl, languageIcons],
-    [developmentEl, developmentIcons],
-    [toolsEl, toolIcons],
-    [designEl, designIcons],
+  [languagesEl, languageIcons],
+  [developmentEl, developmentIcons],
+  [toolsEl, toolIcons],
+  [dataAiMlEl, dataAiMlIcons],
+  [designEl, designIcons],
 ].forEach((arr) => renderSkillIcons(arr[0], arr[1]));
 
 // 2. Handle modal window
@@ -79,16 +122,16 @@ const navClickables = document.querySelectorAll("nav .nav__link");
 const ham = document.querySelector("#hamburger");
 
 const openModal = function () {
-    modal.classList.remove("hidden");
-    modalDialog.classList.remove("hidden");
-    ham.checked = false;
-    body.classList.add("overflow-hidden");
+  modal.classList.remove("hidden");
+  modalDialog.classList.remove("hidden");
+  ham.checked = false;
+  body.classList.add("overflow-hidden");
 };
 
 const closeModal = function () {
-    modal.classList.add("hidden");
-    modalDialog.classList.add("hidden");
-    body.classList.remove("overflow-hidden");
+  modal.classList.add("hidden");
+  modalDialog.classList.add("hidden");
+  body.classList.remove("overflow-hidden");
 };
 
 allContactButtons.forEach((btn) => btn.addEventListener("click", openModal));
@@ -96,39 +139,42 @@ allContactButtons.forEach((btn) => btn.addEventListener("click", openModal));
 btnCloseModal.addEventListener("click", closeModal);
 
 window.onclick = function (e) {
-    if (e.target == modal && !modal.classList.contains("hidden")) {
-        closeModal();
-    }
+  if (e.target == modal && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
 };
 
 window.onkeydown = function (e) {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-        closeModal();
-    }
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
 };
 
 // Show/hide navbar based on scroll direction
 let oldScrollY = 0;
 window.onscroll = function (e) {
-    navbar.classList.toggle("hidden", window.scrollY > 0 && window.scrollY > oldScrollY && !ham.checked);
-    oldScrollY = window.scrollY;
+  navbar.classList.toggle(
+    "hidden",
+    window.scrollY > 0 && window.scrollY > oldScrollY && !ham.checked
+  );
+  oldScrollY = window.scrollY;
 };
 
 // Disable body scroll while mobile nav menu is opened
 
 ham.addEventListener("click", (e) => {
-    if (e.target.checked) {
-        body.classList.add("overflow-hidden");
-    } else {
-        body.classList.remove("overflow-hidden");
-    }
+  if (e.target.checked) {
+    body.classList.add("overflow-hidden");
+  } else {
+    body.classList.remove("overflow-hidden");
+  }
 });
 
 navClickables.forEach((el) => {
-    el.addEventListener("click", (e) => {
-        ham.checked = false;
-        body.classList.remove("overflow-hidden");
-    });
+  el.addEventListener("click", (e) => {
+    ham.checked = false;
+    body.classList.remove("overflow-hidden");
+  });
 });
 
 // Reveal sections on scroll
@@ -136,17 +182,17 @@ navClickables.forEach((el) => {
 const sections = document.querySelectorAll(".section, .section-full");
 
 const observer = new IntersectionObserver(function (entries) {
-    const [entry] = entries;
-    if (!entry.isIntersecting) return;
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
 
-    entry.target.classList.add("reveal", entry.isIntersecting);
-    observer.unobserve(entry.target);
+  entry.target.classList.add("reveal", entry.isIntersecting);
+  observer.unobserve(entry.target);
 });
 
 sections.forEach((section) => {
-    observer.observe(section);
+  observer.observe(section);
 
-    section.classList.remove("reveal");
+  section.classList.remove("reveal");
 });
 
 // Handle contact form
@@ -163,37 +209,51 @@ const successMarkup = `
 `;
 
 async function handleFormSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    try {
-        const response = await fetch(e.target.action, {
-            method: contactForm.method,
-            body: formData,
-            headers: {
-                Accept: "application/json",
-            },
-        });
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  try {
+    const response = await fetch(e.target.action, {
+      method: contactForm.method,
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
 
-        if (response.ok) {
-            formStatus.classList.remove("hidden");
-            modalBody.innerHTML = successMarkup;
-        } else {
-            const data = await response.json();
+    if (response.ok) {
+      formStatus.classList.remove("hidden");
+      modalBody.innerHTML = successMarkup;
+    } else {
+      const data = await response.json();
 
-            console.log(data);
-            if (Object.hasOwn(data, "errors")) {
-                throw new Error(data["errors"].map((error) => error["message"]).join(", "));
-            } else {
-                throw new Error("Oops! Something weird has happened. Please try again.");
-            }
-        }
-    } catch (error) {
-        formStatus.classList.remove("hidden");
-        formStatus.innerHTML = error.message;
+      console.log(data);
+      if (Object.hasOwn(data, "errors")) {
+        throw new Error(
+          data["errors"].map((error) => error["message"]).join(", ")
+        );
+      } else {
+        throw new Error(
+          "Oops! Something weird has happened. Please try again."
+        );
+      }
     }
+  } catch (error) {
+    formStatus.classList.remove("hidden");
+    formStatus.innerHTML = error.message;
+  }
 }
 
 contactForm.addEventListener("submit", handleFormSubmit);
+
+// Update footer year
+(function () {
+  try {
+    var el = document.getElementById("current-year");
+    if (el) el.textContent = new Date().getFullYear();
+  } catch (e) {
+    console.error(e);
+  }
+})();
 
 // Vercel analytics
 inject();
