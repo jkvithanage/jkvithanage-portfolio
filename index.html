@@ -66,17 +66,6 @@
     <link rel="stylesheet" href="src/scss/main.scss" />
     <script type="module" src="src/js/controller.js"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LeLGbwmAAAAAK2z7ZzW_hDef9Ll9RI2RCf0RglP"></script>
-    <script>
-      grecaptcha.ready(function () {
-        grecaptcha
-          .execute("6LeLGbwmAAAAAK2z7ZzW_hDef9Ll9RI2RCf0RglP", {
-            action: "submit",
-          })
-          .then(function (token) {
-            document.getElementById("g-recaptcha-response").value = token;
-          });
-      });
-    </script>
   </head>
 
   <body>
@@ -911,15 +900,28 @@
             <form
               class="contact-form"
               id="contact-form"
-              action="https://formspree.io/f/xpzevgna"
+              action="/api/send-email"
               method="post"
               name="Contact Janaka Vithanage"
+              data-recaptcha-site-key="6LeLGbwmAAAAAK2z7ZzW_hDef9Ll9RI2RCf0RglP"
             >
               <input
                 type="hidden"
                 id="g-recaptcha-response"
                 name="g-recaptcha-response"
               />
+              <!-- Honeypot (leave empty) -->
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;"
+              />
+              <!-- Timestamp when form opened for time-to-submit check -->
+              <input type="hidden" id="form-started-at" name="form-started-at" />
               <p class="form-status hidden">This is the form status</p>
               <input
                 type="text"

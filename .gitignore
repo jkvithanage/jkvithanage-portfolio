@@ -1,5 +1,6 @@
 .DS_Store
 .prettierignore
+.env
 
 /node_modules
 /dist
@@ -7,3 +8,4 @@
 
 /react-version
 /screenshots
+/.vercel

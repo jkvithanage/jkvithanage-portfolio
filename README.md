@@ -4,10 +4,21 @@
 
 ---
 
-◆ Built basically with HTML, SCSS and JavaScript.
+- Built basically with HTML, SCSS and JavaScript.
+- Recently added PostCSS and Autoprefixer for cross-browser compatibility.
+- I used Parcel bundler initially and had a low score for performance on PageSpeed Insights due to some tree-shaking issues in Parcel.
+- In terms of style, My goal was to do something simple and minimal. I used flat square-shaped elements throughout the design, avoiding rounded shapes as much as possible.
 
-◆ Recently added PostCSS and Autoprefixer for cross-browser compatibility.
+---
 
-◆ I used Parcel bundler initially and had a low score for performance on PageSpeed Insights due to some tree-shaking issues in Parcel.
+#### Update 30/08/2025
 
-◆ In terms of style, My goal was to do something simple and minimal. I used flat square-shaped elements throughout the design, avoiding rounded shapes as much as possible.
+Replaced Formspree for contact form submission with a serverless function (`/api/send-email`) using Nodemailer.
+<br>The following environment variables needs to be added in Vercel:
+
+- `SMTP_HOST`: SMTP server host (eg: `smtp.gmail.com`).
+- `SMTP_PORT`: SMTP server port (`465` for SSL or `587` for TLS).
+- `SMTP_USER`: SMTP username (your email address).
+- `SMTP_PASS`: SMTP password (for Gmail, use an App Password).
+- `MAIL_TO`: Destination email address.
+- `RECAPTCHA_SECRET`: Legacy reCAPTCHA secret key.
