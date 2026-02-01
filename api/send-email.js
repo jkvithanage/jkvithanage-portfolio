@@ -61,7 +61,8 @@ module.exports = async function handler(req, res) {
         );
         const verifyJson = await verifyRes.json();
         console.log(verifyJson);
-        if (!verifyJson.success) {
+
+        if (!verifyJson.success || verifyJson.score < 0.75) {
           return res.status(400).json({
             errors: [
               {
@@ -131,8 +132,8 @@ module.exports = async function handler(req, res) {
         <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
         <p><strong>Message:</strong></p>
         <pre style="white-space:pre-wrap;background:#f6f6f6;padding:12px;border-radius:6px;">${escapeHtml(
-          message
-        )}</pre>
+      message
+    )}</pre>
       </div>
     `;
 
