@@ -1,3 +1,5 @@
+// @ts-nocheck -- Unmigrated behavior; JavaScript checks cover the React foundation.
+import { setScrollLock } from "./scroll-lock";
 import {
   siRuby,
   siJavascript,
@@ -112,20 +114,19 @@ function renderSkillIcons(el, iconsArr) {
 
 // 2. Handle modal window
 
-const body = document.querySelector("body");
 const modal = document.querySelector(".modal");
 const modalDialog = document.querySelector(".modal-dialog");
 const btnCloseModal = document.querySelector(".modal__close");
 const allContactButtons = document.querySelectorAll(".btn-contact");
-const navbar = document.querySelector(".nav");
-const navClickables = document.querySelectorAll("nav .nav__link");
-const ham = document.querySelector("#hamburger");
+let contactReturnFocus;
 
-const openModal = function () {
+// Temporary React-to-legacy boundary; keep form submission owned here until #29.
+export function openLegacyContact(returnFocus = document.activeElement) {
+  contactReturnFocus = returnFocus;
   modal.classList.remove("hidden");
   modalDialog.classList.remove("hidden");
-  ham.checked = false;
-  body.classList.add("overflow-hidden");
+  setScrollLock("contact", true);
+  btnCloseModal.focus();
 
   // Initialize time-to-submit timestamp and reset honeypot
   try {
@@ -139,10 +140,11 @@ const openModal = function () {
 const closeModal = function () {
   modal.classList.add("hidden");
   modalDialog.classList.add("hidden");
-  body.classList.remove("overflow-hidden");
+  setScrollLock("contact", false);
+  contactReturnFocus?.focus();
 };
 
-allContactButtons.forEach((btn) => btn.addEventListener("click", openModal));
+allContactButtons.forEach((btn) => btn.addEventListener("click", () => openLegacyContact(btn)));
 
 btnCloseModal.addEventListener("click", closeModal);
 
@@ -153,37 +155,21 @@ btnCloseModal.addEventListener("click", closeModal);
 //   }
 // };
 
-window.onkeydown = function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    closeModal();
+document.addEventListener("keydown", (event) => {
+  if (modal.classList.contains("hidden")) return;
+  if (event.key === "Escape") closeModal();
+  if (event.key === "Tab") {
+    const controls = modal.querySelectorAll('button, input:not([type="hidden"]):not([tabindex="-1"]), textarea');
+    const first = controls[0];
+    const last = controls[controls.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
-};
-
-// Show/hide navbar based on scroll direction
-let oldScrollY = 0;
-window.onscroll = function (e) {
-  navbar.classList.toggle(
-    "hidden",
-    window.scrollY > 0 && window.scrollY > oldScrollY && !ham.checked
-  );
-  oldScrollY = window.scrollY;
-};
-
-// Disable body scroll while mobile nav menu is opened
-
-ham.addEventListener("click", (e) => {
-  if (e.target.checked) {
-    body.classList.add("overflow-hidden");
-  } else {
-    body.classList.remove("overflow-hidden");
-  }
-});
-
-navClickables.forEach((el) => {
-  el.addEventListener("click", (e) => {
-    ham.checked = false;
-    body.classList.remove("overflow-hidden");
-  });
 });
 
 // Reveal sections on scroll
@@ -191,11 +177,11 @@ navClickables.forEach((el) => {
 const sections = document.querySelectorAll(".section, .section-full");
 
 const observer = new IntersectionObserver(function (entries) {
-  const [entry] = entries;
-  if (!entry.isIntersecting) return;
-
-  entry.target.classList.add("reveal", entry.isIntersecting);
-  observer.unobserve(entry.target);
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("reveal");
+    observer.unobserve(entry.target);
+  });
 });
 
 sections.forEach((section) => {

@@ -9,7 +9,8 @@
     overflow-y: auto;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
-    transition: $transition-all;
+    // Visibility must update immediately so the contact handoff can move focus.
+    transition: opacity 0.25s $transition;
 
     &.hidden {
         visibility: hidden;
