@@ -1,6 +1,8 @@
 # Planned React component structure
 
-Status: proposed implementation design; not yet implemented.
+Status: navigation and hero foundation implemented in issue #26's migration slice;
+remaining sections and themes are planned. See the
+[temporary integration guide](react-foundation.md) for current mounting and contact boundaries.
 
 Source specification: [React portfolio migration and site-wide themes, issue #25](https://github.com/jkvithanage/jkvithanage-portfolio/issues/25).
 

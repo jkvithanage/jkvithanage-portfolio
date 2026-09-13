@@ -1,0 +1,454 @@
+@import "./normalize.css";
+
+/* Shared foundation for React and the remaining static sections. */
+:root {
+  --color-accent: hsl(53, 86%, 54%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-charcoal: hsl(0, 0%, 18%);
+  --font-mono: "JetBrains Mono", monospace;
+  --font-title: "Barlow", sans-serif;
+  --transition-all: all 0.25s ease-in-out;
+}
+
+.icon-email,
+.icon-twitter,
+.icon-instagram,
+.icon-linkedin,
+.icon-github {
+  mask-repeat: no-repeat;
+  mask-size: 100%;
+  background-color: currentColor;
+}
+
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-left {
+  0% {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes down-arrow-before {
+  50% {
+    transform: rotate(45deg) translate(70%, 70%);
+  }
+  100% {
+    transform: rotate(45deg) translate(70%, 70%);
+  }
+}
+@keyframes down-arrow-after {
+  50% {
+    transform: rotate(45deg) translate(110%, 110%);
+    opacity: 0;
+  }
+  51% {
+    transform: rotate(45deg) translate(-130%, -130%);
+  }
+  100% {
+    transform: rotate(45deg) translate(-70%, -70%);
+    opacity: 1;
+  }
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-all);
+}
+a:hover {
+  color: var(--color-accent);
+}
+
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("../../static/fonts/Inter-roman.var.woff2?v=3.19") format("woff2");
+}
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: "Italic";
+  src: url("../../static/fonts/Inter-italic.var.woff2?v=3.19") format("woff2");
+}
+@font-face {
+  font-family: "Barlow";
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Italic";
+  src: url("../../static/fonts/Barlow-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("../../static/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Bold";
+  src: url("../../static/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+}
+html {
+  /* 62.5% of 16px */
+  font-size: 62.5%;
+}
+
+body {
+  font-family:
+    Inter var,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    Noto Sans,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
+  font-variation-settings: normal;
+  line-height: 1.5;
+  font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 1rem;
+  font-family: var(--font-title);
+}
+
+h1 {
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 3.1rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 2rem;
+}
+
+.stroke-left,
+.stroke-center {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+.stroke-left::after,
+.stroke-center::after {
+  background-color: var(--color-accent);
+  content: "";
+  width: 5rem;
+  height: 2px;
+  margin-top: 0.5rem;
+}
+
+.stroke-left {
+  align-items: start;
+}
+
+.stroke-center {
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.list {
+  list-style: "+";
+  padding-left: 2.5rem;
+}
+.list li {
+  padding-left: 1rem;
+}
+
+.lazy-img {
+  filter: blur(20px);
+}
+
+.btn {
+  background: none;
+  display: inline-block;
+  line-height: 1.5;
+  white-space: nowrap;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: clamp(1px, 0.5vw, 4px);
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: var(--transition-all);
+  font-family: var(--font-mono);
+}
+
+.btn-lg {
+  padding: 1.5rem 3rem;
+}
+
+.btn-white {
+  background-color: var(--color-white);
+}
+.btn-white:hover,
+.btn-white:focus {
+  color: var(--color-charcoal);
+  background-color: var(--color-accent);
+}
+.btn-white:visited,
+.btn-white :link {
+  color: var(--color-charcoal);
+}
+
+.btn-white-outlined {
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+}
+.btn-white-outlined:hover,
+.btn-white-outlined:focus,
+.btn-white-outlined:hover:visited {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.btn-white-outlined:visited,
+.btn-white-outlined :link {
+  color: var(--color-white);
+}
+
+.btn-black {
+  color: var(--color-white);
+  background-color: var(--color-charcoal);
+}
+.btn-black:hover,
+.btn-black:focus {
+  background-color: var(--color-accent);
+  color: var(--color-charcoal);
+}
+.btn-black:disabled {
+  color: var(--color-white);
+  background-color: var(--color-charcoal);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-black-outlined {
+  color: var(--color-charcoal);
+  background: none;
+  border: 1px solid var(--color-charcoal);
+}
+.btn-black-outlined:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.link {
+  display: inline !important;
+  cursor: pointer;
+  font-style: italic;
+  border-bottom: 1px solid var(--color-accent);
+}
+.link:hover {
+  color: var(--color-accent);
+}
+
+@media screen and (min-width: 1024px) {
+  .btn-lg {
+    padding: 2rem 3rem;
+  }
+}
+.icon-github,
+.icon-linkedin,
+.icon-instagram,
+.icon-twitter,
+.icon-email {
+  display: inline-block;
+  width: 2.4rem;
+  height: 2.4rem;
+  color: var(--color-white);
+  transition: var(--transition-all);
+}
+
+.icon-github:hover,
+.icon-linkedin:hover,
+.icon-instagram:hover,
+.icon-twitter:hover,
+.icon-email:hover {
+  color: var(--color-accent);
+}
+
+.icon-github {
+  mask-image: url("../../static/socials/github.svg");
+}
+
+.icon-linkedin {
+  mask-image: url("../../static/socials/linkedin.svg");
+}
+
+.icon-instagram {
+  mask-image: url("../../static/socials/instagram.svg");
+}
+
+.icon-twitter {
+  mask-image: url("../../static/socials/twitter.svg");
+}
+
+.icon-email {
+  mask-image: url("../../static/socials/email.svg");
+}
+
+.socials-desktop {
+  display: none;
+}
+
+.socials-footer .social-link:not(:last-child),
+.socials-mobile-nav .social-link:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.socials-mobile-nav {
+  margin-top: clamp(0rem, 4vh, 5rem);
+}
+
+@media screen and (min-width: 1024px) {
+  .socials-desktop {
+    display: block;
+    background-color: var(--color-charcoal);
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: calc((100vh - 8rem - 9.6rem) / 2);
+    padding: 1rem;
+    animation: fade-right 1s ease-in-out 1.25s backwards;
+  }
+  .socials-desktop .social-icons {
+    display: grid;
+    gap: 1rem;
+  }
+  .socials-footer,
+  .socials-mobile-nav {
+    display: none;
+  }
+}
+.main {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+}
+
+.section,
+.section-full {
+  padding: 5rem 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section.reveal,
+.section-full.reveal {
+  animation: fade-up 1s ease-in-out backwards;
+}
+
+.section {
+  max-width: 90rem;
+}
+
+.section-full {
+  width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

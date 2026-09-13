@@ -1,30 +1,41 @@
 {
-	"name": "jkvithanage-portfolio",
-	"version": "1.1.0",
-	"description": "Janaka Vithanage Personal Website",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/jkvithanage/jkvithanage-portfolio"
-	},
-	"keywords": [
-		"portfolio"
-	],
-	"source": "index.html",
-	"browserslist": "> 0.5%, last 2 versions, not dead",
-	"scripts": {
-		"start": "vite --port 3000",
-		"build": "vite build"
-	},
-	"author": "Janaka Vithanage",
-	"license": "MIT",
-	"dependencies": {
-		"@vercel/analytics": "^1.0.1",
-		"simple-icons": "^9.1.0",
-		"nodemailer": "^6.9.13"
-	},
-	"devDependencies": {
-		"postcss": "^8.4.24",
-		"autoprefixer": "^10.4.14",
-		"vite": "^4.3.9"
-	}
+  "name": "jkvithanage-portfolio",
+  "version": "1.1.0",
+  "description": "Janaka Vithanage Personal Website",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jkvithanage/jkvithanage-portfolio"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "source": "index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "vite --port 3000",
+    "build": "vite build",
+    "typecheck": "tsc -p jsconfig.json",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "preview": "vite preview --port 3000"
+  },
+  "author": "Janaka Vithanage",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.0.1",
+    "nodemailer": "^6.9.13",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "simple-icons": "^9.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "sass": "^1.104.1",
+    "typescript": "^5.9.3",
+    "vite": "^4.3.9"
+  }
 }

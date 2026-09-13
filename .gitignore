@@ -4,6 +4,8 @@
 
 /node_modules
 /dist
+/playwright-report
+/test-results
 /.parcel-cache
 
 /react-version
