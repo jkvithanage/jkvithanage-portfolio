@@ -2,6 +2,8 @@
 
 /* Shared foundation for React and the remaining static sections. */
 :root {
+  --color-label-text: hsl(53, 99%, 38%);
+  --color-label-background: hsl(54, 100%, 93%);
   --color-accent: hsl(53, 86%, 54%);
   --color-white: hsl(0, 0%, 100%);
   --color-charcoal: hsl(0, 0%, 18%);

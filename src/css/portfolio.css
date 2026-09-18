@@ -49,10 +49,10 @@
 
 .project__tag {
   display: inline-block;
-  color: hsl(53, 99%, 38%);
-  background-color: hsl(54, 100%, 93%);
+  color: var(--color-label-text);
+  background-color: var(--color-label-background);
   font-family: var(--font-mono);
-  border: 1px solid hsl(53, 99%, 38%);
+  border: 1px solid var(--color-label-text);
   font-size: 1rem;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
