@@ -5,7 +5,6 @@ import { SiteHeader } from "./Navigation";
 import { HeroSection } from "./HeroSection";
 import { CareerSection } from "./CareerSection";
 import { PortfolioSection } from "./PortfolioSection";
-import { useScrollReveal } from "./useScrollReveal";
 import { openLegacyContact } from "../js/controller";
 import "../css/shared.css";
 import "../scss/main.scss";
@@ -29,8 +28,6 @@ const portfolioSlot = /** @type {HTMLElement} */ (
 );
 
 function App() {
-  // Keep the still-static sections animated during the intermediate migration.
-  useScrollReveal(".section:not(#career):not(#portfolio), .section-full:not(#career):not(#portfolio)");
   return (
     <>
       {createPortal(<SiteHeader onContact={openLegacyContact} />, headerSlot)}

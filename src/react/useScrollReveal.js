@@ -1,45 +1,32 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Adds the page's reveal class once an element enters the viewport.
- * Pass a selector when a migration shell needs to observe several static
- * sections; without one the returned ref observes one React-owned element.
+ * Adds the page's reveal class when an element enters the viewport.
+ * Reduced-motion visitors see the content immediately and the observer is
+ * always disconnected when the owning component unmounts.
  */
-export function useScrollReveal(selector) {
-  const ref = useRef(null);
+export function useScrollReveal() {
+  const ref = useRef(/** @type {HTMLElement | null} */ (null));
 
   useEffect(() => {
-    const targets = selector
-      ? Array.from(document.querySelectorAll(selector))
-      : ref.current
-        ? [ref.current]
-        : [];
-    if (!targets.length) return undefined;
+    const element = ref.current;
+    if (!element) return undefined;
 
-    const reveal = (element) => element.classList.add("reveal");
-    const reducedMotion = window.matchMedia?.(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (reducedMotion || !("IntersectionObserver" in window)) {
-      targets.forEach(reveal);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+      element.classList.add("reveal");
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          reveal(entry.target);
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.1 },
-    );
-    targets.forEach((element) => observer.observe(element));
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      element.classList.add("reveal");
+      observer.disconnect();
+    });
+    observer.observe(element);
 
     return () => observer.disconnect();
-  }, [selector]);
+  }, []);
 
   return ref;
 }

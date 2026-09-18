@@ -172,6 +172,26 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+// Reveal sections still owned by the legacy page sections.
+
+const sections = document.querySelectorAll(
+  ".section:not(#career), .section-full:not(#portfolio)",
+);
+
+const observer = new IntersectionObserver(function (entries) {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add("reveal");
+    observer.unobserve(entry.target);
+  });
+});
+
+sections.forEach((section) => {
+  observer.observe(section);
+
+  section.classList.remove("reveal");
+});
+
 // Handle contact form
 
 const contactForm = document.getElementById("contact-form");

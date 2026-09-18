@@ -29,6 +29,12 @@ test("renders all projects with metadata, rich content, and actions", async ({
   const portfolio = page.locator("#portfolio");
   const projects = portfolio.locator("article.project-card");
   await expect(projects).toHaveCount(4);
+  for (const image of await projects.locator("img").all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => image.evaluate((element) => element.complete && element.naturalWidth > 0))
+      .toBeTruthy();
+  }
 
   for (const title of [
     "My Cash Flow",
@@ -41,7 +47,7 @@ test("renders all projects with metadata, rich content, and actions", async ({
 
   await expect(portfolio.getByRole("img", { name: /PageSpeed Insights/ })).toHaveAttribute(
     "src",
-    /portfolio_pagespeed_insights\.png$/,
+    /portfolio_pagespeed_insights.*\.png$/,
   );
   await expect(portfolio.getByRole("link", { name: "Visit Google PageSpeed Insights" })).toHaveAttribute(
     "href",
