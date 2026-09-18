@@ -172,24 +172,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Reveal sections on scroll
-
-const sections = document.querySelectorAll(".section, .section-full");
-
-const observer = new IntersectionObserver(function (entries) {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("reveal");
-    observer.unobserve(entry.target);
-  });
-});
-
-sections.forEach((section) => {
-  observer.observe(section);
-
-  section.classList.remove("reveal");
-});
-
 // Handle contact form
 
 const contactForm = document.getElementById("contact-form");
