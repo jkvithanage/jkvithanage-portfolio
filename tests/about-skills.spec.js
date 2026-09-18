@@ -1,6 +1,9 @@
 import { test, expect } from "@playwright/test";
 import { preparePage } from "./prepare-page";
 
+// Keep content and pointer checks independent of decorative reveal animations.
+test.use({ reducedMotion: "reduce" });
+
 test.beforeEach(async ({ page }) => preparePage(page));
 
 test("about keeps the portrait, biography, and responsive image sources", async ({

@@ -72,9 +72,9 @@
   position: absolute;
   font-size: 1rem;
   line-height: 1.5;
-  background-color: hsl(54, 100%, 93%);
-  color: hsl(53, 99%, 38%);
-  border: 1px solid hsl(53, 99%, 38%);
+  background-color: var(--color-label-background);
+  color: var(--color-label-text);
+  border: 1px solid var(--color-label-text);
   font-family: var(--font-mono);
   padding: 0.5rem 1rem;
   width: max-content;
