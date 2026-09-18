@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import logoUrl from "../../static/logo.svg";
 import { setScrollLock } from "../js/scroll-lock";
+import { SocialLinks } from "./SocialLinks";
 
 export function BrandLogo() {
   return (
@@ -65,41 +66,6 @@ export function NavigationLinks({ onNavigate }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-const socialLinks = [
-  ["github", "https://github.com/jkvithanage", "Link to the GitHub profile"],
-  [
-    "linkedin",
-    "https://www.linkedin.com/in/jkvithanage/",
-    "Link to the LinkedIn profile",
-  ],
-  [
-    "instagram",
-    "https://www.instagram.com/jkvithanage/",
-    "Link to the Instagram profile",
-  ],
-  ["twitter", "https://twitter.com/jkvithanage", "Link to the Twitter profile"],
-  ["email", "mailto:jkvithana@gmail.com", "Email address of Janaka"],
-];
-
-export function SocialLinks() {
-  return (
-    <div className="social-icons">
-      {socialLinks.map(([icon, href, label]) => (
-        <a
-          className="social-link"
-          key={icon}
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={label}
-        >
-          <span className={`icon-${icon}`} />
-        </a>
-      ))}
-    </div>
   );
 }
 
