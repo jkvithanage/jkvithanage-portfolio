@@ -1,60 +1,71 @@
-# React foundation and migration integration
+# React application structure
 
-Implemented for issues #26, #27, and #28, following the
-[component structure](react-component-structure.md). Navigation, hero, about,
-skills, career, portfolio, social links, the contact callout, and footer now use React.
-Contact and theme slices remain in #29–#30.
+Implemented for issues #26–#29, following the
+[component structure](react-component-structure.md). All portfolio sections and
+contact now use React and ordinary CSS. Site-wide themes remain in #30.
 
-`src/react/main.jsx` is the only browser entry point. Its App owns one React root
-and renders portals into the migration slots in `index.html`: `#header`,
-`#hero-root`, `#socials-desktop-root`, `#about-root`, `#skills-root`,
-`#career-root`, `#portfolio-root`, `#callout-root`, and `#footer-root`. The root itself adds no layout around the
-remaining static page sections.
-
-To migrate another section, replace only that section's static markup with a slot,
-then add a portal in App. Keep its original section ID on the rendered section so
-anchor navigation continues to work. Remove the corresponding legacy listeners
-and SCSS when React takes ownership. React effects must release listeners,
-observers, and scroll locks on cleanup. Ultimately App can render the entire page
-and the temporary portals/slots can be removed.
+`src/react/main.jsx` is the only browser entry point. App renders the page into
+`#react-root` in `index.html`; there are no migration slots or section portals.
+The original section IDs preserve anchor navigation. App owns contact visibility
+and passes an explicit contact callback to navigation and the contact callout.
 
 Navigation owns mobile menu state, keyboard interaction, and scroll-driven header
 visibility. Its links and mobile social links share one responsive implementation.
 `SocialLinks` and its five-link collection are reused by the desktop side rail,
-mobile menu, and footer. The legacy controller no longer queries navigation or
-installs navigation listeners.
+mobile menu, and footer.
 
-App passes the exported `openLegacyContact(returnFocus)` callback from
-`src/js/controller.js` to SiteHeader. Navigation invokes it and closes its menu.
-Pass a visible element to restore focus to when the dialog closes; mobile navigation
-passes its toggle. The legacy controller owns the static contact dialog, spam fields,
-form submission and Vercel analytics. React owns the
-contact-callout trigger, skill icons, migrated section reveals, and footer year. It
-initializes once at module load. The Google analytics and reCAPTCHA scripts remain
-in `index.html`. The email request contract is unchanged; the asynchronous
-token/submission redesign belongs to #29.
+## Contact lifecycle
+
+`ContactDialog` uses a native modal dialog to make the background inert, moves
+focus to the close button, contains Tab/Shift+Tab, and supports Escape and the
+close button. Dismissal restores focus to the initiating control; mobile navigation
+passes its visible toggle because its contact control disappears when the menu
+closes. Opening contact closes the mobile menu.
+
+`ContactForm` owns native required/email validation, submission feedback, and the
+unchanged JSON contract at `/api/send-email`. Fields have accessible labels.
+Each opening starts a fresh form with an empty honeypot and a timestamp. A failed
+submission retains all entered fields and the timestamp for retry. Each attempt
+awaits reCAPTCHA readiness and a fresh token before sending, including retries.
+Unavailable, rejected, empty, or timed-out tokens produce a recoverable error
+without sending email. Token acquisition times out after 15 seconds.
+
+While pending, the send button is disabled and an immediate request guard prevents
+duplicate submissions. Status and alert regions announce progress, success, and
+errors; success receives focus when the form is replaced. Closing unmounts the
+form and aborts pending client work, so a late token cannot send a stale message.
+Aborting a request already received by the server cannot undo email delivery.
 
 Both overlays call `setScrollLock(owner, locked)` from `src/js/scroll-lock.js`, with
 distinct `navigation` and `contact` owners. Closing one overlay releases only that
-owner. Use this boundary for any additional temporary overlay. Do not directly
-toggle the body overflow class from a component.
+owner. React effects release listeners, observers, and scroll locks on cleanup.
+
+## Styling and integrations
 
 `src/css/shared.css` supplies shared values, fonts, base styles, buttons, social
 icons, layout utilities, and animations; it imports the vendored ordinary-CSS
-normalize reset. Navigation, hero, about, skills, career, portfolio, and callout/footer have their
-own ordinary CSS files. `src/scss/main.scss` imports only the styles/helpers still
-needed by the static contact dialog.
+normalize reset. Each section has ordinary CSS, including `src/css/contact.css`.
+There are no SCSS sources or Sass build dependencies.
+
 `useScrollReveal` in `src/react/useScrollReveal.js` is the shared reveal boundary;
 it cleans up its observer and shows content immediately for reduced-motion users.
 Reduced-motion preferences also disable animation and smooth scrolling for the
 page. Public metadata assets and the manifest are served from Vite's `public/`
-directory.
+directory. Google analytics and reCAPTCHA scripts remain in `index.html`.
+Vercel analytics initializes once at the entry point, outside component renders.
+The server email handler and SMTP/reCAPTCHA environment contract are unchanged.
+
+## Verification
 
 The agreed test seam is the visitor-facing page, using Playwright on desktop and
-mobile Chromium. `tests/about-skills.spec.js` covers the portrait, skill labels
-and interactions, social destinations, callout contact opening, and footer year;
-the career/portfolio suite covers timelines, project actions, assets, and reveals.
-The existing suites cover navigation, assets, and mocked contact submission.
+mobile Chromium. The section suites cover content, assets, interactions, anchor
+navigation, responsive layouts, and reduced motion. `tests/contact.spec.js` covers
+validation, pending/success feedback, token ordering, duplicate submission
+protection, retry after server/network/token failures, keyboard containment,
+focus restoration, and cancellation during token acquisition. Navigation tests
+also cover mobile contact handoff and scroll locking.
+
 See the README for commands. External email and reCAPTCHA are mocked; other
-external traffic is blocked. Run checks against the production build to catch asset
-paths that Vite's development fallback might conceal.
+external traffic is blocked. Run the full suite against the production build to
+catch asset paths that Vite's development fallback might conceal. Tests save
+desktop/mobile screenshots under `test-results/` for visual inspection.

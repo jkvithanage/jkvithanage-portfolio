@@ -101,7 +101,7 @@ test("contact handoff closes navigation and retains scroll locking until dismiss
   await expect(page.locator("body")).not.toHaveCSS("overflow", "hidden");
   await expect(isMobile ? toggle : contact).toBeFocused();
 
-  // The static contact callout still uses the same dialog and close button.
+  // The contact callout uses the same dialog and close button.
   await page
     .getByRole("button", {
       name: "Open contact form to send a message to Janaka",

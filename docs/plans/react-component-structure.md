@@ -2,8 +2,9 @@
 
 Status: navigation and hero foundation implemented in #26; about, skills, social
 links, contact callout, and footer implemented in #27; career and portfolio
-implemented in #28. Contact and themes remain planned. See the
-[temporary integration guide](react-foundation.md) for current mounting and contact boundaries.
+implemented in #28; contact and final application ownership implemented in #29.
+Themes remain planned in #30. See the
+[application guide](react-foundation.md) for current mounting and contact boundaries.
 
 Source specification: [React portfolio migration and site-wide themes, issue #25](https://github.com/jkvithanage/jkvithanage-portfolio/issues/25).
 
@@ -116,10 +117,8 @@ reduced-motion support.
 ## Migration and verification
 
 Migration proceeds from navigation and hero to content sections, then contact and
-legacy cleanup, and finally site-wide themes. Keep unmigrated sections functional
-during intermediate steps. The current slots are temporary integration connections;
-the final component structure can remove them once the remaining sections are
-migrated.
+legacy cleanup, and finally site-wide themes. The migration slots, imperative controller, HTML examples, and SCSS have been
+removed. App now renders all sections directly into one React root.
 
 Use page-level Playwright tests as agreed in the specification. Verify visible
 behavior and keyboard interaction, mock email and reCAPTCHA at their external

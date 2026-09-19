@@ -1,6 +1,6 @@
 @import "./normalize.css";
 
-/* Shared foundation for React and the remaining static sections. */
+/* Shared foundation for the React application. */
 :root {
   --color-label-text: hsl(53, 99%, 38%);
   --color-label-background: hsl(54, 100%, 93%);
