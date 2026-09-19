@@ -159,6 +159,41 @@ test("header hides on downward scrolling and returns on upward scrolling", async
   await expect(nav).toBeInViewport();
 });
 
+test("header still hides and returns on scroll after clicking a theme icon", async ({ page, isMobile }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const nav = page.getByRole("navigation");
+  const toggle = nav.getByRole("button", { name: "Navigation menu toggler" });
+  if (isMobile) await toggle.click();
+  await nav.getByRole("button", { name: "Dark theme", exact: true }).click();
+  if (isMobile) {
+    await expect(page.locator("body")).toHaveCSS("overflow", "hidden");
+    await toggle.click();
+  }
+  await expect(page.locator("body")).not.toHaveCSS("overflow", "hidden");
+  await page.mouse.move(0, 400);
+  await page.evaluate(() => window.scrollTo(0, 700));
+  await expect(nav).toHaveClass(/nav--hidden/);
+  await expect.poll(async () => {
+    const box = await nav.boundingBox();
+    return box.y + box.height;
+  }).toBeLessThanOrEqual(0);
+  await page.evaluate(() => window.scrollTo(0, 400));
+  await expect(nav).toBeInViewport();
+});
+
+test("header remains visible while navigation has keyboard focus", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const nav = page.getByRole("navigation");
+  const logo = nav.getByRole("link", { name: "Janaka Vithanage brand logo" });
+  await logo.focus();
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Shift+Tab");
+  await expect(logo).toBeFocused();
+  await page.evaluate(() => window.scrollTo(0, 700));
+  await expect(nav).toHaveClass(/nav--hidden/);
+  await expect(nav).toBeInViewport();
+});
+
 test("reduced motion disables hero and navigation animation", async ({
   page,
 }) => {

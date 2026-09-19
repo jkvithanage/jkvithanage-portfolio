@@ -15,7 +15,7 @@
 .nav--hidden {
   transform: translateY(-100%);
 }
-.nav:focus-within {
+.nav:has(:focus-visible) {
   transform: translateY(0);
 }
 
