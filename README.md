@@ -5,8 +5,8 @@
 ---
 
 - Built with Vite and JavaScript. Navigation, hero, about, skills, social links,
-  the contact callout, and footer use React and plain CSS; career, portfolio, and
-  the contact dialog remain static during the migration.
+  career timelines, portfolio, contact callout, and footer use React and plain CSS;
+  the contact dialog remains static during the migration.
 - In terms of style, My goal was to do something simple and minimal. I used flat square-shaped elements throughout the design, avoiding rounded shapes as much as possible.
 
 ---
@@ -19,7 +19,7 @@ npm start
 ```
 
 Open http://localhost:3000. Sass is temporarily required for the unmigrated
-career, portfolio, and contact-dialog sections.
+contact dialog.
 
 ```sh
 npx playwright install chromium
@@ -39,7 +39,7 @@ set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium` to use it instead.
 
 Tests cover desktop/mobile navigation, hero and about content, skill labels and
 interactions, social destinations, contact handoff, scroll locking, reduced motion,
-retained content, footer year, and assets. They intercept email and reCAPTCHA and
+employment, education, project actions, retained content, footer year, and assets. They intercept email and reCAPTCHA and
 block other external requests. No real email is sent. Hero, navigation, about, and
 skills screenshots are saved under `test-results/` for visual inspection;
 failure traces can be opened with `npx playwright show-trace <trace.zip>`.

@@ -3,6 +3,10 @@ import { createRoot } from "react-dom/client";
 import { createPortal } from "react-dom";
 import { SiteHeader } from "./Navigation";
 import { HeroSection } from "./HeroSection";
+import { CareerSection } from "./CareerSection";
+import { PortfolioSection } from "./PortfolioSection";
+import "../css/career.css";
+import "../css/portfolio.css";
 import { AboutSection } from "./AboutSection";
 import { SkillsSection } from "./SkillsSection";
 import { SocialLinks } from "./SocialLinks";
@@ -40,6 +44,9 @@ const footerSlot = /** @type {HTMLElement} */ (
   document.getElementById("footer-root")
 );
 
+const careerSlot = /** @type {HTMLElement} */ (document.getElementById("career-root"));
+const portfolioSlot = /** @type {HTMLElement} */ (document.getElementById("portfolio-root"));
+
 function App() {
   return (
     <>
@@ -48,6 +55,8 @@ function App() {
       {createPortal(<SocialLinks />, desktopSocialsSlot)}
       {createPortal(<AboutSection />, aboutSlot)}
       {createPortal(<SkillsSection />, skillsSlot)}
+      {createPortal(<CareerSection />, careerSlot)}
+      {createPortal(<PortfolioSection />, portfolioSlot)}
       {createPortal(
         <ContactCallout onContact={openLegacyContact} />,
         calloutSlot,

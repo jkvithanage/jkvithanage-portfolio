@@ -1,8 +1,8 @@
 # Planned React component structure
 
 Status: navigation and hero foundation implemented in #26; about, skills, social
-links, contact callout, and footer implemented in #27. Career, portfolio, contact,
-and themes remain planned. See the
+links, contact callout, and footer implemented in #27; career and portfolio
+implemented in #28. Contact and themes remain planned. See the
 [temporary integration guide](react-foundation.md) for current mounting and contact boundaries.
 
 Source specification: [React portfolio migration and site-wide themes, issue #25](https://github.com/jkvithanage/jkvithanage-portfolio/issues/25).

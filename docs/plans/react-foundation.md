@@ -1,14 +1,14 @@
 # React foundation and migration integration
 
-Implemented for issues #26 and #27, following the
+Implemented for issues #26, #27, and #28, following the
 [component structure](react-component-structure.md). Navigation, hero, about,
-skills, social links, the contact callout, and the footer now use React. Career,
-portfolio, contact-form, and theme slices remain in #28–#30.
+skills, career, portfolio, social links, the contact callout, and footer now use React.
+Contact and theme slices remain in #29–#30.
 
 `src/react/main.jsx` is the only browser entry point. Its App owns one React root
 and renders portals into the migration slots in `index.html`: `#header`,
 `#hero-root`, `#socials-desktop-root`, `#about-root`, `#skills-root`,
-`#callout-root`, and `#footer-root`. The root itself adds no layout around the
+`#career-root`, `#portfolio-root`, `#callout-root`, and `#footer-root`. The root itself adds no layout around the
 remaining static page sections.
 
 To migrate another section, replace only that section's static markup with a slot,
@@ -28,7 +28,7 @@ App passes the exported `openLegacyContact(returnFocus)` callback from
 `src/js/controller.js` to SiteHeader. Navigation invokes it and closes its menu.
 Pass a visible element to restore focus to when the dialog closes; mobile navigation
 passes its toggle. The legacy controller owns the static contact dialog, spam fields,
-form submission, legacy section reveals, and Vercel analytics. React owns the
+form submission and Vercel analytics. React owns the
 contact-callout trigger, skill icons, migrated section reveals, and footer year. It
 initializes once at module load. The Google analytics and reCAPTCHA scripts remain
 in `index.html`. The email request contract is unchanged; the asynchronous
@@ -41,9 +41,9 @@ toggle the body overflow class from a component.
 
 `src/css/shared.css` supplies shared values, fonts, base styles, buttons, social
 icons, layout utilities, and animations; it imports the vendored ordinary-CSS
-normalize reset. Navigation, hero, about, skills, and callout/footer have their
+normalize reset. Navigation, hero, about, skills, career, portfolio, and callout/footer have their
 own ordinary CSS files. `src/scss/main.scss` imports only the styles/helpers still
-needed by the static career, portfolio, contact, and dialog sections.
+needed by the static contact dialog.
 `useScrollReveal` in `src/react/useScrollReveal.js` is the shared reveal boundary;
 it cleans up its observer and shows content immediately for reduced-motion users.
 Reduced-motion preferences also disable animation and smooth scrolling for the
@@ -53,7 +53,8 @@ directory.
 The agreed test seam is the visitor-facing page, using Playwright on desktop and
 mobile Chromium. `tests/about-skills.spec.js` covers the portrait, skill labels
 and interactions, social destinations, callout contact opening, and footer year;
-the existing suites cover navigation, assets, and the mocked contact submission.
+the career/portfolio suite covers timelines, project actions, assets, and reveals.
+The existing suites cover navigation, assets, and mocked contact submission.
 See the README for commands. External email and reCAPTCHA are mocked; other
 external traffic is blocked. Run checks against the production build to catch asset
 paths that Vite's development fallback might conceal.
