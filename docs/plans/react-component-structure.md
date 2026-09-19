@@ -1,7 +1,8 @@
 # Planned React component structure
 
-Status: navigation and hero foundation implemented in issue #26's migration slice;
-remaining sections and themes are planned. See the
+Status: navigation and hero foundation implemented in #26; about, skills, social
+links, contact callout, and footer implemented in #27. Career, portfolio, contact,
+and themes remain planned. See the
 [temporary integration guide](react-foundation.md) for current mounting and contact boundaries.
 
 Source specification: [React portfolio migration and site-wide themes, issue #25](https://github.com/jkvithanage/jkvithanage-portfolio/issues/25).
@@ -114,10 +115,11 @@ reduced-motion support.
 
 ## Migration and verification
 
-Migrate navigation and hero first; then content sections; then contact and legacy
-cleanup; finally introduce site-wide themes. Keep unmigrated sections functional
-during intermediate steps. Temporary migration connections are not part of the
-final component structure.
+Migration proceeds from navigation and hero to content sections, then contact and
+legacy cleanup, and finally site-wide themes. Keep unmigrated sections functional
+during intermediate steps. The current slots are temporary integration connections;
+the final component structure can remove them once the remaining sections are
+migrated.
 
 Use page-level Playwright tests as agreed in the specification. Verify visible
 behavior and keyboard interaction, mock email and reCAPTCHA at their external
