@@ -3,7 +3,7 @@
 Status: navigation and hero foundation implemented in #26; about, skills, social
 links, contact callout, and footer implemented in #27; career and portfolio
 implemented in #28; contact and final application ownership implemented in #29.
-Themes remain planned in #30. See the
+Site-wide themes are implemented in #30. See the
 [application guide](react-foundation.md) for current mounting and contact boundaries.
 
 Source specification: [React portfolio migration and site-wide themes, issue #25](https://github.com/jkvithanage/jkvithanage-portfolio/issues/25).

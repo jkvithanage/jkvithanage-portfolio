@@ -6,6 +6,9 @@
 
 - Built with Vite, React, JavaScript, and plain CSS throughout the portfolio,
   including the accessible contact dialog.
+- Choose System, Light, or Dark in the desktop or mobile navigation. System is
+  the default and follows live device changes; selections are remembered when
+  browser storage is available.
 - In terms of style, My goal was to do something simple and minimal. I used flat square-shaped elements throughout the design, avoiding rounded shapes as much as possible.
 
 ---
@@ -19,6 +22,14 @@ npm start
 
 Open http://localhost:3000. No CSS preprocessor is required.
 
+React code lives under `src/`: `App.jsx` composes the page, `components/` holds
+section and overlay components, `hooks/` contains shared behavior, `theme/`
+owns the theme provider, `styles/` contains section CSS, and `assets/` contains
+bundled images, fonts, and icons. Root `index.html` and `src/main.jsx` are
+Vite's HTML and React entry points. `public/` contains root-level metadata and
+the pre-paint theme stylesheet. `/api/send-email` remains a root-level Vercel
+function.
+
 ```sh
 npx playwright install chromium
 npm run typecheck
@@ -27,8 +38,8 @@ npm run build
 PLAYWRIGHT_TEST_BUILD=1 npm test
 ```
 
-`typecheck` checks the application JavaScript/JSX and shared scroll locking;
-it does not convert the project to TypeScript. `npm test` runs
+`typecheck` checks application JavaScript and JSX; it does not convert the
+project to TypeScript. `npm test` runs
 all page-level checks against the development server; `PLAYWRIGHT_TEST_BUILD=1`
 uses the existing production build. Stop any other server on port 3000 before
 switching modes.
@@ -44,6 +55,13 @@ reCAPTCHA failures. They intercept email and reCAPTCHA and block other external
 requests. No real email is sent. Hero, navigation, about, skills, and contact
 screenshots are saved under `test-results/` for visual inspection;
 failure traces can be opened with `npx playwright show-trace <trace.zip>`.
+
+`tests/theme.spec.js` covers preference persistence, System/device changes,
+invalid or unavailable storage, pre-React initial appearance, keyboard selection,
+and theme changes with the menu/dialog open. It checks contrast for skill icons,
+labels, tags, controls, focus indicators, and form feedback, and saves both-theme
+screenshots of every section and contact state at desktop/mobile sizes. It also
+runs against the production build, including its initial theme stylesheet.
 
 See [the React application guide](docs/plans/react-foundation.md) for component
 ownership and contact behavior.

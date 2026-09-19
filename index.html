@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Run synchronously before styles or the application can paint. -->
+    <script>
+      (() => {
+        let preference = "system";
+        try {
+          const saved = localStorage.getItem("portfolio-theme");
+          if (["system", "light", "dark"].includes(saved)) preference = saved;
+        } catch { /* Storage can be blocked by browser privacy settings. */ }
+        const root = document.documentElement;
+        root.dataset.themePreference = preference;
+        root.dataset.theme = preference === "system"
+          ? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+          : preference;
+      })();
+    </script>
+    <link rel="stylesheet" href="/theme.css" />
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -63,7 +79,7 @@
     />
     <link rel="manifest" href="/site.webmanifest" />
     <title>Janaka Vithanage</title>
-    <script type="module" src="src/react/main.jsx"></script>
+    <script type="module" src="/src/main.jsx"></script>
     <script src="https://www.google.com/recaptcha/api.js?render=6LeLGbwmAAAAAK2z7ZzW_hDef9Ll9RI2RCf0RglP"></script>
   </head>
 

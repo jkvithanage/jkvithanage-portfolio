@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { preparePage } from "./prepare-page";
+import { fillContact } from "./contact-fields";
 
 test.beforeEach(async ({ page }) => preparePage(page));
 
@@ -8,14 +9,6 @@ async function openContact(page) {
     name: "Open contact form to send a message to Janaka",
   }).last().click();
   return page.getByRole("dialog", { name: "Let's work together" });
-}
-
-async function fillContact(dialog) {
-  await dialog.getByRole("textbox", { name: "Your Name", exact: true }).fill("Test Visitor");
-  await dialog.getByRole("textbox", { name: "Email Address" }).fill("visitor@example.com");
-  await dialog.getByRole("textbox", { name: "Phone Number" }).fill("0400000000");
-  await dialog.getByRole("textbox", { name: "Subject" }).fill("Portfolio inquiry");
-  await dialog.getByRole("textbox", { name: "Message", exact: true }).fill("This email is intercepted by Playwright.");
 }
 
 test("contact waits for a fresh token, prevents duplicate submissions, and announces success", async ({ page }, testInfo) => {

@@ -11,5 +11,5 @@
     "types": ["vite/client"],
     "skipLibCheck": true
   },
-  "include": ["src/react/**/*", "src/js/scroll-lock.js"]
+  "include": ["src/**/*"]
 }

@@ -1,0 +1,38 @@
+/* Semantic roles shared by every section and overlay. */
+:root {
+  color-scheme: light;
+  --color-surface: #ffffff;
+  --color-text: #2e2e2e;
+  --color-surface-raised: #f4f4ef;
+  --color-muted: #626259;
+  --color-border: #76766c;
+  --color-accent: #806700;
+  --color-accent-fill: #eed824;
+  --color-on-accent: #2e2e2e;
+  --color-label-text: #705d00;
+  --color-label-background: #fffad9;
+  --color-disabled-surface: #e1e1dc;
+  --color-disabled-text: #626259;
+  --color-backdrop: rgb(0 0 0 / 50%);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-surface: #232323;
+  --color-text: #f5f5f5;
+  --color-surface-raised: #2e2e2e;
+  --color-muted: #c2c2ba;
+  --color-border: #a8a8a0;
+  --color-accent: #eed824;
+  --color-label-text: #eed824;
+  --color-label-background: #3d381e;
+  --color-disabled-surface: #494942;
+  --color-disabled-text: #deded5;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
