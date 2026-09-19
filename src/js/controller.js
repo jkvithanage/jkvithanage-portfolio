@@ -1,123 +1,12 @@
 // @ts-nocheck -- Unmigrated behavior; JavaScript checks cover the React foundation.
 import { setScrollLock } from "./scroll-lock";
-import {
-  siRuby,
-  siJavascript,
-  siHtml5,
-  siCss3,
-  siSass,
-  siRubyonrails,
-  siReact,
-  siNodedotjs,
-  siPostgresql,
-  siGit,
-  siGithub,
-  siPostman,
-  siHeroku,
-  siSelenium,
-  siFigma,
-  siAdobephotoshop,
-  siAdobeillustrator,
-  siAmazonaws,
-  siElasticsearch,
-  siPhp,
-  siPython,
-  siLaravel,
-  siJenkins,
-  siTensorflow,
-  siScikitlearn,
-  siPandas,
-  siPowerbi,
-  siNumpy,
-  siTableau,
-  siTailwindcss,
-} from "simple-icons";
 import { inject } from "@vercel/analytics";
 
-// 1. Render skill icons
-const languagesEl = document.querySelector(".language-icons");
-const developmentEl = document.querySelector(".development-icons");
-const toolsEl = document.querySelector(".tool-icons");
-const dataAiMlEl = document.querySelector(".data-ai-ml-icons");
-const designEl = document.querySelector(".design-icons");
-
-const languageIcons = [
-  siRuby,
-  siJavascript,
-  siPython,
-  siPhp,
-  siHtml5,
-  siCss3,
-  siSass,
-];
-const developmentIcons = [
-  siRubyonrails,
-  siLaravel,
-  siReact,
-  siTailwindcss,
-  siNodedotjs,
-  siPostgresql,
-  siElasticsearch,
-];
-const toolIcons = [
-  siGit,
-  siGithub,
-  siPostman,
-  siJenkins,
-  siAmazonaws,
-  siHeroku,
-  siSelenium,
-];
-const dataAiMlIcons = [
-  siPandas,
-  siNumpy,
-  siPowerbi,
-  siTableau,
-  siScikitlearn,
-  siTensorflow,
-];
-const designIcons = [siFigma, siAdobephotoshop, siAdobeillustrator];
-
-function renderSkillIcons(el, iconsArr) {
-  iconsArr.forEach((iconObj) => {
-    const icon = document.createElement("li");
-    icon.classList.add("skill-icon");
-    icon.innerHTML = iconObj.svg;
-    el.insertAdjacentElement("beforeend", icon);
-
-    const label = document.createElement("span");
-    label.classList.add("icon-label");
-    label.innerHTML = iconObj.title;
-    label.style.opacity = 0;
-    label.style.transition = "opacity 0.25s ease-in-out";
-    icon.insertAdjacentElement("beforeend", label);
-
-    icon.addEventListener("mouseover", () => {
-      icon.children[0].style.fill = `#${iconObj.hex}`;
-      label.style.opacity = 1;
-    });
-
-    icon.addEventListener("mouseleave", () => {
-      icon.children[0].style.fill = "";
-      label.style.opacity = 0;
-    });
-  });
-}
-
-[
-  [languagesEl, languageIcons],
-  [developmentEl, developmentIcons],
-  [toolsEl, toolIcons],
-  [dataAiMlEl, dataAiMlIcons],
-  [designEl, designIcons],
-].forEach((arr) => renderSkillIcons(arr[0], arr[1]));
-
-// 2. Handle modal window
+// Handle modal window
 
 const modal = document.querySelector(".modal");
 const modalDialog = document.querySelector(".modal-dialog");
 const btnCloseModal = document.querySelector(".modal__close");
-const allContactButtons = document.querySelectorAll(".btn-contact");
 let contactReturnFocus;
 
 // Temporary React-to-legacy boundary; keep form submission owned here until #29.
@@ -144,8 +33,6 @@ const closeModal = function () {
   contactReturnFocus?.focus();
 };
 
-allContactButtons.forEach((btn) => btn.addEventListener("click", () => openLegacyContact(btn)));
-
 btnCloseModal.addEventListener("click", closeModal);
 
 // Close modal if clicking outside of it
@@ -170,26 +57,6 @@ document.addEventListener("keydown", (event) => {
       first.focus();
     }
   }
-});
-
-// Reveal sections still owned by the legacy page sections.
-
-const sections = document.querySelectorAll(
-  ".section:not(#career), .section-full:not(#portfolio)",
-);
-
-const observer = new IntersectionObserver(function (entries) {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add("reveal");
-    observer.unobserve(entry.target);
-  });
-});
-
-sections.forEach((section) => {
-  observer.observe(section);
-
-  section.classList.remove("reveal");
 });
 
 // Handle contact form
@@ -269,16 +136,6 @@ async function handleFormSubmit(e) {
 }
 
 contactForm.addEventListener("submit", handleFormSubmit);
-
-// Update footer year
-(function () {
-  try {
-    var el = document.getElementById("current-year");
-    if (el) el.textContent = new Date().getFullYear();
-  } catch (e) {
-    console.error(e);
-  }
-})();
 
 // Vercel analytics
 inject();

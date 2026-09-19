@@ -4,9 +4,9 @@
 
 ---
 
-- Built with Vite and JavaScript. Navigation, hero, career timelines, and the
-  project portfolio use React and plain CSS; the about, skills, contact, and
-  footer sections remain static during the migration.
+- Built with Vite and JavaScript. Navigation, hero, about, skills, social links,
+  career timelines, portfolio, contact callout, and footer use React and plain CSS;
+  the contact dialog remains static during the migration.
 - In terms of style, My goal was to do something simple and minimal. I used flat square-shaped elements throughout the design, avoiding rounded shapes as much as possible.
 
 ---
@@ -18,30 +18,31 @@ npm ci
 npm start
 ```
 
-Open http://localhost:3000. Sass is temporarily required for unmigrated sections.
+Open http://localhost:3000. Sass is temporarily required for the unmigrated
+contact dialog.
 
 ```sh
 npx playwright install chromium
 npm run typecheck
-npm test -- tests/navigation.spec.js tests/career-and-portfolio.spec.js
+npm test -- tests/navigation.spec.js
 npm run build
 PLAYWRIGHT_TEST_BUILD=1 npm test
 ```
 
-`typecheck` checks JavaScript/JSX in the React foundation; it does not convert the
-project to TypeScript or check the legacy controller. `npm test` runs all page-level
-checks against the development server; `PLAYWRIGHT_TEST_BUILD=1` uses the existing
-production build. Stop any other server on port 3000 before switching modes.
+`typecheck` checks JavaScript/JSX in the migrated React sections; it does not
+convert the project to TypeScript or check the legacy controller. `npm test` runs
+all page-level checks against the development server; `PLAYWRIGHT_TEST_BUILD=1`
+uses the existing production build. Stop any other server on port 3000 before
+switching modes.
 `npm run test:ui` opens Playwright's UI. On systems with an existing Chromium,
 set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium` to use it instead.
 
-Tests cover desktop/mobile navigation, hero content, career and education
-timelines, project metadata and actions, contact handoff, scroll locking,
-reduced motion, retained content, and assets. They intercept email and
-reCAPTCHA and block other external requests. No real email is sent. Hero, menu,
-skills, career, and portfolio screenshots are saved under `test-results/` for
-visual inspection; failure traces can be opened with
-`npx playwright show-trace <trace.zip>`.
+Tests cover desktop/mobile navigation, hero and about content, skill labels and
+interactions, social destinations, contact handoff, scroll locking, reduced motion,
+employment, education, project actions, retained content, footer year, and assets. They intercept email and reCAPTCHA and
+block other external requests. No real email is sent. Hero, navigation, about, and
+skills screenshots are saved under `test-results/` for visual inspection;
+failure traces can be opened with `npx playwright show-trace <trace.zip>`.
 
 See [the migration integration guide](docs/plans/react-foundation.md) before moving
 another section into React.

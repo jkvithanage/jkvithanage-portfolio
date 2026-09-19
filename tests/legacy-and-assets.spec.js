@@ -38,7 +38,7 @@ test("metadata assets and manifest are served as their original file types", asy
   }
 });
 
-test("unmigrated content, skill interactions, footer, and mock email submission work", async ({
+test("page content, skill interactions, footer, and mock email submission work", async ({
   page,
   isMobile,
 }, testInfo) => {
