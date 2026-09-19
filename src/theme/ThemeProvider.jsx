@@ -39,13 +39,24 @@ export function ThemeProvider({ children }) {
 export function ThemeSelector() {
   const { preference, selectTheme } = useContext(ThemeContext);
   return (
-    <label className="theme-selector">
-      <span>Theme</span>
-      <select value={preference} onChange={(event) => selectTheme(/** @type {ThemePreference} */ (event.target.value))}>
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </label>
+    <div className="theme-selector" role="group" aria-label="Theme">
+      {/** @type {ThemePreference[]} */ (["system", "light", "dark"]).map((theme) => (
+        <button
+          key={theme}
+          type="button"
+          className="theme-selector__button"
+          aria-label={`${theme[0].toUpperCase()}${theme.slice(1)} theme`}
+          title={`${theme[0].toUpperCase()}${theme.slice(1)} theme`}
+          aria-pressed={preference === theme}
+          onClick={() => selectTheme(theme)}
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+            {theme === "system" && <><rect x="3" y="4" width="18" height="13" rx="2" /><path d="M12 17v4m-4 0h8" /></>}
+            {theme === "light" && <><circle cx="12" cy="12" r="4" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42m0-14.14-1.42 1.42m-11.3 11.3-1.42 1.42" /></>}
+            {theme === "dark" && <path d="M20.9 13.3A9 9 0 0 1 10.7 3.1a9 9 0 1 0 10.2 10.2Z" />}
+          </svg>
+        </button>
+      ))}
+    </div>
   );
 }

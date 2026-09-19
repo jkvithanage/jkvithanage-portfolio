@@ -4,24 +4,28 @@ import { fillContact } from "./contact-fields";
 
 test.use({ reducedMotion: "reduce" });
 
+function themeButton(selector, theme) {
+  return selector.getByRole("button", { name: `${theme} theme`, exact: true });
+}
+
 async function themeSelector(page, isMobile) {
   const navigation = page.getByRole("navigation");
   if (isMobile) {
     const toggle = navigation.getByRole("button", { name: "Navigation menu toggler" });
     if (await toggle.getAttribute("aria-expanded") === "false") await toggle.click();
   }
-  return navigation.getByRole("combobox", { name: "Theme", exact: true });
+  return navigation.getByRole("group", { name: "Theme", exact: true });
 }
 
 test("System defaults to the device appearance and follows live changes", async ({ page, isMobile }) => {
   await page.emulateMedia({ colorScheme: "dark" });
   await preparePage(page);
   const selector = await themeSelector(page, isMobile);
-  await expect(selector).toHaveValue("system");
+  await expect(themeButton(selector, "System")).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator("body")).toHaveCSS("background-color", "rgb(35, 35, 35)");
   await page.emulateMedia({ colorScheme: "light" });
   await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 255, 255)");
-  await expect(selector).toHaveValue("system");
+  await expect(themeButton(selector, "System")).toHaveAttribute("aria-pressed", "true");
 });
 
 test("explicit choices persist, stay stable, and returning to System resumes device changes", async ({ page, isMobile }) => {
@@ -29,17 +33,17 @@ test("explicit choices persist, stay stable, and returning to System resumes dev
   await preparePage(page);
   for (const [choice, color] of [["light", "rgb(255, 255, 255)"], ["dark", "rgb(35, 35, 35)"]]) {
     const selector = await themeSelector(page, isMobile);
-    await selector.selectOption(choice);
+    await themeButton(selector, choice[0].toUpperCase() + choice.slice(1)).click();
     await page.emulateMedia({ colorScheme: "light" });
     await page.emulateMedia({ colorScheme: "dark" });
     await expect(page.locator("body")).toHaveCSS("background-color", color);
     await page.reload();
-    await expect(await themeSelector(page, isMobile)).toHaveValue(choice);
+    await expect(themeButton(await themeSelector(page, isMobile), choice[0].toUpperCase() + choice.slice(1))).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("body")).toHaveCSS("background-color", color);
   }
-  await (await themeSelector(page, isMobile)).selectOption("system");
+  await themeButton(await themeSelector(page, isMobile), "System").click();
   await page.reload();
-  await expect(await themeSelector(page, isMobile)).toHaveValue("system");
+  await expect(themeButton(await themeSelector(page, isMobile), "System")).toHaveAttribute("aria-pressed", "true");
   await page.emulateMedia({ colorScheme: "light" });
   await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 255, 255)");
 });
@@ -49,7 +53,7 @@ test("hero, navigation, content, and the open dialog share the selected appearan
   await preparePage(page);
   await expect(page.getByRole("region", { name: "Janaka Vithanage", exact: true })).toHaveCSS("background-color", "rgb(244, 244, 239)");
   await expect(page.getByRole("navigation")).toHaveCSS("background-color", "rgb(244, 244, 239)");
-  await (await themeSelector(page, isMobile)).selectOption("dark");
+  await themeButton(await themeSelector(page, isMobile), "Dark").click();
   await expect(page.locator("#about")).toHaveCSS("color", "rgb(245, 245, 245)");
   await page.getByRole("navigation").getByRole("button", { name: "Open contact form to send a message to Janaka" }).click();
   const dialog = page.getByRole("dialog");
@@ -67,11 +71,11 @@ for (const storageFailure of ["invalid", "read denied", "write denied"]) {
     await page.emulateMedia({ colorScheme: "dark" });
     await preparePage(page);
     const selector = await themeSelector(page, isMobile);
-    await expect(selector).toHaveValue("system");
+    await expect(themeButton(selector, "System")).toHaveAttribute("aria-pressed", "true");
     await expect(page.locator("body")).toHaveCSS("background-color", "rgb(35, 35, 35)");
-    await selector.selectOption("light");
+    await themeButton(selector, "Light").click();
     await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 255, 255)");
-    await selector.selectOption("system");
+    await themeButton(selector, "System").click();
     await expect(page.locator("body")).toHaveCSS("background-color", "rgb(35, 35, 35)");
   });
 }
@@ -118,7 +122,9 @@ async function expectContrast(locator, minimum = 4.5, property = "color", pseudo
       return channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
     };
     let background = "rgba(0, 0, 0, 0)";
-    const backgroundElement = getComputedStyle(element).maskImage === "none" ? element : element.parentElement;
+    // Offset focus outlines are drawn against the surrounding surface.
+    const backgroundElement = property === "outlineColor" || getComputedStyle(element).maskImage !== "none"
+      ? element.parentElement : element;
     for (let node = backgroundElement; node; node = node.parentElement) {
       background = getComputedStyle(node).backgroundColor;
       if (background !== "rgba(0, 0, 0, 0)") break;
@@ -132,7 +138,7 @@ async function expectContrast(locator, minimum = 4.5, property = "color", pseudo
 for (const theme of ["light", "dark"]) {
   test(`${theme} skill icons and labels stay readable with keyboard focus`, async ({ page, isMobile }) => {
     await preparePage(page);
-    await (await themeSelector(page, isMobile)).selectOption(theme);
+    await themeButton(await themeSelector(page, isMobile), theme[0].toUpperCase() + theme.slice(1)).click();
     if (isMobile) await page.getByRole("button", { name: "Navigation menu toggler" }).click();
     await page.keyboard.press("Tab");
     const skills = page.locator("#skills").getByRole("button");
@@ -147,17 +153,24 @@ for (const theme of ["light", "dark"]) {
 test("theme selection works from the keyboard without closing the mobile menu", async ({ page, isMobile }) => {
   await preparePage(page);
   const selector = await themeSelector(page, isMobile);
-  await selector.focus();
-  await page.keyboard.press("End");
+  const system = themeButton(selector, "System");
+  const light = themeButton(selector, "Light");
+  const dark = themeButton(selector, "Dark");
+  await system.focus();
+  await page.keyboard.press("Tab");
+  await expect(light).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(dark).toBeFocused();
   await page.keyboard.press("Enter");
-  await expect(selector).toHaveValue("dark");
-  await expect(selector).toBeFocused();
-  await expect(selector).toHaveCSS("outline-style", "solid");
-  await expectContrast(selector, 3, "outlineColor");
-  await page.keyboard.press("Home");
-  await page.keyboard.press("ArrowDown");
-  await page.keyboard.press("Enter");
-  await expect(selector).toHaveValue("light");
+  await expect(dark).toHaveAttribute("aria-pressed", "true");
+  await expect(system).toHaveAttribute("aria-pressed", "false");
+  await expect(dark).toBeFocused();
+  await expect(dark).toHaveCSS("outline-style", "solid");
+  await expectContrast(dark, 3, "outlineColor");
+  await page.keyboard.press("Shift+Tab");
+  await page.keyboard.press("Space");
+  await expect(light).toHaveAttribute("aria-pressed", "true");
+  await expect(dark).toHaveAttribute("aria-pressed", "false");
   if (isMobile) {
     await expect(page.getByRole("button", { name: "Navigation menu toggler" })).toHaveAttribute("aria-expanded", "true");
     await page.keyboard.press("Escape");
@@ -171,8 +184,10 @@ for (const theme of ["light", "dark"]) {
     await preparePage(page);
     await page.evaluate(() => document.fonts.ready);
     const selector = await themeSelector(page, isMobile);
-    await expectContrast(selector);
-    await expectContrast(selector, 3, "borderTopColor");
+    for (const button of await selector.getByRole("button").all()) {
+      await expectContrast(button, 3);
+      await expectContrast(button, 3, "borderTopColor");
+    }
     const logo = page.getByRole("img", { name: "Janaka Vithanage brand logo" });
     expect(await logo.evaluate((image) => image.naturalWidth)).toBeGreaterThan(0);
     await page.screenshot({ path: testInfo.outputPath(`${theme}-navigation.png`) });
