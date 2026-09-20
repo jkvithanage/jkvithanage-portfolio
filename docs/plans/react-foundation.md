@@ -1,13 +1,16 @@
 # React application structure
 
-Implemented for issues #26–#29, following the
+Implemented for issues #26–#30, following the
 [component structure](react-component-structure.md). All portfolio sections and
-contact now use React and ordinary CSS. Site-wide themes remain in #30.
+contact now use React and ordinary CSS, with site-wide System, Light, and Dark themes.
 
-`src/react/main.jsx` is the only browser entry point. App renders the page into
-`#react-root` in `index.html`; there are no migration slots or section portals.
-The original section IDs preserve anchor navigation. App owns contact visibility
-and passes an explicit contact callback to navigation and the contact callout.
+`src/main.jsx` is the Vite entry point: it imports application-wide CSS,
+initializes analytics once, and mounts `App`. `src/App.jsx` composes the page,
+coordinates contact visibility, and provides the theme. The root `index.html`
+keeps SEO metadata and a minimal `#react-root`; the original section IDs preserve
+anchor navigation. The source tree groups page modules in `src/components`,
+shared behavior in `src/hooks`, theme state in `src/theme`, styles in `src/styles`,
+and imported images, fonts, and icons in `src/assets`.
 
 Navigation owns mobile menu state, keyboard interaction, and scroll-driven header
 visibility. Its links and mobile social links share one responsive implementation.
@@ -36,22 +39,56 @@ errors; success receives focus when the form is replaced. Closing unmounts the
 form and aborts pending client work, so a late token cannot send a stale message.
 Aborting a request already received by the server cannot undo email delivery.
 
-Both overlays call `setScrollLock(owner, locked)` from `src/js/scroll-lock.js`, with
-distinct `navigation` and `contact` owners. Closing one overlay releases only that
-owner. React effects release listeners, observers, and scroll locks on cleanup.
+Both overlays use the `useScrollLock(owner, locked)` React hook from
+`src/hooks/useScrollLock.js`, with distinct `navigation` and `contact` owners.
+Closing or unmounting one overlay releases only that owner's lock. React effects
+release listeners, observers, and scroll locks on cleanup.
 
 ## Styling and integrations
 
-`src/css/shared.css` supplies shared values, fonts, base styles, buttons, social
+`index.html` runs a small synchronous theme bootstrap before loading styles or
+React. It validates the `portfolio-theme` localStorage value (`system`, `light`,
+or `dark`), defaults to System, and sets the initial appearance on the document.
+The render-blocking `public/theme.css` stylesheet colors the canvas even while
+the application is still downloading. Keep this stylesheet as a public asset in
+the head: Vite does not emit files referenced only by a raw HTML source path.
+
+`ThemeProvider` keeps the selected preference separate from the resolved
+appearance. It adopts the bootstrap state, applies changes before React paints,
+and subscribes to device changes only in System mode, cleaning up the subscription
+when the preference changes. Explicit selections, including System, are persisted.
+If storage is blocked or full, the page and selector still work for the current
+visit. The native, labelled `ThemeSelector` is part of the same responsive
+navigation on desktop and mobile and supports keyboard selection.
+
+Colors travel through semantic custom properties in `theme.css`, not section
+props. Use surface/raised-surface, text/muted-text, border, accent, label, and
+disabled-control roles. Use `--color-accent` for readable accent text and focus
+rings; use `--color-accent-fill` with `--color-on-accent` for filled yellow buttons.
+`.btn-solid` and `.btn-outlined` replace the old color-specific button classes.
+Skill hover/focus colors mix their brand hue with the theme text color to maintain
+icon contrast. Social, close, and success SVG masks use their completed static
+paths so they remain legible and respect reduced motion. Mask the close glyph,
+not the button, to avoid clipping its keyboard focus outline.
+
+The portrait border and timeline connectors have local stacking contexts so
+their negative-z decorations remain above the themed page canvas. Project previews
+use native lazy loading and their existing grayscale hover effect; the obsolete
+legacy loading-blur class has been removed.
+
+`src/styles/shared.css` supplies shared values, fonts, base styles, buttons, social
 icons, layout utilities, and animations; it imports the vendored ordinary-CSS
-normalize reset. Each section has ordinary CSS, including `src/css/contact.css`.
+normalize reset. Each section has ordinary CSS, including `src/styles/contact.css`.
 There are no SCSS sources or Sass build dependencies.
 
-`useScrollReveal` in `src/react/useScrollReveal.js` is the shared reveal boundary;
+`useScrollReveal` in `src/hooks/useScrollReveal.js` is the shared reveal boundary;
 it cleans up its observer and shows content immediately for reduced-motion users.
 Reduced-motion preferences also disable animation and smooth scrolling for the
-page. Public metadata assets and the manifest are served from Vite's `public/`
-directory. Google analytics and reCAPTCHA scripts remain in `index.html`.
+page. `public/` holds the favicon, social preview, web manifest, and theme sheet
+served at stable root URLs. `src/assets/` holds files imported by application
+modules and bundled by Vite. `api/send-email.js` remains at the repository root
+because Vercel discovers serverless endpoints in `/api`; it is independent of the
+browser React app. `tests/` contains browser-level Playwright checks. Google analytics and reCAPTCHA scripts remain in `index.html`.
 Vercel analytics initializes once at the entry point, outside component renders.
 The server email handler and SMTP/reCAPTCHA environment contract are unchanged.
 

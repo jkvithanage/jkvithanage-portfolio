@@ -41,8 +41,9 @@ test("skills render all categories and support keyboard and pointer labels", asy
 
   const ruby = skills.getByRole("button", { name: "Ruby", exact: true });
   await expect(ruby).toBeVisible();
+  const restingColor = await ruby.evaluate((button) => getComputedStyle(button).color);
   await ruby.focus();
-  await expect(ruby).toHaveCSS("color", "rgb(204, 52, 45)");
+  await expect(ruby).not.toHaveCSS("color", restingColor);
   await expect(ruby.locator(".icon-label")).toHaveCSS("opacity", "1");
   if (!isMobile) {
     await ruby.blur();
