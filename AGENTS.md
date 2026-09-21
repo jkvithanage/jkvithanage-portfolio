@@ -1,5 +1,11 @@
 ## Agent skills
 
+### Implementation branches
+
+Implement each GitHub issue on an `implement/issue-<number>` branch based on
+`master`. Commit the work on that branch and create a pull request against
+`master` for the user to review and merge.
+
 ### Issue tracker
 
 Specs and tickets live in GitHub Issues. Before tracker operations, read
