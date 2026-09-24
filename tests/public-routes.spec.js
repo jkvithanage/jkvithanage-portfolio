@@ -35,6 +35,34 @@ test("the generated not-found document has its own content and metadata", async 
   expect(html).not.toContain('id="portfolio"');
 });
 
+test("the generated blog index is a complete, discoverable empty state", async ({ request }) => {
+  const response = await request.get("/blog/");
+  const html = await response.text();
+
+  expect(response.status()).toBe(200);
+  expect(html).toContain('<h1');
+  expect(html).toContain("Articles are coming soon");
+  expect(html).toContain('<link rel="canonical" href="https://www.jkvithanage.com/blog/"');
+  expect(html).toContain("<title>Blog | Janaka Vithanage</title>");
+  expect(html).toContain('name="description" content="Technical articles by Janaka Vithanage are coming soon."');
+  expect(html).toContain('property="og:url" content="https://www.jkvithanage.com/blog/"');
+  expect(html).toContain('href="/#about"');
+  expect(html).not.toContain('href="/blog/coming-soon/"');
+  expect(await readFile("dist/blog/index.html", "utf8")).toBe(html);
+});
+
+test("the generated homepage links to Blog and previews the empty state", async ({ request }) => {
+  const html = await (await request.get("/")).text();
+  const latest = html.indexOf('id="latest-posts"');
+  const contact = html.indexOf('class="callout');
+
+  expect(html).toContain('href="/blog/"');
+  expect(latest).toBeGreaterThan(0);
+  expect(contact).toBeGreaterThan(latest);
+  expect(html).toContain("Articles are coming soon");
+  expect(html).not.toContain('href="/blog/coming-soon/"');
+});
+
 test("the portfolio stays readable with the client bundle blocked", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.route(/\/assets\/[^/]+\.js$/, (route) => route.abort());
@@ -44,6 +72,9 @@ test("the portfolio stays readable with the client bundle blocked", async ({ pag
   await expect(page.locator("#about")).toBeVisible();
   await expect(page.locator("#career")).toBeVisible();
   await expect(page.locator("#portfolio")).toBeVisible();
+  await page.goto("/blog/");
+  await expect(page.getByRole("heading", { level: 1, name: "Blog" })).toBeVisible();
+  await expect(page.getByText("Articles are coming soon.")).toBeVisible();
 });
 
 test("the generated home hydrates without warnings and keeps the selected theme", async ({ page, isMobile }) => {
@@ -56,6 +87,50 @@ test("the generated home hydrates without warnings and keeps the selected theme"
   const navigation = page.getByRole("navigation");
   if (isMobile) await navigation.getByRole("button", { name: "Navigation menu toggler" }).click();
   await expect(navigation.getByRole("button", { name: "Dark theme" })).toHaveAttribute("aria-pressed", "true");
+});
+
+test("the Blog works on desktop and mobile after a direct load", async ({ page, isMobile }, testInfo) => {
+  const hydrationErrors = captureHydrationErrors(page);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.addInitScript(() => localStorage.setItem("portfolio-theme", "dark"));
+  await page.goto("/blog/");
+
+  await expect(page.getByRole("heading", { level: 1, name: "Blog" })).toBeVisible();
+  await expect(page.getByText("Articles are coming soon.")).toBeVisible();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await page.screenshot({ path: testInfo.outputPath("blog.png"), fullPage: true });
+  const navigation = page.getByRole("navigation");
+  const toggle = navigation.getByRole("button", { name: "Navigation menu toggler" });
+  if (isMobile) {
+    await toggle.focus();
+    await page.keyboard.press("Enter");
+    await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  }
+  const about = navigation.getByRole("link", { name: "Go to about section" });
+  await expect(about).toHaveAttribute("href", "/#about");
+  await about.focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/#about$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Janaka Vithanage" })).toBeVisible();
+  expect(hydrationErrors).toEqual([]);
+});
+
+test("an unknown Blog Post path shows the not-found page", async ({ page }) => {
+  await page.goto("/blog/no-such-post/");
+
+  await expect(page.getByRole("heading", { name: "Page not found" })).toBeVisible();
+});
+
+test("Blog is reachable from the home navigation", async ({ page, isMobile }) => {
+  await preparePage(page);
+  const navigation = page.getByRole("navigation");
+  if (isMobile) await navigation.getByRole("button", { name: "Navigation menu toggler" }).click();
+  const blog = navigation.getByRole("link", { name: "Visit Blog" });
+  await blog.focus();
+  await page.keyboard.press("Enter");
+
+  await expect(page).toHaveURL(/\/blog\/$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Blog" })).toBeVisible();
 });
 
 test("the not-found document hydrates without warnings", async ({ page }) => {

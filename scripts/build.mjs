@@ -1,6 +1,6 @@
 import { build } from "vite";
-import { readFile, writeFile, readdir, cp, rm } from "node:fs/promises";
-import { resolve, join } from "node:path";
+import { readFile, writeFile, readdir, cp, rm, mkdir } from "node:fs/promises";
+import { resolve, join, dirname } from "node:path";
 import { pathToFileURL } from "node:url";
 
 await build();
@@ -19,7 +19,7 @@ const { renderDocument } = await import(pathToFileURL(join(serverDirectory, entr
 const template = await readFile("dist/index.html", "utf8");
 const year = new Date().getFullYear();
 
-for (const [pathname, output] of [["/", "index.html"], ["/404.html", "404.html"]]) {
+for (const [pathname, output] of [["/", "index.html"], ["/blog/", "blog/index.html"], ["/404.html", "404.html"]]) {
   const { content, head } = renderDocument(pathname, year);
   if (!template.includes("<!--page-metadata-->") || !template.includes("<!--page-content-->")) {
     throw new Error("The page rendering markers are missing from index.html");
@@ -28,6 +28,7 @@ for (const [pathname, output] of [["/", "index.html"], ["/404.html", "404.html"]
     .replace("<!--page-metadata-->", head)
     .replace('<div id="react-root">', `<div id="react-root" data-render-year="${year}">`)
     .replace("<!--page-content-->", content);
+  await mkdir(dirname(resolve("dist", output)), { recursive: true });
   await writeFile(join("dist", output), html);
 }
 

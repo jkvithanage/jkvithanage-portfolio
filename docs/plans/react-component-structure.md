@@ -9,7 +9,8 @@ Site-wide themes are implemented in #30. See the
 Source specification: [React portfolio migration and site-wide themes, issue #25](https://github.com/jkvithanage/jkvithanage-portfolio/issues/25).
 
 This record captures the component structure discussed during migration planning.
-Implementation tickets should reference it and keep it current when decisions change.
+The tree and ownership table below describe that migration. For the current
+page and contact ownership, see [the application guide](react-foundation.md).
 The five-ticket breakdown is approved and published:
 [foundation #26](https://github.com/jkvithanage/jkvithanage-portfolio/issues/26),
 [about and skills #27](https://github.com/jkvithanage/jkvithanage-portfolio/issues/27),

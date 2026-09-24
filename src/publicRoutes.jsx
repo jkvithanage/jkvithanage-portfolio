@@ -1,9 +1,11 @@
 import React from "react";
 import { App } from "./App";
 import { SiteFooter } from "./components/SiteFooter";
+import { BlogPage } from "./components/BlogPage";
 
 const siteUrl = "https://www.jkvithanage.com";
 const homeDescription = "Janaka Vithanage is a software developer specialized in Ruby on Rails, React and JavaScript.";
+const blogDescription = "Technical articles by Janaka Vithanage are coming soon.";
 
 /** @param {{year: number}} props */
 function NotFoundPage({ year }) {
@@ -35,6 +37,19 @@ export function renderPublicRoute(pathname, year) {
         canonical: `${siteUrl}/`,
         socialTitle: "Janaka Vithanage - Software Developer",
         socialDescription: homeDescription,
+      },
+    };
+  }
+
+  if (pathname === "/blog/" || pathname === "/blog/index.html") {
+    return {
+      page: <BlogPage year={year} />,
+      metadata: {
+        title: "Blog | Janaka Vithanage",
+        description: blogDescription,
+        canonical: `${siteUrl}/blog/`,
+        socialTitle: "Blog | Janaka Vithanage",
+        socialDescription: blogDescription,
       },
     };
   }

@@ -8,9 +8,11 @@ contact now use React and ordinary CSS, with site-wide System, Light, and Dark t
 initializes analytics once, and hydrates the generated page (or mounts it in
 development). `src/publicRoutes.jsx` selects the public page and its metadata
 for both the browser and static generation. `scripts/build.mjs` builds the client,
-renders `dist/index.html` and `dist/404.html`, and inserts their route metadata.
-`src/App.jsx` composes the home page, coordinates contact visibility, and provides
-the theme. The root `index.html` keeps the theme and analytics bootstraps plus
+renders `dist/index.html`, `dist/blog/index.html`, and `dist/404.html`, and inserts
+their route metadata. `src/App.jsx` composes the home page, including the
+latest-posts empty state. `src/components/BlogPage.jsx` renders the Blog index.
+`SiteLayout` shares navigation, contact behavior, and footer between the pages.
+The root `index.html` keeps the theme and analytics bootstraps plus
 the page insertion markers; the original section IDs preserve anchor navigation.
 The source tree groups page modules in `src/components`,
 shared behavior in `src/hooks`, theme state in `src/theme`, styles in `src/styles`,

@@ -10,6 +10,7 @@ import "./styles/callout-footer.css";
 import "./styles/contact.css";
 import "./styles/navigation.css";
 import "./styles/hero.css";
+import "./styles/blog.css";
 
 inject();
 
