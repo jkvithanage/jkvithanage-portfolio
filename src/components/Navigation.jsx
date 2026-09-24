@@ -41,6 +41,7 @@ const links = [
   { title: "Skills", href: "#skills", label: "Go to skill section" },
   { title: "Career", href: "#career", label: "Go to career section" },
   { title: "Portfolio", href: "#portfolio", label: "Go to portfolio section" },
+  { title: "Blog", href: "/blog/", label: "Visit Blog" },
   {
     title: "Graphics",
     href: "https://graphics.jkvithanage.com",
@@ -48,15 +49,15 @@ const links = [
   },
 ];
 
-/** @param {{onNavigate: () => void}} props */
-export function NavigationLinks({ onNavigate }) {
+/** @param {{onNavigate: () => void, homePage: boolean}} props */
+export function NavigationLinks({ onNavigate, homePage }) {
   return (
     <ul className="nav__list">
       {links.map(({ title, href, label }) => (
         <li className="nav__item" key={href}>
           <a
             className="nav__link"
-            href={href}
+            href={!homePage && href.startsWith("#") ? `/${href}` : href}
             aria-label={label}
             onClick={onNavigate}
             target={href.startsWith("https:") ? "_blank" : undefined}
@@ -70,8 +71,8 @@ export function NavigationLinks({ onNavigate }) {
   );
 }
 
-/** @param {{onContact: (returnFocus: HTMLElement) => void}} props */
-export function Navigation({ onContact }) {
+/** @param {{onContact: (returnFocus: HTMLElement) => void, homePage: boolean}} props */
+export function Navigation({ onContact, homePage }) {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const toggleRef = useRef(/** @type {HTMLButtonElement | null} */ (null));
@@ -143,7 +144,7 @@ export function Navigation({ onContact }) {
         id="navigation-content"
         className={`nav__content${open ? " nav__content--open" : ""}`}
       >
-        <NavigationLinks onNavigate={() => setOpen(false)} />
+        <NavigationLinks homePage={homePage} onNavigate={() => setOpen(false)} />
         <button
           className="btn btn-outlined"
           type="button"
@@ -168,7 +169,7 @@ export function Navigation({ onContact }) {
   );
 }
 
-/** @param {{onContact: (returnFocus: HTMLElement) => void}} props */
-export function SiteHeader({ onContact }) {
-  return <Navigation onContact={onContact} />;
+/** @param {{onContact: (returnFocus: HTMLElement) => void, homePage: boolean}} props */
+export function SiteHeader({ onContact, homePage }) {
+  return <Navigation homePage={homePage} onContact={onContact} />;
 }

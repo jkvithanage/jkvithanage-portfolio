@@ -1,0 +1,21 @@
+.latest-posts {
+  width: 100%;
+  color: var(--color-text);
+}
+
+.latest-posts p {
+  margin: 2rem 0;
+}
+
+.blog-page {
+  padding-top: 8rem;
+  color: var(--color-text);
+}
+
+.blog-page__content {
+  width: 100%;
+}
+
+.blog-page__content p {
+  margin: 2rem 0;
+}
