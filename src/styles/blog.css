@@ -3,7 +3,8 @@
   color: var(--color-text);
 }
 
-.latest-posts p {
+.latest-posts p,
+.blog-page__content p {
   margin: 2rem 0;
 }
 
@@ -14,8 +15,4 @@
 
 .blog-page__content {
   width: 100%;
-}
-
-.blog-page__content p {
-  margin: 2rem 0;
 }
