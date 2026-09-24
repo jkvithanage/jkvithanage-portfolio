@@ -7,7 +7,7 @@ test("stores Career and Portfolio content as serializable models", () => {
   const content = { workExperiences, educationEntries, projects };
 
   expect(JSON.parse(JSON.stringify(content))).toEqual(content);
-  expect(workExperiences[1].description[3]).toEqual([
+  expect(workExperiences[0].description[3]).toEqual([
     {
       type: "link",
       content: "Find me on Upwork.",
@@ -26,7 +26,7 @@ test("stores Career and Portfolio content as serializable models", () => {
 test("renders serialized links and project action variants", async ({ page }) => {
   await preparePage(page);
 
-  const upworkLink = workExperiences[1].description[3][0];
+  const upworkLink = workExperiences[0].description[3][0];
   const pageSpeedLink = projects[1].description[1];
   const invoiceGitHubAction = projects[2].actions[1];
   const invoice = page.locator("article.project-card").filter({ hasText: projects[2].title });

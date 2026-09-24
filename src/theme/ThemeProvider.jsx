@@ -7,11 +7,20 @@ const ThemeContext = createContext(/** @type {{preference: ThemePreference, appe
 
 /** @param {{children: React.ReactNode}} props */
 export function ThemeProvider({ children }) {
-  // The blocking head script validates storage and resolves the initial appearance.
-  const [preference, setPreference] = useState(/** @type {ThemePreference} */ (document.documentElement.dataset.themePreference));
-  const [appearance, setAppearance] = useState(/** @type {Appearance} */ (document.documentElement.dataset.theme));
+  // The first render matches the static HTML; the head script paints the saved
+  // appearance before hydration, and this effect loads its preference.
+  const [preference, setPreference] = useState(/** @type {ThemePreference} */ ("system"));
+  const [appearance, setAppearance] = useState(/** @type {Appearance} */ ("light"));
+  const [initialized, setInitialized] = useState(false);
 
   useLayoutEffect(() => {
+    const saved = document.documentElement.dataset.themePreference;
+    if (saved === "system" || saved === "light" || saved === "dark") setPreference(saved);
+    setInitialized(true);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!initialized) return;
     const device = window.matchMedia("(prefers-color-scheme: dark)");
     const apply = () => {
       const resolved = preference === "system" ? (device.matches ? "dark" : "light") : preference;
@@ -23,7 +32,7 @@ export function ThemeProvider({ children }) {
     if (preference !== "system") return;
     device.addEventListener("change", apply);
     return () => device.removeEventListener("change", apply);
-  }, [preference]);
+  }, [initialized, preference]);
 
   /** @param {ThemePreference} next */
   const selectTheme = (next) => {

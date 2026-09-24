@@ -11,7 +11,8 @@ import { SiteFooter } from "./components/SiteFooter";
 import { ContactDialog } from "./components/ContactDialog";
 import { ThemeProvider } from "./theme/ThemeProvider";
 
-function PortfolioApp() {
+/** @param {{year: number}} props */
+function PortfolioApp({ year }) {
   const [contactTrigger, setContactTrigger] = useState(/** @type {HTMLElement | null} */ (null));
 
   return (
@@ -26,12 +27,13 @@ function PortfolioApp() {
         <PortfolioSection />
       </main>
       <ContactCallout onContact={setContactTrigger} />
-      <SiteFooter />
+      <SiteFooter year={year} />
       {contactTrigger && <ContactDialog returnFocus={contactTrigger} onClose={() => setContactTrigger(null)} />}
     </>
   );
 }
 
-export function App() {
-  return <ThemeProvider><PortfolioApp /></ThemeProvider>;
+/** @param {{year: number}} props */
+export function App({ year }) {
+  return <ThemeProvider><PortfolioApp year={year} /></ThemeProvider>;
 }

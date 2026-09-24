@@ -1,7 +1,6 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import { inject } from "@vercel/analytics";
-import { App } from "./App";
+import { renderPageMetadata, renderPublicRoute } from "./publicRoutes";
 import "./styles/shared.css";
 import "./styles/about.css";
 import "./styles/skills.css";
@@ -14,9 +13,16 @@ import "./styles/hero.css";
 
 inject();
 
-const root = createRoot(
-  /** @type {HTMLElement} */ (document.getElementById("react-root")),
-);
-root.render(<App />);
+const container = /** @type {HTMLElement} */ (document.getElementById("react-root"));
+const year = Number(container.dataset.renderYear) || new Date().getFullYear();
+const { page, metadata } = renderPublicRoute(window.location.pathname, year);
+if (!document.querySelector('meta[name="description"]')) {
+  document.head.insertAdjacentHTML("beforeend", renderPageMetadata(metadata));
+}
+const hasStaticContent = container.children.length > 0;
+const root = hasStaticContent
+  ? hydrateRoot(container, page)
+  : createRoot(container);
+if (!hasStaticContent) root.render(page);
 
 if (import.meta.hot) import.meta.hot.dispose(() => root.unmount());

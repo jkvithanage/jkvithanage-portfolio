@@ -100,7 +100,7 @@ for (const [saved, device, expected] of [
     );
     await page.reload();
     expect((await stylesheet).ok()).toBe(true);
-    await expect(page.getByRole("heading", { name: "Janaka Vithanage", exact: true })).toHaveCount(0);
+    await expect(page.getByRole("heading", { name: "Janaka Vithanage", exact: true })).toHaveCount(process.env.PLAYWRIGHT_TEST_BUILD ? 1 : 0);
     await expect(page.locator("html")).toHaveCSS("color-scheme", expected);
     await expect(page.locator("html")).toHaveCSS("background-color", expected === "dark" ? "rgb(35, 35, 35)" : "rgb(255, 255, 255)");
   });
