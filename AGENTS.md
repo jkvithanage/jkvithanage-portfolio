@@ -1,22 +1,29 @@
-## Agent skills
+# Agent instructions
 
-### Implementation branches
+## Implementation workflow
 
-Implement each GitHub issue on an `implement/issue-<number>` branch based on
-`master`. Commit the work on that branch and create a pull request against
-`master` for the user to review and merge.
+1. Start from up-to-date `master` and create a branch in the existing checkout.
+   For issue work, use `implement/issue-<number>-<short-description>`.
+   For work without an issue, use a descriptive branch name outside
+   `implement/`, such as `docs/update-readme`; an issue is not required.
+   Work in that checkout throughout; do not create a worktree. Preserve
+   unrelated local work.
+2. Complete the changes and relevant checks, then commit them on that branch.
+3. Push the branch and create a pull request against `master`. When addressing
+   an issue, include `Closes #<number>` in the PR body so merging closes it.
+4. Share the PR link and validation results for review; leave merging to the user.
 
-### Issue tracker
+## Issue tracker
 
 Specs and tickets live in GitHub Issues. Before tracker operations, read
 docs/agents/issue-tracker.md.
 
-### Triage labels
+## Triage labels
 
 Use the five canonical triage labels. Before triaging or labeling issues,
 read docs/agents/triage-labels.md.
 
-### Domain docs
+## Domain docs
 
 This repository uses a root CONTEXT.md and docs/adr/.
 Before exploring domain concepts or architectural decisions, read
