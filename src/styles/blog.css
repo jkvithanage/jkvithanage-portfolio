@@ -16,3 +16,59 @@
 .blog-page__content {
   width: 100%;
 }
+
+.blog-post-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  display: grid;
+  gap: 2rem;
+}
+
+.blog-post-list li {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1.5rem;
+}
+
+.blog-post-list h2,
+.blog-post-list h3 {
+  margin: 0 0 .5rem;
+}
+
+.blog-post-list a { color: var(--color-text); }
+.blog-post-list a:hover { color: var(--color-accent); }
+
+.draft-label {
+  display: inline-block;
+  margin: 0 0 0 1rem;
+  padding: .2rem .5rem;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  font-size: .85rem;
+}
+
+.blog-article { max-width: 850px; }
+.blog-article h1 { overflow-wrap: anywhere; }
+.blog-article__description { font-size: 1.2rem; }
+.blog-article__cover,
+.blog-article__body img { display: block; max-width: 100%; height: auto; margin: 1.5rem 0; }
+.blog-article__body { line-height: 1.7; overflow-wrap: anywhere; }
+.blog-article__body h2,
+.blog-article__body h3 { margin-top: 2.5rem; }
+.blog-article__body a { color: var(--color-accent); text-decoration: underline; }
+.blog-article__body pre { overflow-x: auto; padding: 1rem; line-height: 1.5; }
+.blog-article__body .hljs { color: var(--color-text); background: var(--color-surface-raised); }
+.blog-article__body .hljs-comment,
+.blog-article__body .hljs-quote { color: var(--color-muted); }
+.blog-article__body .hljs-keyword,
+.blog-article__body .hljs-built_in,
+.blog-article__body .hljs-title,
+.blog-article__body .hljs-number,
+.blog-article__body .hljs-literal { color: var(--color-accent); }
+.blog-article__body .hljs-string,
+.blog-article__body .hljs-attr { color: var(--color-text); font-weight: bold; }
+.blog-article__body :not(pre) > code { padding: .1em .3em; background: var(--color-surface-raised); }
+.blog-article__body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.blog-article__body th,
+.blog-article__body td { border: 1px solid var(--color-border); padding: .5rem .75rem; }
+.blog-article__body blockquote { border-left: 3px solid var(--color-accent); margin-left: 0; padding-left: 1rem; }

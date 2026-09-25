@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" role="img" aria-labelledby="title">
+  <title id="title">Example post diagram</title>
+  <rect width="640" height="240" fill="#18212f"/>
+  <rect x="60" y="70" width="220" height="100" fill="#f2c94c"/>
+  <rect x="360" y="70" width="220" height="100" fill="#f2c94c"/>
+  <path d="M280 120h80" stroke="#fff" stroke-width="10"/>
+  <text x="170" y="130" text-anchor="middle" font-family="sans-serif" font-size="24">Markdown</text>
+  <text x="470" y="130" text-anchor="middle" font-family="sans-serif" font-size="24">HTML</text>
+</svg>

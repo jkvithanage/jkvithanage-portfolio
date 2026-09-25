@@ -2,10 +2,14 @@ import React from "react";
 import { App } from "./App";
 import { SiteFooter } from "./components/SiteFooter";
 import { BlogPage } from "./components/BlogPage";
+import { BlogPostPage } from "./components/BlogPostPage";
+import { blogPosts } from "./content/blogPosts";
 
 const siteUrl = "https://www.jkvithanage.com";
 const homeDescription = "Janaka Vithanage is a software developer specialized in Ruby on Rails, React and JavaScript.";
-const blogDescription = "Technical articles by Janaka Vithanage are coming soon.";
+const blogDescription = blogPosts.length
+  ? "Technical articles by Janaka Vithanage."
+  : "Technical articles by Janaka Vithanage are coming soon.";
 
 /** @param {{year: number}} props */
 function NotFoundPage({ year }) {
@@ -54,6 +58,32 @@ export function renderPublicRoute(pathname, year) {
     };
   }
 
+  const post = blogPosts.find((item) => pathname === `/blog/${item.slug}/` || pathname === `/blog/${item.slug}/index.html`);
+  if (post) {
+    const canonical = `${siteUrl}/blog/${post.slug}/`;
+    return {
+      page: <BlogPostPage year={year} post={post} />,
+      metadata: {
+        title: `${post.title} | Janaka Vithanage`,
+        description: post.description,
+        canonical: post.draft ? undefined : canonical,
+        robots: post.draft ? "noindex" : undefined,
+        socialTitle: post.title,
+        socialDescription: post.description,
+        type: "article",
+        publishedTime: post.date,
+        image: post.cover || "/og-image.jpg",
+        structuredData: post.draft ? undefined : {
+          "@context": "https://schema.org", "@type": "BlogPosting",
+          headline: post.title, description: post.description,
+          datePublished: post.date, mainEntityOfPage: canonical,
+          image: `${siteUrl}${post.cover || "/og-image.jpg"}`,
+          author: { "@type": "Person", name: "Janaka Vithanage" },
+        },
+      },
+    };
+  }
+
   return {
     page: <NotFoundPage year={year} />,
     metadata: {
@@ -84,16 +114,18 @@ export function renderPageMetadata(metadata) {
     ...(metadata.robots ? [`<meta name="robots" content="${escapeAttribute(metadata.robots)}" />`] : []),
     `<meta property="og:title" content="${socialTitle}" />`,
     `<meta property="og:description" content="${socialDescription}" />`,
-    `<meta property="og:type" content="website" />`,
+    `<meta property="og:type" content="${metadata.type || "website"}" />`,
+    ...(metadata.publishedTime ? [`<meta property="article:published_time" content="${escapeAttribute(metadata.publishedTime)}" />`] : []),
     ...(metadata.canonical ? [`<meta property="og:url" content="${escapeAttribute(metadata.canonical)}" />`] : []),
-    `<meta property="og:image" content="/og-image.jpg" />`,
+    `<meta property="og:image" content="${escapeAttribute(metadata.image || "/og-image.jpg")}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta property="twitter:domain" content="jkvithanage.com" />`,
     ...(metadata.canonical ? [`<meta property="twitter:url" content="${escapeAttribute(metadata.canonical)}" />`] : []),
     `<meta name="twitter:title" content="${socialTitle}" />`,
     `<meta name="twitter:description" content="${socialDescription}" />`,
-    `<meta name="twitter:image" content="/og-image.jpg" />`,
+    `<meta name="twitter:image" content="${escapeAttribute(metadata.image || "/og-image.jpg")}" />`,
     `<meta name="twitter:creator" content="@jkvithanage" />`,
     `<meta name="twitter:creator:id" content="@jkvithanage" />`,
+    ...(metadata.structuredData ? [`<script type="application/ld+json">${JSON.stringify(metadata.structuredData).replaceAll("<", "\\u003c")}</script>`] : []),
   ].join("\n    ");
 }

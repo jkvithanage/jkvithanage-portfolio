@@ -22,6 +22,9 @@ npm start
 
 Open http://localhost:3000. No CSS preprocessor is required.
 
+See [Blog publishing](docs/blog-publishing.md) for Markdown authoring, draft
+preview, images, validation, and publishing.
+
 React code lives under `src/`: `App.jsx` composes the page, `components/` holds
 section and overlay components, `hooks/` contains shared behavior, `theme/`
 owns the theme provider, `styles/` contains section CSS, and `assets/` contains
@@ -36,6 +39,14 @@ npm run typecheck
 npm test -- tests/contact.spec.js
 npm run build
 PLAYWRIGHT_TEST_BUILD=1 npm test
+```
+
+To check published article generation with fixtures:
+
+```sh
+BLOG_POSTS_DIR=tests/fixtures/blog npm run build
+BLOG_TEST_FIXTURES=1 PLAYWRIGHT_TEST_BUILD=1 npm test -- tests/blog-publication.spec.js
+npm run build
 ```
 
 `typecheck` checks application JavaScript and JSX; it does not convert the
