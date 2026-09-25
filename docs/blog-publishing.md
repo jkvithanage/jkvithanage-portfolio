@@ -43,8 +43,9 @@ Published posts cannot use assets in a draft post's folder.
 Run `npm start` and open `/blog/` or `/blog/<slug>/`. Drafts appear locally with
 a **Draft preview** label and `noindex` metadata. Editing a Markdown file
 reloads the page. Before publishing, run `npm run typecheck`, `npm run build`,
-and the tests in the README. Build errors include the file and problem, such as
-a duplicate slug, invalid date, or missing asset.
+`npm run test:validation`, and the browser tests in the README. Build errors
+include the file and problem, such as a duplicate slug, invalid date, or missing
+asset.
 
 ## Publish
 
@@ -54,3 +55,9 @@ Blog and the homepage latest-posts area in date order, and adds its canonical
 URL to `sitemap.xml`. Draft pages, draft text, and draft assets are excluded
 from production output. Each article uses the existing Vercel Analytics
 bootstrap; Google Analytics stays in `index.html`.
+
+After deployment, run the [deployment smoke check](../README.md#development-and-checks)
+against the deployment origin to verify the Blog and real not-found responses.
+Article-level traffic verification in the Vercel dashboard is deferred for now;
+it is not a completion requirement for issue #36. The existing analytics
+integration remains in place.

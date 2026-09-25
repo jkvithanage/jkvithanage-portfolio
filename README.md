@@ -24,6 +24,8 @@ Open http://localhost:3000. No CSS preprocessor is required.
 
 See [Blog publishing](docs/blog-publishing.md) for Markdown authoring, draft
 preview, images, validation, and publishing.
+See [Editing portfolio content](docs/portfolio-editing.md) for Work Experience,
+Education, Projects, images, links, and accessible action labels.
 
 React code lives under `src/`: `App.jsx` composes the page, `components/` holds
 section and overlay components, `hooks/` contains shared behavior, `theme/`
@@ -36,6 +38,7 @@ function.
 ```sh
 npx playwright install chromium
 npm run typecheck
+npm run test:validation
 npm test -- tests/contact.spec.js
 npm run build
 PLAYWRIGHT_TEST_BUILD=1 npm test
@@ -48,6 +51,29 @@ BLOG_POSTS_DIR=tests/fixtures/blog npm run build
 BLOG_TEST_FIXTURES=1 PLAYWRIGHT_TEST_BUILD=1 npm test -- tests/blog-publication.spec.js
 npm run build
 ```
+
+`npm run test:validation` uses Node's test runner to check real production-build
+failures for invalid Blog Posts and the deployment-check command's handling of
+HTTP responses. Builds use temporary copies and fixtures, leave local content
+and `dist/` untouched, and clean up afterward. Run `npm ci` first; these checks
+reuse the installed dependencies and do not need a browser or external network.
+
+Check deployed routing separately, first on the PR's Vercel preview and then on
+production after merge:
+
+```sh
+npm run test:deployment -- https://your-preview.vercel.app
+npm run test:deployment -- https://www.jkvithanage.com
+```
+
+Supply the exact deployment origin, without a path or query. The command makes
+HTTP GET requests and requires generated HTML with 200 responses for `/` and
+`/blog/`, plus a custom, `noindex` 404 response for a unique missing article URL.
+Redirects, login pages, generic hosting errors, and soft 404s fail the check.
+The preview must be accessible to the command; an authentication failure is not
+a passing check. Vite preview uses a different fallback from Vercel, so the
+local Playwright not-found test only checks the visible page, not deployed
+status behavior. These requests do not execute analytics or submit contact forms.
 
 `typecheck` checks application JavaScript and JSX; it does not convert the
 project to TypeScript. `npm test` runs

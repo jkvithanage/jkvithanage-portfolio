@@ -16,6 +16,8 @@
     "build": "node scripts/build.mjs",
     "typecheck": "tsc -p jsconfig.json",
     "test": "playwright test",
+    "test:validation": "node --test scripts/tests/*.test.mjs",
+    "test:deployment": "node scripts/check-deployment.mjs",
     "test:ui": "playwright test --ui",
     "preview": "vite preview --port 3000"
   },
