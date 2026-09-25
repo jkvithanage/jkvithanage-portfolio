@@ -2,10 +2,12 @@
 
 ## Implementation workflow
 
-1. Start from up-to-date `master` and create a regular
-   `implement-<short-description>` branch in the existing checkout. Work in
-   that checkout throughout; do not create a worktree or use
-   `implement/issue-<number>` branch names. Preserve unrelated local work.
+1. Start from up-to-date `master` and create a branch in the existing checkout.
+   For issue work, use `implement/issue-<number>-<short-description>`.
+   For work without an issue, use a descriptive branch name outside
+   `implement/`, such as `docs/update-readme`; an issue is not required.
+   Work in that checkout throughout; do not create a worktree. Preserve
+   unrelated local work.
 2. Complete the changes and relevant checks, then commit them on that branch.
 3. Push the branch and create a pull request against `master`. When addressing
    an issue, include `Closes #<number>` in the PR body so merging closes it.
