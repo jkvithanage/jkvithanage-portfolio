@@ -56,7 +56,7 @@ URL to `sitemap.xml`. Draft pages, draft text, and draft assets are excluded
 from production output. Each article uses the existing Vercel Analytics
 bootstrap; Google Analytics stays in `index.html`.
 
-After deployment, run the [deployment smoke check](../README.md#development-and-checks)
+After deployment, run the [deployment smoke check](development.md#deployment-checks)
 against the deployment origin to verify the Blog and real not-found responses.
 Article-level traffic verification in the Vercel dashboard is deferred for now;
 it is not a completion requirement for issue #36. The existing analytics
