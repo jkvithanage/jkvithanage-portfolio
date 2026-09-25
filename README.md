@@ -7,7 +7,7 @@ Janaka Vithanage's personal portfolio and blog at [www.jkvithanage.com](https://
 ## Features
 
 - Responsive portfolio with desktop and mobile navigation.
-- System, Light, and Dark themes, with saved preferences when browser storagezz
+- System, Light, and Dark themes, with saved preferences when browser storage
   is available.
 - Markdown blog with local draft previews and generated article pages.
 - Accessible contact dialog backed by a serverless email function and reCAPTCHA.
