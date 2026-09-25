@@ -1,16 +1,13 @@
 # Portfolio Website
 
-Janaka Vithanage's personal portfolio and blog at
-[www.jkvithanage.com](https://www.jkvithanage.com), featuring work experience,
-education, projects, and articles in a minimal design built around flat,
-square-shaped elements.
+Janaka Vithanage's personal portfolio and blog at [www.jkvithanage.com](https://www.jkvithanage.com).
 
 ![Portfolio website preview](https://github.com/jkvithanage/jkvithanage-portfolio/assets/6828858/8c29d85b-54f2-468a-8209-c9064adc80da)
 
 ## Features
 
 - Responsive portfolio with desktop and mobile navigation.
-- System, Light, and Dark themes, with saved preferences when browser storage
+- System, Light, and Dark themes, with saved preferences when browser storagezz
   is available.
 - Markdown blog with local draft previews and generated article pages.
 - Accessible contact dialog backed by a serverless email function and reCAPTCHA.
